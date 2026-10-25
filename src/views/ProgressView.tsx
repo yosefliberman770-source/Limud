@@ -8,7 +8,7 @@ import { torasMenachem, maamarim as maamarimCatalogue, likkuteiSichos, tmItem } 
 import { buildMaamarSchedule, buildSichaTargets, PROJECT_DEADLINE, YUD_SHEVAT_CIVIL, dailyBacklog } from '@/scheduling';
 import { tmItemWork } from '@/log/tm';
 import { workFromLsSicha, workProgress } from '@/log/model';
-import { addDays, diffDays, formatCivilHe, parshaWeekFor, weekday, WEEKDAY_HE } from '@/calendar';
+import { addDays, diffDays, formatCivilHe, weekday, WEEKDAY_HE } from '@/calendar';
 import './progress.css';
 
 function Bar({ value, total, label, tone }: { value: number; total: number | null; label?: string; tone?: 'done' | 'warn' }) {
@@ -91,7 +91,6 @@ export function ProgressView() {
   const daysToYudShevat = diffDays(today, YUD_SHEVAT_CIVIL);
   const remainingItems = data.sItems - data.sItemsDone;
   const maamDone = data.maam.filter((m) => m.status === 'done').length;
-  const week = parshaWeekFor(today, settings.il);
 
   return (
     <div className="page progress">
@@ -111,13 +110,17 @@ export function ProgressView() {
           <div><div className="pg-big serif num">{daysLeft > 0 ? daysLeft : 0}</div><div className="pg-cap">ימים לסיום</div></div>
         </div>
         <Bar value={data.sUnitsDone} total={data.sUnitsTotal} label="אותיות ועמודים" />
-        <p className="pg-note">
-          {data.sNoUnits > 0 ? `${data.sNoUnits} שיחות עדיין ללא חלוקה לאותיות — לא נכללות באחוזים. ` : ''}
-          {data.sUnverified > 0 ? `${data.sUnverified} פריטים מסומנים לבדיקה מול המקור. ` : 'כל הפריטים מאומתים מול המקור. '}
-          {data.overdue.length > 0 ? `${data.overdue.length} שיחות עברו את התאריך המקביל וממתינות להשלמה.` : 'אין שיחות בפיגור.'}
-        </p>
+        <p className="pg-note">{data.overdue.length > 0 ? `${data.overdue.length} שיחות עברו את התאריך המקביל וממתינות להשלמה.` : 'אין שיחות בפיגור.'}</p>
         {daysToYudShevat > 0 && <p className="pg-note">י׳ שבט תשפ״ז בעוד {daysToYudShevat} ימים.</p>}
         {remainingItems > 0 && daysLeft > 0 && <p className="pg-note">קצב נדרש: כ־{(remainingItems / (daysLeft / 7)).toFixed(1)} שיחות בשבוע לסיום בזמן.</p>}
+        <details className="pg-details">
+          <summary>פרטי אימות</summary>
+          <p className="pg-note">
+            {data.sNoUnits > 0 ? `${data.sNoUnits} שיחות עדיין ללא חלוקה לאותיות — לא נכללות באחוזים. ` : ''}
+            {data.sUnverified > 0 ? `${data.sUnverified} פריטים מסומנים לבדיקה מול המקור.` : 'כל הפריטים מאומתים מול המקור.'}
+          </p>
+          <p className="pg-note">הקטלוג כולל {likkuteiSichos.sichos.length} שיחות בחלקים י׳–י״ד; חסרים רק פריטי הוספות ומפתחות.</p>
+        </details>
       </section>
 
       <h2 className="section-title">מאמרים</h2>
@@ -145,7 +148,6 @@ export function ProgressView() {
           </li>
         ))}
       </ul>
-      <p className="faint pg-note">השבוע: פרשת {week.studyParshaHe}. הקטלוג כולל {likkuteiSichos.sichos.length} שיחות בחלקים י׳–י״ד; חסרים רק פריטי הוספות ומפתחות.</p>
 
       <h2 className="section-title">שיעורים יומיים — 14 הימים האחרונים</h2>
       <ul className="pg-list">

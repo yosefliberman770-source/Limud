@@ -21,3 +21,9 @@
 .pg-strip i.all { background: var(--c-done); border-color: var(--c-done); }
 .pg-strip i.some { background: linear-gradient(180deg, transparent 50%, var(--c-brass-500) 50%); border-color: var(--c-brass-500); }
 .pg-totals { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); text-align: center; }
+
+.pg-details { margin-top: var(--s-2); }
+.pg-details > summary { cursor: pointer; list-style: none; color: var(--fg-muted, #9aa); font-size: var(--fs-sm); padding: 6px 0; }
+.pg-details > summary::-webkit-details-marker { display: none; }
+.pg-details > summary::after { content: ' ›'; }
+.pg-details[open] > summary::after { content: ' ‹'; }
