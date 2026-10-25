@@ -9,6 +9,9 @@ import { buildMaamarSchedule, buildSichaTargets, currentMaamarWindow, nextMaamar
 import { workFromDaily, workFromLsSicha, workFromMaamar, workFromTmItem, workProgress, type LogWork } from '@/log/model';
 import { addDays, diffDays, formatCivilHe, chassidisheDatesOn, holidaysOn, formatHebrewDateCivil } from '@/calendar';
 import { LogView } from '@/log/LogView';
+import { checkPermission, requestPermission, type PermissionState } from '@/notifications/native';
+import { syncNotifications } from '@/notifications/scheduler';
+import { useEffect } from 'react';
 import './today.css';
 
 export function TodayView({ date }: { date?: string }) {
@@ -19,6 +22,8 @@ export function TodayView({ date }: { date?: string }) {
   const civil = date ?? today;
   const isToday = civil === today;
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [perm, setPerm] = useState<PermissionState | null>(null);
+  useEffect(() => { void checkPermission().then(setPerm); }, []);
 
   const dailySettings = { il: settings.il, personalDaf: settings.personalDaf, enabledPrograms: settings.enabledPrograms };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,6 +89,14 @@ export function TodayView({ date }: { date?: string }) {
           </div>
         </div>
       </header>
+
+      {isToday && perm === 'prompt' && (
+        <div className="perm-banner" role="region" aria-label="תזכורות">
+          <div className="grow"><b>להפעיל תזכורות?</b><div className="faint">תזכורת יומית לכל שיעור, עם השם והמקום שנעצרת בו. שום דבר לא מסומן אוטומטית, ובשבת ויום טוב לא נשלח דבר.</div></div>
+          <button className="btn primary sm" onClick={() => void requestPermission().then((p) => { setPerm(p); if (p === 'granted') void syncNotifications(); })}>הפעל</button>
+          <button className="btn ghost sm" onClick={() => setPerm('denied')} aria-label="לא עכשיו">לא עכשיו</button>
+        </div>
+      )}
 
       {en.has('tm_sichos') && (
         <Section title={PROGRAM_META.tm_sichos.he} count={sichaWork.active.length + sichaWork.overdue.length}>

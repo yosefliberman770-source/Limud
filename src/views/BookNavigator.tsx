@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
 import { IconBack, IconCheck, IconChevron } from '@/app/icons';
@@ -46,6 +46,7 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 function WorkScreen({ work, onBack }: { work: LogWork; onBack: () => void }) {
+  useEffect(() => { document.querySelector('.sheet-body')?.scrollTo({ top: 0 }); }, [work.id]);
   return (
     <div className="nav-work">
       <button className="btn paper sm nav-back" onClick={onBack}><IconBack /> חזרה לרשימה</button>

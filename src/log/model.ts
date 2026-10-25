@@ -4,7 +4,7 @@
  */
 import type { ProgramId, Verification, DailyAssignment } from '@/shiurim/types';
 import type { TmItem, TmGathering, LsSicha, MaamarEntry } from '@/catalogue/types';
-import { sectionLabels, tmGathering } from '@/catalogue';
+import { sectionLabels, tmGathering, tmItemsOf, hebrewSectionLabel } from '@/catalogue';
 import type { CustomSections } from '@/db';
 import type { CivilDate } from '@/calendar/civil';
 import { PROGRAM_META } from '@/shiurim/types';
@@ -74,10 +74,13 @@ export function workFromTmItem(item: TmItem, custom: CustomSections | null, gath
   if (g) meta.push({ label: 'תאריך מקורי', value: g.heDate }, { label: 'הזדמנות', value: g.occasion.label });
   if (item.pageStart) meta.push({ label: 'עמודים', value: item.pageEnd && item.pageEnd !== item.pageStart ? `${item.pageStart}–${item.pageEnd}` : String(item.pageStart) });
   meta.push({ label: 'אימות', value: verificationHe(item.verification) });
+  const cleanHeading = item.heTitle.replace(/^בס"ד\.?\s*/, '').trim();
+  const many = g ? tmItemsOf(g.id).filter((i) => i.type === 'sicha').length > 1 : false;
+  const sichaTitle = g?.occasion.label ? `${g.occasion.label}${many ? ` · שיחה ${hebrewSectionLabel(item.ordinal)}` : ''}` : cleanHeading;
   return {
     id: item.id,
     programId,
-    titleHe: item.type === 'maamar' ? `ד״ה ${item.dibburHamaschil ?? item.heTitle}` : `${item.heTitle}${g ? ` — ${g.occasion.label}` : ''}`,
+    titleHe: item.type === 'maamar' ? `ד״ה ${item.dibburHamaschil ?? item.heTitle}` : sichaTitle,
     subtitleHe: g ? `תורת מנחם · ${g.heDate}` : 'תורת מנחם',
     meta,
     sections: s.sections,
@@ -94,6 +97,7 @@ export function workFromMaamar(m: MaamarEntry, tm: TmItem | undefined, custom: C
   const count = (tm?.sectionCount || null) ?? m.sectionCount;
   const labels = tm?.sectionLabels ?? null;
   const s = sectionsFrom(m.id, count, labels, custom, tm?.pageLabels ?? m.pageLabels ?? null);
+  if (s.sections?.[0]?.label.startsWith('עמ׳')) s.note = 'המעקב כרגע לפי עמודי ״התוועדויות״ (מאומת). בספר המאמרים תשי״א שלך אפשר להזין חלוקה לאותיות/סעיפים: ״תקן חלוקה״.';
   const meta: LogMeta[] = [{ label: 'תאריך מקורי', value: m.heDate }, { label: 'הזדמנות', value: m.occasionLabel }];
   if (windowHe) meta.push({ label: 'חלון לימוד', value: windowHe });
   if (tm?.pageStart || m.pageStart) meta.push({ label: 'עמודים', value: String(tm?.pageStart ?? m.pageStart) + ((tm?.pageEnd ?? m.pageEnd) ? `–${tm?.pageEnd ?? m.pageEnd}` : '') });

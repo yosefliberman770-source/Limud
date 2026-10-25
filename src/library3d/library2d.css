@@ -1,4 +1,4 @@
-.lib2d { flex: 1; overflow-y: auto; background: radial-gradient(120% 60% at 50% 0%, #17203a 0%, #0c111c 70%); padding: 16px 12px calc(var(--nav-h) + var(--safe-bottom) + 24px); }
+.lib2d { flex: 1; overflow-y: auto; background: radial-gradient(120% 60% at 50% 0%, #17203a 0%, #0c111c 70%); padding: calc(var(--safe-top) + 118px) 12px calc(var(--nav-h) + var(--safe-bottom) + 24px); }
 .lib2d-cabinet { max-width: 520px; margin: 0 auto; background: linear-gradient(180deg, #2b1a10, #3a2416 8%, #2f1d12); border: 10px solid #46301f; border-radius: 6px; box-shadow: var(--shadow-paper), inset 0 0 40px #000a; }
 .lib2d-row { position: relative; padding: 18px 10px 0; background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0) 28%); }
 .lib2d-shelf { display: flex; justify-content: flex-start; align-items: flex-end; gap: 1px; min-height: 100px; direction: rtl; padding-bottom: 0; }

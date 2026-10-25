@@ -70,6 +70,8 @@ export const useStore = create<AppState>((set, get) => ({
   init(db, isNative) {
     const saved = db.settings.get<Partial<UserSettings>>('user', {});
     const settings: UserSettings = { ...DEFAULT_SETTINGS, ...saved };
+    // Respect the OS "reduce motion" preference until the user chooses otherwise.
+    if (saved.motion === undefined && typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) settings.motion = 'off';
     const now = new Date();
     set({ db, isNative, settings, ready: true, now, ...computeToday(settings, now) });
     applyTheme(settings);
