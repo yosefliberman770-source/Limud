@@ -1,0 +1,20 @@
+{
+ "schemaVersion": 1,
+ "source": "https://www.sefaria.org/api/calendars (Parashat Hashavua extraDetails.aliyot)",
+ "note": "Where @hebcal/leyning and Sefaria disagree on the standard Shabbos aliyah divisions, the Sefaria division is used and the difference is recorded here. Verified against the common printed division (Terumah: sheni ends at the Shulchan 25:30; shlishi begins with the Menorah 25:31).",
+ "verification": "source_imported_needs_crosscheck",
+ "overrides": {
+  "Terumah": {
+   "2": {
+    "k": "Exodus",
+    "b": "25:17",
+    "e": "25:30"
+   },
+   "3": {
+    "k": "Exodus",
+    "b": "25:31",
+    "e": "26:14"
+   }
+  }
+ }
+}

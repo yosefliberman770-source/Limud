@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-25T00:00:00Z",
+  "sources": [],
+  "volumes": [
+    { "id": "ls-10", "number": 10, "heNumber": "י׳", "sefer": "Bereishis", "heTitle": "לקוטי שיחות חלק י׳", "pageCount": null, "sourceIds": [], "verification": "unverified" },
+    { "id": "ls-11", "number": 11, "heNumber": "י״א", "sefer": "Shemos", "heTitle": "לקוטי שיחות חלק י״א", "pageCount": null, "sourceIds": [], "verification": "unverified" },
+    { "id": "ls-12", "number": 12, "heNumber": "י״ב", "sefer": "Vayikra", "heTitle": "לקוטי שיחות חלק י״ב", "pageCount": null, "sourceIds": [], "verification": "unverified" },
+    { "id": "ls-13", "number": 13, "heNumber": "י״ג", "sefer": "Bamidbar", "heTitle": "לקוטי שיחות חלק י״ג", "pageCount": null, "sourceIds": [], "verification": "unverified" },
+    { "id": "ls-14", "number": 14, "heNumber": "י״ד", "sefer": "Devarim", "heTitle": "לקוטי שיחות חלק י״ד", "pageCount": null, "sourceIds": [], "verification": "unverified" }
+  ],
+  "sichos": []
+}

@@ -1,0 +1,149 @@
+/* ============================================================
+   סדר הלימוד — Design tokens
+   A calm, scholarly library: deep navy/charcoal room, warm wood,
+   ivory paper for the log, near-black ink, scarce aged brass.
+   ============================================================ */
+:root {
+  color-scheme: dark;
+
+  /* Room (dark) */
+  --c-room-900: #0b0f18;
+  --c-room-800: #0f1420;
+  --c-room-700: #151c2b;
+  --c-room-600: #1c2535;
+  --c-room-500: #273243;
+
+  /* Wood */
+  --c-wood-900: #2a1a10;
+  --c-wood-800: #3a2416;
+  --c-wood-700: #4b2f1c;
+  --c-wood-600: #5f3d26;
+  --c-wood-500: #7a5133;
+
+  /* Paper / ivory (log surfaces) */
+  --c-paper-50: #fbf7ee;
+  --c-paper-100: #f5efe0;
+  --c-paper-200: #ece3cf;
+  --c-paper-300: #dfd3b8;
+  --c-paper-400: #c9b995;
+
+  /* Ink */
+  --c-ink-900: #15110c;
+  --c-ink-700: #2b241b;
+  --c-ink-500: #5a5143;
+  --c-ink-300: #8c8272;
+
+  /* Brass (scarce) */
+  --c-brass-500: #b08d57;
+  --c-brass-400: #c9a86a;
+  --c-brass-300: #dcc08a;
+
+  /* Accents */
+  --c-oxblood: #6b2a2a;
+  --c-forest: #2f4a3a;
+  --c-navy: #1f2d4a;
+
+  /* Status */
+  --c-done: #3f7a5a;
+  --c-done-soft: #dcefe3;
+  --c-current: #b08d57;
+  --c-overdue: #a04b3c;
+  --c-overdue-soft: #f3dfd9;
+  --c-scheduled: #4b5a73;
+  --c-partial: #c2a24f;
+
+  /* Semantic (dark shell) */
+  --bg: var(--c-room-800);
+  --bg-elev: var(--c-room-700);
+  --bg-elev-2: var(--c-room-600);
+  --fg: #ece6d8;
+  --fg-muted: #a9a398;
+  --fg-faint: #6f6a61;
+  --line: rgba(236, 230, 216, 0.09);
+  --line-strong: rgba(236, 230, 216, 0.18);
+  --accent: var(--c-brass-400);
+  --accent-fg: #1a1408;
+  --focus: #e9d3a0;
+
+  /* Paper surfaces (log) */
+  --paper: var(--c-paper-100);
+  --paper-2: var(--c-paper-200);
+  --paper-line: rgba(43, 36, 27, 0.14);
+  --paper-fg: var(--c-ink-900);
+  --paper-fg-muted: var(--c-ink-500);
+
+  /* Typography */
+  --font-serif: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'David Libre', 'Times New Roman', serif;
+  --font-serif-display: 'Noto Serif Hebrew', 'Frank Ruhl Libre', serif;
+  --font-sans: 'Heebo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-loose: 1.7;
+  --text-scale: 1;
+
+  /* Spacing (4pt grid) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px;
+
+  /* Radii */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 22px;
+
+  /* Shadows */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-2: 0 4px 14px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-paper: 0 18px 50px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-med: 260ms;
+  --dur-slow: 480ms;
+
+  /* Touch */
+  --tap: 48px;
+  --nav-h: 64px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #efe9dc;
+  --bg-elev: #f7f2e7;
+  --bg-elev-2: #fffdf7;
+  --fg: #1f1a13;
+  --fg-muted: #5a5245;
+  --fg-faint: #938a7a;
+  --line: rgba(31, 26, 19, 0.1);
+  --line-strong: rgba(31, 26, 19, 0.22);
+  --accent: #8d6a35;
+  --accent-fg: #fff8e8;
+  --focus: #6b4e1f;
+  --shadow-1: 0 1px 2px rgba(40, 30, 10, 0.12), 0 2px 8px rgba(40, 30, 10, 0.08);
+  --shadow-2: 0 4px 14px rgba(40, 30, 10, 0.16), 0 1px 3px rgba(40, 30, 10, 0.12);
+  --shadow-paper: 0 18px 50px rgba(40, 30, 10, 0.25), 0 2px 6px rgba(40, 30, 10, 0.12);
+}
+
+:root[data-contrast='high'] {
+  --fg: #ffffff;
+  --fg-muted: #e5e0d4;
+  --line: rgba(255, 255, 255, 0.35);
+  --line-strong: rgba(255, 255, 255, 0.6);
+  --paper-fg-muted: #2b241b;
+  --paper-line: rgba(43, 36, 27, 0.5);
+  --accent: #f0cf86;
+}
+:root[data-theme='light'][data-contrast='high'] {
+  --fg: #000000;
+  --fg-muted: #222;
+}
+
+:root[data-text='large'] { --text-scale: 1.15; }
+:root[data-text='xlarge'] { --text-scale: 1.3; }
