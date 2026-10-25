@@ -1,3 +1,4 @@
+import { dateRange } from '@/app/format';
 import { useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { DateLine } from '@/app/Shell';
@@ -5,9 +6,9 @@ import { navigate } from '@/app/router';
 import { IconCheck, IconChevron } from '@/app/icons';
 import { dailyShiurim, PROGRAM_META, type DailyAssignment, type ProgramId } from '@/shiurim';
 import { torasMenachem, maamarim as maamarimCatalogue, tmItem, tmGathering, likkuteiSichos } from '@/catalogue';
-import { buildMaamarSchedule, buildSichaTargets, currentMaamarWindow, nextMaamarWindow, paceSuggestion, sichaWorkload, weeklyLikkuteiSichos, dailyBacklog, PROJECT_DEADLINE, YUD_SHEVAT_CIVIL } from '@/scheduling';
+import { buildMaamarSchedule, buildSichaTargets, currentMaamarWindow, nextMaamarWindow, paceSuggestion, sichaWorkload, weeklyLikkuteiSichos, dailyBacklog } from '@/scheduling';
 import { workFromDaily, workFromLsSicha, workFromMaamar, workFromTmItem, workProgress, type LogWork } from '@/log/model';
-import { addDays, diffDays, formatCivilHe, chassidisheDatesOn, holidaysOn, formatHebrewDateCivil } from '@/calendar';
+import { addDays, formatCivilHe, chassidisheDatesOn, holidaysOn, formatHebrewDateCivil } from '@/calendar';
 import { LogView } from '@/log/LogView';
 import { checkPermission, requestPermission, type PermissionState } from '@/notifications/native';
 import { syncNotifications } from '@/notifications/scheduler';
@@ -46,7 +47,7 @@ export function TodayView({ date }: { date?: string }) {
   // --- Maamar
   const win = currentMaamarWindow(windows, civil);
   const nextWin = nextMaamarWindow(windows, civil);
-  const maamarWork = win ? (() => { const m = maamarimCatalogue.maamarim.find((x) => x.id === win.maamarId)!; return workFromMaamar(m, m.tmItemId ? tmItem(m.tmItemId) : undefined, db.customSections.get(m.id), `${formatCivilHe(win.start)} – ${formatCivilHe(win.end)}`); })() : null;
+  const maamarWork = win ? (() => { const m = maamarimCatalogue.maamarim.find((x) => x.id === win.maamarId)!; return workFromMaamar(m, m.tmItemId ? tmItem(m.tmItemId) : undefined, db.customSections.get(m.id), `${dateRange(formatCivilHe(win.start), formatCivilHe(win.end))}`); })() : null;
   const maamarProg = maamarWork ? workProgress(maamarWork, (u) => isDone('tm_maamarim', u)) : null;
   const pace = win && maamarProg ? paceSuggestion(win, civil, maamarProg.total, maamarProg.done) : null;
   // --- Likkutei Sichos
@@ -55,8 +56,6 @@ export function TodayView({ date }: { date?: string }) {
   // --- backlog (last 14 days)
   const backlog = isToday ? dailyBacklog(addDays(civil, -14), civil, dailySettings, (p, u, k) => isDone(p, u, k)) : [];
 
-  const daysToYudShevat = diffDays(civil, YUD_SHEVAT_CIVIL);
-  const daysToDeadline = diffDays(civil, PROJECT_DEADLINE);
 
   const dailyDone = daily.reduce((n, a) => n + a.units.filter((u) => isDone(a.programId, u.unitId, civil)).length, 0);
   const dailyTotal = daily.reduce((n, a) => n + a.units.length, 0);
@@ -82,11 +81,6 @@ export function TodayView({ date }: { date?: string }) {
         <div className="today-summary">
           <span className="serif">{dailyDone}/{dailyTotal} שיעורים יומיים</span>
           <div className="bar"><i style={{ width: `${dailyTotal ? (dailyDone / dailyTotal) * 100 : 0}%` }} /></div>
-          <div className="row wrap faint" style={{ fontSize: 'var(--fs-xs)' }}>
-            {daysToYudShevat > 0 && <span>י׳ שבט תשפ״ז בעוד {daysToYudShevat} ימים</span>}
-            {daysToYudShevat === 0 && <span>היום י׳ שבט תשפ״ז</span>}
-            {daysToDeadline > 0 && <span>· סיום הפרויקט (כ״ט אלול) בעוד {daysToDeadline} ימים</span>}
-          </div>
         </div>
       </header>
 
@@ -116,7 +110,7 @@ export function TodayView({ date }: { date?: string }) {
       {en.has('tm_maamarim') && (
         <Section title={PROGRAM_META.tm_maamarim.he} count={maamarWork ? 1 : 0}>
           {maamarWork && maamarProg && win ? (
-            <WorkRow work={maamarWork} progress={maamarProg} badge={{ cls: win.fixed ? 'current' : 'scheduled', text: `${formatCivilHe(win.start)} – ${formatCivilHe(win.end)}` }} sub={pace?.messageHe ?? ''} expanded={expanded === maamarWork.id} onToggle={() => setExpanded(expanded === maamarWork.id ? null : maamarWork.id)} />
+            <WorkRow work={maamarWork} progress={maamarProg} badge={{ cls: win.fixed ? 'current' : 'scheduled', text: `${dateRange(formatCivilHe(win.start), formatCivilHe(win.end))}` }} sub={pace?.messageHe ?? ''} expanded={expanded === maamarWork.id} onToggle={() => setExpanded(expanded === maamarWork.id ? null : maamarWork.id)} />
           ) : (
             <Empty text={nextWin ? `המאמר הבא: ${nextWin.heTitle} מ־${formatCivilHe(nextWin.start)}` : 'אין מאמר מתוכנן לתאריך זה.'} />
           )}
@@ -180,10 +174,10 @@ export function WorkRow({ work, progress, badge, sub, expanded, onToggle }: { wo
         <div className="grow">
           <div className="work-title serif">{work.titleHe}</div>
           <div className="work-sub">{sub}</div>
+          {next && !progress.allDone && <div className="work-next serif">המשך: <b>{next.label}</b></div>}
           <div className="row" style={{ marginTop: 6, gap: 8 }}>
             <span className={`chip ${badge.cls}`}>{badge.text}</span>
-            {progress.total != null && <span className="faint num">{progress.done}/{progress.total}</span>}
-            {next && !progress.allDone && <span className="faint">המשך: {next.label}</span>}
+            {progress.total != null && <span className="faint num">{progress.allDone ? 'הושלם' : `${progress.done} מתוך ${progress.total}`}</span>}
             {progress.total == null && <span className="chip verify">אותיות לא אומתו</span>}
           </div>
         </div>
@@ -215,7 +209,7 @@ export function DailyRow({ a, date }: { a: DailyAssignment; date: string }) {
           <div className="daily-program">{PROGRAM_META[a.programId].he}</div>
           <div className="daily-headline serif">{a.headlineHe}</div>
         </div>
-        <button className="btn ghost sm" onClick={() => navigate({ name: 'log', programId: a.programId, workId: a.programId, occurrence: date })} aria-label={`פתח ${PROGRAM_META[a.programId].he}`}>המשך הלימוד <IconChevron /></button>
+        <button className="btn ghost sm" onClick={() => navigate({ name: 'log', programId: a.programId, workId: a.programId, occurrence: date })} aria-label={`פתח ${PROGRAM_META[a.programId].he}`}>פרטים <IconChevron /></button>
       </div>
       <ul className="daily-units">
         {a.units.map((u) => {

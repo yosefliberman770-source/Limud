@@ -25,3 +25,6 @@
 
 .perm-banner { display: flex; align-items: center; gap: var(--s-3); margin: var(--s-4) 0 0; padding: var(--s-3) var(--s-4); background: linear-gradient(90deg, rgba(176,141,87,0.18), rgba(176,141,87,0.05)); border: 1px solid rgba(176,141,87,0.5); border-radius: var(--r-md); flex-wrap: wrap; }
 .perm-banner .faint { font-size: var(--fs-xs); margin-top: 2px; }
+
+.work-next { margin-top: 6px; font-size: calc(var(--fs-md, 1rem) * var(--text-scale, 1)); color: var(--fg); }
+.work-next b { color: var(--gold, #c9a86a); font-weight: 600; }

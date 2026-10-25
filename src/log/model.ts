@@ -1,3 +1,4 @@
+import { pageRange } from '@/app/format';
 /**
  * The learning log: a "work" (sicha, maamar, daily shiur, daf…) with its checkable sections.
  * This is pure data assembly; completion state is read from the DB by the UI.
@@ -72,7 +73,7 @@ export function workFromTmItem(item: TmItem, custom: CustomSections | null, gath
   const s = sectionsFrom(item.id, item.sectionCount || null, item.sectionLabels, custom, item.pageLabels ?? null);
   const meta: LogMeta[] = [];
   if (g) meta.push({ label: 'תאריך מקורי', value: g.heDate }, { label: 'הזדמנות', value: g.occasion.label });
-  if (item.pageStart) meta.push({ label: 'עמודים', value: item.pageEnd && item.pageEnd !== item.pageStart ? `${item.pageStart}–${item.pageEnd}` : String(item.pageStart) });
+  if (item.pageStart) meta.push({ label: 'עמודים', value: pageRange(item.pageStart, item.pageEnd) });
   meta.push({ label: 'אימות', value: verificationHe(item.verification) });
   const cleanHeading = item.heTitle.replace(/^בס"ד\.?\s*/, '').trim();
   const many = g ? tmItemsOf(g.id).filter((i) => i.type === 'sicha').length > 1 : false;
@@ -100,7 +101,7 @@ export function workFromMaamar(m: MaamarEntry, tm: TmItem | undefined, custom: C
   if (s.sections?.[0]?.label.startsWith('עמ׳')) s.note = 'המעקב כרגע לפי עמודי ״התוועדויות״ (מאומת). בספר המאמרים תשי״א שלך אפשר להזין חלוקה לאותיות/סעיפים: ״תקן חלוקה״.';
   const meta: LogMeta[] = [{ label: 'תאריך מקורי', value: m.heDate }, { label: 'הזדמנות', value: m.occasionLabel }];
   if (windowHe) meta.push({ label: 'חלון לימוד', value: windowHe });
-  if (tm?.pageStart || m.pageStart) meta.push({ label: 'עמודים', value: String(tm?.pageStart ?? m.pageStart) + ((tm?.pageEnd ?? m.pageEnd) ? `–${tm?.pageEnd ?? m.pageEnd}` : '') });
+  if (tm?.pageStart || m.pageStart) meta.push({ label: 'עמודים', value: pageRange(tm?.pageStart ?? m.pageStart!, tm?.pageEnd ?? m.pageEnd) });
   meta.push({ label: 'אימות', value: verificationHe(tm?.verification ?? m.verification) });
   return {
     id: m.id,
@@ -121,7 +122,7 @@ export function workFromMaamar(m: MaamarEntry, tm: TmItem | undefined, custom: C
 export function workFromLsSicha(s: LsSicha, custom: CustomSections | null, volumeHe: string): LogWork {
   const sec = sectionsFrom(s.id, s.sectionCount, null, custom);
   const meta: LogMeta[] = [{ label: 'חלק', value: volumeHe }];
-  if (s.pageStart) meta.push({ label: 'עמודים', value: s.pageEnd ? `${s.pageStart}–${s.pageEnd}` : String(s.pageStart) });
+  if (s.pageStart) meta.push({ label: 'עמודים', value: pageRange(s.pageStart, s.pageEnd) });
   if (s.topic) meta.push({ label: 'נושא', value: s.topic });
   meta.push({ label: 'אימות', value: verificationHe(s.verification) });
   return {

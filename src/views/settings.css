@@ -22,3 +22,10 @@ input[type='date'], input[type='time'], input[type='number'] { background: var(-
 .rule { border-top: 1px solid var(--line); padding-top: 6px; }
 .rule-opts { font-size: var(--fs-sm); color: var(--fg-muted); padding-inline-start: 4px; }
 .plan-list { display: grid; gap: 4px; font-size: var(--fs-xs); margin-top: 8px; }
+
+/* technical options live behind one quiet disclosure */
+.settings-adv { margin-top: var(--s-3); border-top: 1px solid var(--line, rgba(255,255,255,0.08)); padding-top: var(--s-2); }
+.settings-adv > summary { cursor: pointer; list-style: none; color: var(--fg-muted, #9aa); font-size: var(--fs-sm); padding: 8px 0; }
+.settings-adv > summary::-webkit-details-marker { display: none; }
+.settings-adv > summary::after { content: ' ›'; }
+.settings-adv[open] > summary::after { content: ' ‹'; }

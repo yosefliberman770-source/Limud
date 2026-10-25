@@ -1,10 +1,11 @@
+import { dateRange } from '@/app/format';
 import { useMemo } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
 import { IconHistory } from '@/app/icons';
 import { dailyShiurim, PROGRAM_META, RECURRING_PROGRAMS, SHAS, type ProgramId } from '@/shiurim';
 import { torasMenachem, maamarim as maamarimCatalogue, likkuteiSichos, tmItem } from '@/catalogue';
-import { buildMaamarSchedule, buildSichaTargets, PROJECT_DEADLINE, dailyBacklog } from '@/scheduling';
+import { buildMaamarSchedule, buildSichaTargets, PROJECT_DEADLINE, YUD_SHEVAT_CIVIL, dailyBacklog } from '@/scheduling';
 import { tmItemWork } from '@/log/tm';
 import { workFromLsSicha, workProgress } from '@/log/model';
 import { addDays, diffDays, formatCivilHe, parshaWeekFor, weekday, WEEKDAY_HE } from '@/calendar';
@@ -87,6 +88,7 @@ export function ProgressView() {
   }, [version, today, settings]);
 
   const daysLeft = diffDays(today, PROJECT_DEADLINE);
+  const daysToYudShevat = diffDays(today, YUD_SHEVAT_CIVIL);
   const remainingItems = data.sItems - data.sItemsDone;
   const maamDone = data.maam.filter((m) => m.status === 'done').length;
   const week = parshaWeekFor(today, settings.il);
@@ -114,6 +116,7 @@ export function ProgressView() {
           {data.sUnverified > 0 ? `${data.sUnverified} פריטים מסומנים לבדיקה מול המקור. ` : 'כל הפריטים מאומתים מול המקור. '}
           {data.overdue.length > 0 ? `${data.overdue.length} שיחות עברו את התאריך המקביל וממתינות להשלמה.` : 'אין שיחות בפיגור.'}
         </p>
+        {daysToYudShevat > 0 && <p className="pg-note">י׳ שבט תשפ״ז בעוד {daysToYudShevat} ימים.</p>}
         {remainingItems > 0 && daysLeft > 0 && <p className="pg-note">קצב נדרש: כ־{(remainingItems / (daysLeft / 7)).toFixed(1)} שיחות בשבוע לסיום בזמן.</p>}
       </section>
 
@@ -124,7 +127,7 @@ export function ProgressView() {
             <button className="pg-row" onClick={() => navigate({ name: 'log', programId: 'tm_maamarim', workId: m.id })}>
               <span className="grow">
                 <span className="serif pg-row-t">ד״ה {m.heTitle}</span>
-                <span className="pg-row-s">{formatCivilHe(w.start)} – {formatCivilHe(w.end)}{w.fixed ? ' · קבוע' : ''}</span>
+                <span className="pg-row-s">{dateRange(formatCivilHe(w.start), formatCivilHe(w.end))}</span>
               </span>
               <span className={`chip ${status}`}>{status === 'done' ? 'הושלם' : status === 'overdue' ? 'בפיגור' : status === 'current' ? 'עכשיו' : 'עתידי'}</span>
               <span className="pg-row-bar"><Bar value={p.done} total={p.total} tone={status === 'overdue' ? 'warn' : undefined} /></span>

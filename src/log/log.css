@@ -21,3 +21,14 @@
 .log-note-text { margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--paper-fg-muted); white-space: pre-wrap; }
 .log-confirm, .log-editor { position: absolute; inset: 0; background: color-mix(in srgb, var(--paper) 94%, transparent); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-4); padding: var(--s-6); text-align: center; z-index: 2; }
 .log-editor input { display: block; margin: 8px auto 0; width: 120px; text-align: center; font-size: var(--fs-xl); padding: 6px; border: 1px solid var(--paper-line); border-radius: var(--r-sm); background: #fff; }
+
+/* progressive disclosure: details and secondary actions stay out of the way */
+.log-mark-next { margin-top: var(--s-2); width: 100%; justify-content: center; }
+.log-details { margin: var(--s-2) 0 var(--s-3); border-top: 1px solid var(--paper-line); padding-top: var(--s-2); }
+.log-details > summary, .log-more > summary { cursor: pointer; list-style: none; color: var(--paper-fg-muted); font-size: var(--fs-sm); padding: 6px 0; }
+.log-details > summary::-webkit-details-marker, .log-more > summary::-webkit-details-marker { display: none; }
+.log-details > summary::after { content: ' ›'; }
+.log-details[open] > summary::after { content: ' ‹'; }
+.log-more > summary.btn { display: inline-flex; padding: 0 var(--s-4); }
+.log-more-body { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-2); }
+.log-actions { border-top: 0; margin-top: var(--s-2); padding-top: 0; }

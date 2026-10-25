@@ -19,6 +19,8 @@ export interface BookController {
   press(id: string | null): void;
   /** Snap to the closed state immediately (e.g. on unmount or context loss). */
   reset(): void;
+  /** Jump straight to the open log (tap during the opening flourish). */
+  skipOpening(): void;
 }
 
 /**
@@ -38,19 +40,22 @@ export function useBookController(opts: { motion: Motion; requestRender: () => v
   settledRef.current = opts.onSettled;
   const [view, setView] = useState<{ state: BookState; activeId: string | null; p: number }>({ state: 'SHELF_IDLE', activeId: null, p: 0 });
   const lastState = useRef<BookState>('SHELF_IDLE');
+  const lastActive = useRef<string | null>(null);
 
   const publish = useCallback(() => {
     const c = ctl.current;
     const state = deriveState(anim.p, c.direction, anim.pressedId !== null && anim.p <= 1e-4);
-    if (state !== lastState.current || view.activeId !== c.activeId) {
+    // compare with refs, not the `view` captured by this memoised callback — a stale snapshot left the shelf locked after a book was closed
+    if (state !== lastState.current || lastActive.current !== c.activeId) {
       lastState.current = state;
+      lastActive.current = c.activeId;
       setView({ state, activeId: c.activeId, p: anim.p });
     }
     renderRef.current();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const startTween = useCallback((to: number) => {
+  const startTween = useCallback((to: number, instant = false) => {
     tween.current?.kill();
     const from = anim.p;
     const dur = tweenDuration(to - from, motionRef.current);
@@ -63,7 +68,7 @@ export function useBookController(opts: { motion: Motion; requestRender: () => v
       publish();
       settledRef.current?.(ctl.current.activeId, anim.p);
     };
-    if (dur === 0 || from === to) { anim.p = to; finish(); return; }
+    if (instant || dur === 0 || from === to) { tween.current?.kill(); anim.p = to; finish(); return; }
     tween.current = gsap.to(anim, {
       p: to, duration: dur, ease: 'none',
       onUpdate: () => { ctl.current = { ...ctl.current, p: anim.p }; publish(); },
@@ -82,6 +87,10 @@ export function useBookController(opts: { motion: Motion; requestRender: () => v
 
   const open = useCallback((id: string) => dispatch({ type: 'open', id }), [dispatch]);
   const close = useCallback(() => dispatch({ type: 'close' }), [dispatch]);
+  const skipOpening = useCallback(() => {
+    const c = ctl.current;
+    if (c.activeId && c.direction === 'opening' && anim.p < P_MAX) startTween(P_MAX, true);
+  }, [anim, startTween]);
   const press = useCallback((id: string | null) => { anim.pressedId = id; publish(); }, [anim, publish]);
   const reset = useCallback(() => {
     tween.current?.kill();
@@ -119,5 +128,5 @@ export function useBookController(opts: { motion: Motion; requestRender: () => v
     };
   }, [anim, publish]);
 
-  return { anim, state: view.state, activeId: view.activeId, p: view.p, open, close, press, reset };
+  return { anim, state: view.state, activeId: view.activeId, p: view.p, open, close, press, reset, skipOpening };
 }

@@ -23,7 +23,7 @@ export function SettingsView({ section }: { section?: string }) {
   const isNative = useStore((s) => s.isNative);
   useStore((s) => s.version);
   const [perm, setPerm] = useState<PermissionState>('prompt');
-  const [open, setOpen] = useState<string>(section ?? 'display');
+  const [open, setOpen] = useState<string>(section ?? '');
   const [confirmReset, setConfirmReset] = useState(false);
   const [importText, setImportText] = useState<string | null>(null);
 
@@ -77,68 +77,6 @@ export function SettingsView({ section }: { section?: string }) {
   return (
     <div className="page settings">
       <div className="page-title"><h1 className="serif">הגדרות</h1><span className="faint ltr">v{APP_VERSION}</span></div>
-
-      <Sec id="display" title="תצוגה ונגישות">
-        <Field label="ערכת צבעים"><Seg value={settings.theme} options={[['dark', 'כהה'], ['light', 'בהיר'], ['system', 'לפי המכשיר']]} onChange={(v) => update({ theme: v as UserSettings['theme'] })} /></Field>
-        <Field label="ניגודיות"><Seg value={settings.contrast} options={[['normal', 'רגילה'], ['high', 'גבוהה']]} onChange={(v) => update({ contrast: v as UserSettings['contrast'] })} /></Field>
-        <Field label="גודל טקסט"><Seg value={settings.textSize} options={[['normal', 'רגיל'], ['large', 'גדול'], ['xlarge', 'גדול מאוד']]} onChange={(v) => update({ textSize: v as UserSettings['textSize'] })} /></Field>
-        <Field label="תנועה ואנימציה"><Seg value={settings.motion} options={[['full', 'מלאה'], ['short', 'קצרה'], ['off', 'ללא']]} onChange={(v) => update({ motion: v as UserSettings['motion'] })} /></Field>
-        <Field label="איכות הספריה התלת־ממדית"><Seg value={settings.quality} options={[['auto', 'אוטומטי'], ['high', 'גבוהה'], ['low', 'חסכונית'], ['2d', 'דו־ממד']]} onChange={(v) => update({ quality: v as UserSettings['quality'] })} /></Field>
-        <Toggle label="תוויות עזר באנגלית" checked={settings.englishHelper} onChange={(v) => update({ englishHelper: v })} />
-      </Sec>
-
-      <Sec id="calendar" title="לוח שנה ומיקום">
-        <Field label="מנהג קריאת התורה"><Seg value={settings.il ? 'il' : 'chul'} options={[['chul', 'חוץ לארץ'], ['il', 'ארץ ישראל']]} onChange={(v) => update({ il: v === 'il' })} /></Field>
-        <Field label="גבול היום לשיעורים היומיים"><Seg value={settings.dayBoundary} options={[['civil_midnight', 'חצות (כלוח השיעורים)'], ['sunset', 'שקיעה (יום עברי)']]} onChange={(v) => update({ dayBoundary: v as UserSettings['dayBoundary'] })} /></Field>
-        <Field label="מיקום לזמני שבת ושקיעה">
-          <div className="row wrap">
-            <span className="chip">{settings.geo ? `${settings.geo.name} · ${settings.geo.timeZone}` : 'ללא מיקום — חלון שבת שמרני'}</span>
-            <button className="btn sm" onClick={() => update({ geo: DEFAULT_GEO })}>ברוקלין, ניו יורק</button>
-            <button className="btn sm" onClick={() => update({ geo: { ...DEFAULT_GEO, latitude: 31.778, longitude: 35.235, timeZone: 'Asia/Jerusalem', name: 'ירושלים', il: true }, il: true })}>ירושלים</button>
-            <button className="btn sm" onClick={() => { if (!navigator.geolocation) return; navigator.geolocation.getCurrentPosition((p) => update({ geo: { ...(settings.geo ?? DEFAULT_GEO), latitude: p.coords.latitude, longitude: p.coords.longitude, timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, name: 'המיקום הנוכחי' } }), () => showToast('לא התקבל מיקום')); }}>המיקום הנוכחי</button>
-            <button className="btn sm ghost" onClick={() => update({ geo: null })}>ללא מיקום</button>
-          </div>
-        </Field>
-        <Field label="תצוגה מקדימה של תאריך (לבדיקה)">
-          <div className="row">
-            <input type="date" className="ltr" value={settings.previewDate ?? ''} onChange={(e) => update({ previewDate: e.target.value || null })} />
-            {settings.previewDate && <button className="btn sm ghost" onClick={() => update({ previewDate: null })}>חזרה להיום</button>}
-          </div>
-        </Field>
-      </Sec>
-
-      <Sec id="programs" title="מסלולי לימוד">
-        {ALL_PROGRAMS.map((p) => (
-          <Toggle key={p} label={PROGRAM_META[p].he} checked={settings.enabledPrograms.includes(p)} onChange={(v) => update({ enabledPrograms: v ? [...settings.enabledPrograms, p] : settings.enabledPrograms.filter((x) => x !== p) })} />
-        ))}
-        <Field label="מסלול הגמרא האישי (עמוד ליום עד ההצטרפות לדף היומי)">
-          <div className="row wrap">
-            <label className="row">תאריך התחלה <input type="date" className="ltr" value={settings.personalDaf.startDate} onChange={(e) => e.target.value && update({ personalDaf: { ...settings.personalDaf, startDate: e.target.value } })} /></label>
-            <label className="row">דף <input type="number" className="ltr num-in" min={2} value={settings.personalDaf.start.daf} onChange={(e) => update({ personalDaf: { ...settings.personalDaf, start: { ...settings.personalDaf.start, daf: Number(e.target.value) || 2 } } })} /></label>
-            <Seg value={settings.personalDaf.start.amud} options={[['a', 'ע״א'], ['b', 'ע״ב']]} onChange={(v) => update({ personalDaf: { ...settings.personalDaf, start: { ...settings.personalDaf.start, amud: v as 'a' | 'b' } } })} />
-            <label className="row">עמודים ליום <input type="number" className="ltr num-in" min={1} max={4} value={settings.personalDaf.amudimPerDay} onChange={(e) => update({ personalDaf: { ...settings.personalDaf, amudimPerDay: Math.max(1, Number(e.target.value) || 1) } })} /></label>
-          </div>
-          <div className="faint" style={{ fontSize: 'var(--fs-xs)' }}>המסכת: ערכין. שינוי מחשב מחדש את יום ההצטרפות מתוך לוח הדף היומי הרשמי; סימונים קיימים אינם נמחקים.</div>
-        </Field>
-        <Field label="שבוע של יום טוב (חת״ת / רמב״ן / לקו״ש)"><Seg value={settings.weeklyParshaPolicy} options={[['next_regular_parsha', 'הפרשה הרגילה הבאה'], ['holiday_reading', 'קריאת יום טוב']]} onChange={(v) => update({ weeklyParshaPolicy: v as UserSettings['weeklyParshaPolicy'] })} /></Field>
-        <Field label="סדר השלמות"><Seg value={settings.catchUpPriority} options={[['oldest_first', 'הישן קודם'], ['newest_first', 'החדש קודם']]} onChange={(v) => update({ catchUpPriority: v as UserSettings['catchUpPriority'] })} /></Field>
-      </Sec>
-
-      <Sec id="maamarim" title="לוח המאמרים">
-        <p className="faint" style={{ fontSize: 'var(--fs-sm)' }}>החלונות המקובעים (ואלה המשפטים, כי תשא, וקבל היהודים, באתי לגני, היושבת בגנים) אינם זזים אוטומטית. עריכה ידנית אפשרית; חריגה מי׳ שבט תסומן באזהרה.</p>
-        {issues.length > 0 && <div className="warn">{issues.map((i) => <div key={i.code + i.maamarId}>⚠ {i.messageHe}</div>)}</div>}
-        <ol className="maamar-list">
-          {windows.map((w) => (
-            <li key={w.maamarId} className={w.fixed ? 'fixed' : ''}>
-              <button className="grow" style={{ textAlign: 'start' }} onClick={() => navigate({ name: 'log', programId: 'tm_maamarim', workId: w.maamarId })}><span className="serif">{w.heTitle}</span></button>
-              <input type="date" className="ltr" value={overrides[w.maamarId]?.start ?? w.start} onChange={(e) => { if (!e.target.value) return; db.overrides.set('maamar_windows', { ...overrides, [w.maamarId]: { start: e.target.value, end: overrides[w.maamarId]?.end ?? w.end } }); db.touch(); bump(); }} />
-              <input type="date" className="ltr" value={overrides[w.maamarId]?.end ?? w.end} onChange={(e) => { if (!e.target.value) return; db.overrides.set('maamar_windows', { ...overrides, [w.maamarId]: { start: overrides[w.maamarId]?.start ?? w.start, end: e.target.value } }); db.touch(); bump(); }} />
-              {overrides[w.maamarId] && <button className="btn sm ghost" onClick={() => { const o = { ...overrides }; delete o[w.maamarId]; db.overrides.set('maamar_windows', o); db.touch(); bump(); }}>איפוס</button>}
-              {w.fixed && <span className="chip current">קבוע</span>}
-            </li>
-          ))}
-        </ol>
-      </Sec>
 
       <Sec id="notifications" title="תזכורות">
         <div className="row wrap" style={{ marginBottom: 8 }}>
@@ -199,12 +137,81 @@ export function SettingsView({ section }: { section?: string }) {
         </div>
       </Sec>
 
+      <Sec id="display" title="תצוגה ונגישות">
+        <Field label="ערכת צבעים"><Seg value={settings.theme} options={[['dark', 'כהה'], ['light', 'בהיר'], ['system', 'לפי המכשיר']]} onChange={(v) => update({ theme: v as UserSettings['theme'] })} /></Field>
+        <Field label="ניגודיות"><Seg value={settings.contrast} options={[['normal', 'רגילה'], ['high', 'גבוהה']]} onChange={(v) => update({ contrast: v as UserSettings['contrast'] })} /></Field>
+        <Field label="גודל טקסט"><Seg value={settings.textSize} options={[['normal', 'רגיל'], ['large', 'גדול'], ['xlarge', 'גדול מאוד']]} onChange={(v) => update({ textSize: v as UserSettings['textSize'] })} /></Field>
+        <details className="settings-adv">
+          <summary>מתקדם</summary>
+          <Field label="תנועה ואנימציה"><Seg value={settings.motion} options={[['full', 'מלאה'], ['short', 'קצרה'], ['off', 'ללא']]} onChange={(v) => update({ motion: v as UserSettings['motion'] })} /></Field>
+          <Field label="מראה הספריה"><Seg value={settings.quality} options={[['auto', 'אוטומטי'], ['high', 'מלא'], ['low', 'חסכוני'], ['2d', 'שטוח']]} onChange={(v) => update({ quality: v as UserSettings['quality'] })} /></Field>
+          <Toggle label="תוויות עזר באנגלית" checked={settings.englishHelper} onChange={(v) => update({ englishHelper: v })} />
+        </details>
+      </Sec>
+
+      <Sec id="calendar" title="לוח שנה ומיקום">
+        <Field label="מנהג קריאת התורה"><Seg value={settings.il ? 'il' : 'chul'} options={[['chul', 'חוץ לארץ'], ['il', 'ארץ ישראל']]} onChange={(v) => update({ il: v === 'il' })} /></Field>
+        <Field label="גבול היום לשיעורים היומיים"><Seg value={settings.dayBoundary} options={[['civil_midnight', 'חצות (כלוח השיעורים)'], ['sunset', 'שקיעה (יום עברי)']]} onChange={(v) => update({ dayBoundary: v as UserSettings['dayBoundary'] })} /></Field>
+        <Field label="מיקום לזמני שבת ושקיעה">
+          <div className="row wrap">
+            <span className="chip">{settings.geo ? `${settings.geo.name} · ${settings.geo.timeZone}` : 'ללא מיקום — חלון שבת שמרני'}</span>
+            <button className="btn sm" onClick={() => update({ geo: DEFAULT_GEO })}>ברוקלין, ניו יורק</button>
+            <button className="btn sm" onClick={() => update({ geo: { ...DEFAULT_GEO, latitude: 31.778, longitude: 35.235, timeZone: 'Asia/Jerusalem', name: 'ירושלים', il: true }, il: true })}>ירושלים</button>
+            <button className="btn sm" onClick={() => { if (!navigator.geolocation) return; navigator.geolocation.getCurrentPosition((p) => update({ geo: { ...(settings.geo ?? DEFAULT_GEO), latitude: p.coords.latitude, longitude: p.coords.longitude, timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, name: 'המיקום הנוכחי' } }), () => showToast('לא התקבל מיקום')); }}>המיקום הנוכחי</button>
+            <button className="btn sm ghost" onClick={() => update({ geo: null })}>ללא מיקום</button>
+          </div>
+        </Field>
+        <details className="settings-adv">
+          <summary>מתקדם</summary>
+          <Field label="הצג את האפליקציה כאילו היום הוא…">
+            <div className="row">
+              <input type="date" className="ltr" value={settings.previewDate ?? ''} onChange={(e) => update({ previewDate: e.target.value || null })} />
+              {settings.previewDate && <button className="btn sm ghost" onClick={() => update({ previewDate: null })}>חזרה להיום</button>}
+            </div>
+          </Field>
+        </details>
+      </Sec>
+
+      <Sec id="programs" title="מסלולי לימוד">
+        {ALL_PROGRAMS.map((p) => (
+          <Toggle key={p} label={PROGRAM_META[p].he} checked={settings.enabledPrograms.includes(p)} onChange={(v) => update({ enabledPrograms: v ? [...settings.enabledPrograms, p] : settings.enabledPrograms.filter((x) => x !== p) })} />
+        ))}
+        <Field label="מסלול הגמרא האישי (עמוד ליום עד ההצטרפות לדף היומי)">
+          <div className="row wrap">
+            <label className="row">תאריך התחלה <input type="date" className="ltr" value={settings.personalDaf.startDate} onChange={(e) => e.target.value && update({ personalDaf: { ...settings.personalDaf, startDate: e.target.value } })} /></label>
+            <label className="row">דף <input type="number" className="ltr num-in" min={2} value={settings.personalDaf.start.daf} onChange={(e) => update({ personalDaf: { ...settings.personalDaf, start: { ...settings.personalDaf.start, daf: Number(e.target.value) || 2 } } })} /></label>
+            <Seg value={settings.personalDaf.start.amud} options={[['a', 'ע״א'], ['b', 'ע״ב']]} onChange={(v) => update({ personalDaf: { ...settings.personalDaf, start: { ...settings.personalDaf.start, amud: v as 'a' | 'b' } } })} />
+            <label className="row">עמודים ליום <input type="number" className="ltr num-in" min={1} max={4} value={settings.personalDaf.amudimPerDay} onChange={(e) => update({ personalDaf: { ...settings.personalDaf, amudimPerDay: Math.max(1, Number(e.target.value) || 1) } })} /></label>
+          </div>
+          <div className="faint" style={{ fontSize: 'var(--fs-xs)' }}>המסכת: ערכין. שינוי מחשב מחדש את יום ההצטרפות מתוך לוח הדף היומי הרשמי; סימונים קיימים אינם נמחקים.</div>
+        </Field>
+        <Field label="שבוע של יום טוב (חת״ת / רמב״ן / לקו״ש)"><Seg value={settings.weeklyParshaPolicy} options={[['next_regular_parsha', 'הפרשה הרגילה הבאה'], ['holiday_reading', 'קריאת יום טוב']]} onChange={(v) => update({ weeklyParshaPolicy: v as UserSettings['weeklyParshaPolicy'] })} /></Field>
+        <Field label="סדר השלמות"><Seg value={settings.catchUpPriority} options={[['oldest_first', 'הישן קודם'], ['newest_first', 'החדש קודם']]} onChange={(v) => update({ catchUpPriority: v as UserSettings['catchUpPriority'] })} /></Field>
+      </Sec>
+
+      <Sec id="maamarim" title="לוח המאמרים">
+        <p className="faint" style={{ fontSize: 'var(--fs-sm)' }}>החלונות המקובעים (ואלה המשפטים, כי תשא, וקבל היהודים, באתי לגני, היושבת בגנים) אינם זזים אוטומטית. עריכה ידנית אפשרית; חריגה מי׳ שבט תסומן באזהרה.</p>
+        {issues.length > 0 && <div className="warn">{issues.map((i) => <div key={i.code + i.maamarId}>⚠ {i.messageHe}</div>)}</div>}
+        <ol className="maamar-list">
+          {windows.map((w) => (
+            <li key={w.maamarId} className={w.fixed ? 'fixed' : ''}>
+              <button className="grow" style={{ textAlign: 'start' }} onClick={() => navigate({ name: 'log', programId: 'tm_maamarim', workId: w.maamarId })}><span className="serif">{w.heTitle}</span></button>
+              <input type="date" className="ltr" value={overrides[w.maamarId]?.start ?? w.start} onChange={(e) => { if (!e.target.value) return; db.overrides.set('maamar_windows', { ...overrides, [w.maamarId]: { start: e.target.value, end: overrides[w.maamarId]?.end ?? w.end } }); db.touch(); bump(); }} />
+              <input type="date" className="ltr" value={overrides[w.maamarId]?.end ?? w.end} onChange={(e) => { if (!e.target.value) return; db.overrides.set('maamar_windows', { ...overrides, [w.maamarId]: { start: overrides[w.maamarId]?.start ?? w.start, end: e.target.value } }); db.touch(); bump(); }} />
+              {overrides[w.maamarId] && <button className="btn sm ghost" onClick={() => { const o = { ...overrides }; delete o[w.maamarId]; db.overrides.set('maamar_windows', o); db.touch(); bump(); }}>איפוס</button>}
+              {w.fixed && <span className="chip current">קבוע</span>}
+            </li>
+          ))}
+        </ol>
+      </Sec>
+
       <Sec id="about" title="אודות ומקורות">
         <p style={{ fontSize: 'var(--fs-sm)' }}>סדר הלימוד — ספריית הלימוד שלי. האפליקציה אינה מציגה טקסטים; היא מארגנת את הלימוד בספרים הפיזיים.</p>
         <ul className="faint" style={{ fontSize: 'var(--fs-xs)', display: 'grid', gap: 4, marginTop: 8 }}>
           <li>לוח עברי, פרשיות, זמנים: @hebcal/core</li><li>דף יומי, רמב״ם ג׳ פרקים, תניא יומי, תהלים חודשי: @hebcal/learning, מאומת מול ספריא</li><li>חלוקת עליות: @hebcal/leyning (+ טבלת ספריא)</li><li>תוכן עניינים תורת מנחם: chabadlibrary.org</li><li>גופנים: Frank Ruhl Libre, Noto Serif Hebrew, Heebo, David Libre (OFL)</li>
         </ul>
       </Sec>
+
     </div>
   );
 }

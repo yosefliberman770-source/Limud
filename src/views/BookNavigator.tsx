@@ -1,3 +1,4 @@
+import { dateRange, pageRange } from '@/app/format';
 import { useEffect, useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
@@ -113,7 +114,7 @@ function TmNavigator({ volumeId }: { volumeId: string }) {
         <button className="nav-continue" onClick={() => curMaamarEntry.tmItemId && setOpenItem(curMaamarEntry.tmItemId)}>
           <span className="nav-continue-k">המאמר הנוכחי</span>
           <span className="serif nav-continue-t">ד״ה {curMaamarEntry.heTitle}</span>
-          <span className="faint">{formatCivilHe(currentMaamar!.start)} – {formatCivilHe(currentMaamar!.end)}</span>
+          <span className="faint">{dateRange(formatCivilHe(currentMaamar!.start), formatCivilHe(currentMaamar!.end))}</span>
         </button>
       )}
       {nextTarget && (
@@ -154,7 +155,7 @@ function TmNavigator({ volumeId }: { volumeId: string }) {
                             <span className="nav-item-s">
                               {p.total != null ? `${p.done}/${p.total} ${w.sections?.[0]?.label.startsWith('עמ׳') ? 'עמודים' : 'אותיות'}` : 'אותיות לא אומתו'}
                               {t?.targetDate ? ` · יעד ${formatCivilHe(t.targetDate)}` : ''}
-                              {it.pageStart ? ` · עמ׳ ${it.pageStart}${it.pageEnd && it.pageEnd !== it.pageStart ? `–${it.pageEnd}` : ''}` : ''}
+                              {it.pageStart ? ` · עמ׳ ${pageRange(it.pageStart, it.pageEnd)}` : ''}
                             </span>
                           </span>
                           {it.verification !== 'verified' && <span className="chip verify">לבדיקה</span>}
@@ -219,7 +220,7 @@ function LsNavigator({ volumeId }: { volumeId: string }) {
                   <li key={s.id}>
                     <button className="nav-item" onClick={() => setOpenId(s.id)}>
                       <span className={`nav-dot ${p.allDone ? 'done' : p.done > 0 ? 'part' : ''}`}>{p.allDone && <IconCheck width={14} height={14} />}</span>
-                      <span className="grow"><span className="serif nav-item-t">{s.heTitle}{s.topic ? ` — ${s.topic}` : ''}</span><span className="nav-item-s">{p.total != null ? `${p.done}/${p.total} אותיות` : 'אותיות לא אומתו'}{s.pageStart ? ` · עמ׳ ${s.pageStart}${s.pageEnd ? `–${s.pageEnd}` : ''}` : ''}</span></span>
+                      <span className="grow"><span className="serif nav-item-t">{s.heTitle}{s.topic ? ` — ${s.topic}` : ''}</span><span className="nav-item-s">{p.total != null ? `${p.done}/${p.total} אותיות` : 'אותיות לא אומתו'}{s.pageStart ? ` · עמ׳ ${pageRange(s.pageStart, s.pageEnd)}` : ''}</span></span>
                       {s.verification !== 'verified' && <span className="chip verify">לבדיקה</span>}
                       <IconChevron />
                     </button>
@@ -345,7 +346,7 @@ function MaamarimNavigator() {
         <Stat label="שנה" value="תשי״א" />
         <Stat label="סיום" value="כ״ט אלול" />
       </div>
-      {cur && <button className="nav-continue" onClick={() => setOpenId(cur.m.id)}><span className="nav-continue-k">המאמר הנוכחי</span><span className="serif nav-continue-t">ד״ה {cur.m.heTitle}</span><span className="faint">{formatCivilHe(cur.w.start)} – {formatCivilHe(cur.w.end)}</span></button>}
+      {cur && <button className="nav-continue" onClick={() => setOpenId(cur.m.id)}><span className="nav-continue-k">המאמר הנוכחי</span><span className="serif nav-continue-t">ד״ה {cur.m.heTitle}</span><span className="faint">{dateRange(formatCivilHe(cur.w.start), formatCivilHe(cur.w.end))}</span></button>}
       <p className="faint nav-note">הסדר לפי לוח הלימוד (ואלה המשפטים תחילה; באתי לגני והיושבת בגנים לפני י׳ שבט). המעקב לפי עמודי ״התוועדויות״ עד שתזין חלוקה לאותיות/סעיפים לפי ספר המאמרים שלך.</p>
       <ul className="nav-list">
         {rows.map(({ w, m, p }) => {
@@ -354,7 +355,7 @@ function MaamarimNavigator() {
             <li key={m.id}>
               <button className="nav-item" onClick={() => setOpenId(m.id)}>
                 <span className={`nav-dot ${p.allDone ? 'done' : p.done > 0 ? 'part' : ''}`}>{p.allDone && <IconCheck width={14} height={14} />}</span>
-                <span className="grow"><span className="serif nav-item-t">ד״ה {m.heTitle}</span><span className="nav-item-s">{m.heDate} · {formatCivilHe(w.start)} – {formatCivilHe(w.end)}{w.fixed ? ' · קבוע' : ''} · {p.total != null ? `${p.done}/${p.total}` : 'לא אומת'}</span></span>
+                <span className="grow"><span className="serif nav-item-t">ד״ה {m.heTitle}</span><span className="nav-item-s">{m.heDate} · {dateRange(formatCivilHe(w.start), formatCivilHe(w.end))} · {p.total != null ? `${p.done}/${p.total}` : 'לא אומת'}</span></span>
                 <span className={`chip ${status === 'done' ? 'done' : status === 'overdue' ? 'overdue' : status === 'current' ? 'current' : 'scheduled'}`}>{status === 'done' ? 'הושלם' : status === 'overdue' ? 'בפיגור' : status === 'current' ? 'עכשיו' : 'עתידי'}</span>
                 <IconChevron />
               </button>

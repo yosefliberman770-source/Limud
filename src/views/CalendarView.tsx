@@ -1,3 +1,4 @@
+import { dateRange } from '@/app/format';
 import { useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
@@ -87,7 +88,7 @@ export function CalendarView({ date }: { date?: string }) {
           {sCh.map((c) => <span key={c} className="chip">{c}</span>)}
           {special[sel] && <span className="chip current">{special[sel]}</span>}
         </div>
-        {sWin && <p style={{ fontSize: 'var(--fs-sm)' }}>מאמר: <b className="serif">ד״ה {sWin.heTitle}</b> ({formatCivilHe(sWin.start)} – {formatCivilHe(sWin.end)}){sWin.fixed ? ' · חלון קבוע' : ''}</p>}
+        {sWin && <p style={{ fontSize: 'var(--fs-sm)' }}>מאמר: <b className="serif">ד״ה {sWin.heTitle}</b> ({dateRange(formatCivilHe(sWin.start), formatCivilHe(sWin.end))})</p>}
         {sTargets.map((t) => { const it = tmItem(t.itemId); const g = it && tmGathering(it.gatheringId); return <p key={t.itemId} style={{ fontSize: 'var(--fs-sm)' }}>שיחה: {g?.occasion.label ?? t.originalLabel} — <span className="faint">{t.explanationHe}</span></p>; })}
         <p className="muted" style={{ fontSize: 'var(--fs-sm)', marginTop: 6 }}>שיעורים יומיים: {sInfo.done}/{sInfo.total}</p>
         <div className="row" style={{ marginTop: 10 }}>

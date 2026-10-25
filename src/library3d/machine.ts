@@ -118,6 +118,7 @@ export function initialController(): Controller {
 /** Duration of a tween covering |Δp| stages. */
 export function tweenDuration(deltaP: number, motion: 'full' | 'short' | 'off'): number {
   if (motion === 'off') return 0;
-  const perStage = motion === 'short' ? 0.26 : 0.62;
+  // putting a book back is quicker than the opening flourish; neither should keep a hurried reader waiting
+  const perStage = (motion === 'short' ? 0.26 : 0.55) * (deltaP < 0 ? 0.45 : 1);
   return Math.max(0.12, Math.abs(deltaP) * perStage);
 }

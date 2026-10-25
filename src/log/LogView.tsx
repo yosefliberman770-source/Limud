@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useStore } from '@/app/store';
 import { IconCheck, IconLink, IconUndo } from '@/app/icons';
 import { workProgress, verificationHe, type LogWork } from './model';
@@ -24,7 +24,6 @@ export function LogView({ work, intendedDate, compact, onClose }: LogViewProps) 
   const setNote = useStore((s) => s.setNote);
   const showToast = useStore((s) => s.showToast);
   const bump = useStore((s) => s.bump);
-  const [confirmAll, setConfirmAll] = useState<null | 'complete' | 'clear'>(null);
   const [editingSections, setEditingSections] = useState(false);
   const [noteOpen, setNoteOpen] = useState(false);
 
@@ -45,30 +44,34 @@ export function LogView({ work, intendedDate, compact, onClose }: LogViewProps) 
     }
   };
   const markNext = () => { if (next) onToggle(next.unitId); };
+  const refs = () => (work.sections ?? []).map((sec) => ({ programId: work.programId, unitId: sec.unitId, occurrenceKey: occ }));
   const completeAll = () => {
     if (!work.sections) return;
-    setMany(work.sections.map((s) => ({ programId: work.programId, unitId: s.unitId, occurrenceKey: occ })), true, intended);
-    setConfirmAll(null);
-    showToast('כל האותיות סומנו', () => setMany(work.sections!.map((s) => ({ programId: work.programId, unitId: s.unitId, occurrenceKey: occ })), false, intended));
+    const before = refs().filter((r) => isDone(r.unitId));
+    setMany(refs(), true, intended);
+    showToast('כל האותיות סומנו', () => { setMany(refs(), false, intended); setMany(before, true, intended); });
   };
   const clearAll = () => {
     if (!work.sections) return;
-    setMany(work.sections.map((s) => ({ programId: work.programId, unitId: s.unitId, occurrenceKey: occ })), false, intended);
-    setConfirmAll(null);
+    const before = refs().filter((r) => isDone(r.unitId));
+    setMany(refs(), false, intended);
+    showToast('הסימונים נוקו', () => setMany(before, true, intended));
   };
+
+  // Reopen where the learner stopped: bring the next unfinished unit into view.
+  const listRef = useRef<HTMLUListElement>(null);
+  useEffect(() => {
+    if (compact) return;
+    const el = listRef.current?.querySelector<HTMLElement>('.is-next');
+    if (el) el.scrollIntoView({ block: 'center' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [work.id, occ]);
 
   return (
     <article className={`log ${compact ? 'compact' : ''}`} aria-label={work.titleHe}>
       <header className="log-head">
         <div className="log-kicker">{work.subtitleHe}</div>
         <h2 className="log-title display">{work.titleHe}</h2>
-        {!compact && (
-          <dl className="log-meta">
-            {work.meta.map((m) => (
-              <div key={m.label}><dt>{m.label}</dt><dd>{m.value}</dd></div>
-            ))}
-          </dl>
-        )}
       </header>
 
       {work.sections && (
@@ -78,13 +81,25 @@ export function LogView({ work, intendedDate, compact, onClose }: LogViewProps) 
             {progress.allDone ? <span className="chip done">הושלם</span> : next ? <span className="serif log-next">המשך מכאן: <b>{next.label}</b></span> : null}
           </div>
           <div className="bar paper" aria-hidden><i style={{ width: `${progress.total ? (progress.done / progress.total) * 100 : 0}%` }} /></div>
+          {next && <button className="btn primary log-mark-next" onClick={markNext}>סמן {next.label} כנלמד</button>}
         </div>
       )}
 
-      {work.sectionsNoteHe && <p className="log-note-src">{work.sectionsNoteHe} <span className="chip verify">{verificationHe(work.sectionsVerification)}</span></p>}
+      {!compact && (
+        <details className="log-details">
+          <summary>פרטים ומקור</summary>
+          <dl className="log-meta">
+            {work.meta.map((m) => (
+              <div key={m.label}><dt>{m.label}</dt><dd>{m.value}</dd></div>
+            ))}
+          </dl>
+          {work.sectionsNoteHe && <p className="log-note-src">{work.sectionsNoteHe} <span className="chip verify">{verificationHe(work.sectionsVerification)}</span></p>}
+          {work.sections && <button className="btn ghost sm" onClick={() => setEditingSections(true)}>תקן חלוקה לאותיות</button>}
+        </details>
+      )}
 
       {work.sections ? (
-        <ul className="log-list" role="group" aria-label="רשימת סימון">
+        <ul className="log-list" role="group" aria-label="רשימת סימון" ref={listRef}>
           {work.sections.map((s, i) => {
             const done = isDone(s.unitId);
             const isNext = progress.nextIndex === i;
@@ -118,13 +133,16 @@ export function LogView({ work, intendedDate, compact, onClose }: LogViewProps) 
       )}
 
       <footer className="log-actions">
-        {next && <button className="btn primary" onClick={markNext}>סמן {next.label}</button>}
-        {work.sections && !progress.allDone && <button className="btn paper" onClick={() => setConfirmAll('complete')}>סמן הכל</button>}
-        {work.sections && progress.done > 0 && <button className="btn paper" onClick={() => setConfirmAll('clear')} aria-label="נקה סימונים"><IconUndo /> נקה</button>}
-        {work.sections && !compact && <button className="btn ghost sm" onClick={() => setEditingSections(true)}>תקן חלוקה</button>}
-        <button className="btn ghost sm" onClick={() => setNoteOpen((v) => !v)}>{note ? 'הערה ✎' : 'הוסף הערה'}</button>
-        {work.url && <a className="btn ghost sm" href={work.url} target="_blank" rel="noreferrer"><IconLink /> מקור</a>}
-        {onClose && <button className="btn ghost sm" onClick={onClose}>סגור</button>}
+        <details className="log-more">
+          <summary className="btn paper">עוד</summary>
+          <div className="log-more-body">
+            {work.sections && !progress.allDone && <button className="btn paper" onClick={completeAll}>סמן הכל</button>}
+            {work.sections && progress.done > 0 && <button className="btn paper" onClick={clearAll}><IconUndo /> נקה סימונים</button>}
+            <button className="btn paper" onClick={() => setNoteOpen((v) => !v)}>{note ? 'ערוך הערה ✎' : 'הוסף הערה'}</button>
+            {work.url && <a className="btn paper" href={work.url} target="_blank" rel="noreferrer"><IconLink /> מקור</a>}
+            {onClose && <button className="btn paper" onClick={onClose}>סגור</button>}
+          </div>
+        </details>
       </footer>
 
       {noteOpen && (
@@ -132,15 +150,6 @@ export function LogView({ work, intendedDate, compact, onClose }: LogViewProps) 
       )}
       {!noteOpen && note && <p className="log-note-text">✎ {note}</p>}
 
-      {confirmAll && (
-        <div className="log-confirm" role="alertdialog" aria-modal="true" aria-label="אישור">
-          <p>{confirmAll === 'complete' ? `לסמן את כל ${progress.total} היחידות כנלמדו?` : 'לנקות את כל הסימונים ביחידה זו? (ניתן לבטל)'}</p>
-          <div className="row">
-            <button className="btn primary" onClick={confirmAll === 'complete' ? completeAll : clearAll}>כן</button>
-            <button className="btn paper" onClick={() => setConfirmAll(null)}>לא</button>
-          </div>
-        </div>
-      )}
     </article>
   );
 }

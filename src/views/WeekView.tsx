@@ -1,3 +1,4 @@
+import { dateRange, pageRange } from '@/app/format';
 import { useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
@@ -75,7 +76,7 @@ export function WeekView({ date }: { date?: string }) {
         {ls.sichos.map((s) => {
           const w = workFromLsSicha(s, db.customSections.get(s.id), volLabel(s.volumeId));
           const p = workProgress(w, (u) => isDone('likkutei_sichos', u));
-          return <WorkRow key={s.id} work={w} progress={p} badge={p.allDone ? { cls: 'done', text: 'הושלם' } : { cls: 'scheduled', text: `עד ${formatCivilHe(week.shabbos)}` }} sub={`${volLabel(s.volumeId)}${s.pageStart ? ` · עמ׳ ${s.pageStart}–${s.pageEnd}` : ''}${s.topic ? ` · ${s.topic}` : ''}`} expanded={expanded === s.id} onToggle={() => setExpanded(expanded === s.id ? null : s.id)} />;
+          return <WorkRow key={s.id} work={w} progress={p} badge={p.allDone ? { cls: 'done', text: 'הושלם' } : { cls: 'scheduled', text: `עד ${formatCivilHe(week.shabbos)}` }} sub={`${volLabel(s.volumeId)}${s.pageStart ? ` · עמ׳ ${pageRange(s.pageStart, s.pageEnd)}` : ''}${s.topic ? ` · ${s.topic}` : ''}`} expanded={expanded === s.id} onToggle={() => setExpanded(expanded === s.id ? null : s.id)} />;
         })}
         {ls.festivalSichos.map(({ sicha, date: d }) => {
           const w = workFromLsSicha(sicha, db.customSections.get(sicha.id), volLabel(sicha.volumeId));
@@ -89,7 +90,7 @@ export function WeekView({ date }: { date?: string }) {
         {weekTargets.length === 0 && weekWindows.length === 0 && <Empty text="אין שיחה או מאמר מתוכננים השבוע." />}
         {weekWindows.map((w) => {
           const m = maamarimCatalogue.maamarim.find((x) => x.id === w.maamarId)!;
-          return <button key={w.maamarId} className="week-link" onClick={() => navigate({ name: 'log', programId: 'tm_maamarim', workId: m.id })}><span className="chip current">מאמר</span><span className="grow serif">ד״ה {m.heTitle}</span><span className="faint">{formatCivilHe(w.start)} – {formatCivilHe(w.end)}</span><IconChevron /></button>;
+          return <button key={w.maamarId} className="week-link" onClick={() => navigate({ name: 'log', programId: 'tm_maamarim', workId: m.id })}><span className="chip current">מאמר</span><span className="grow serif">ד״ה {m.heTitle}</span><span className="faint">{dateRange(formatCivilHe(w.start), formatCivilHe(w.end))}</span><IconChevron /></button>;
         })}
         {weekTargets.map((t) => {
           const it = tmItem(t.itemId)!;

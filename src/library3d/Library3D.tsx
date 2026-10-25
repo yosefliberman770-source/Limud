@@ -48,6 +48,8 @@ export function Library3D({ layout, controller, quality, dueIds, onActivate, inv
 
   // Freeze scrolling while a book is out.
   const locked = controller.activeId !== null;
+  // while a book is on its way back the shelf already accepts the next tap (the controller queues it)
+  const returning = controller.state === 'BOOK_RETURNING' || controller.state === 'FOLIOS_CLOSING';
   useEffect(() => { if (container.current) container.current.style.overflowY = locked ? 'hidden' : 'auto'; }, [locked]);
 
   // Bring a volume into view (for deep links / "continue" shortcuts).
@@ -66,7 +68,7 @@ export function Library3D({ layout, controller, quality, dueIds, onActivate, inv
 
   const high = quality === 'high';
   return (
-    <div ref={container} className="lib3d-scroll" onScroll={onScroll} role="group" aria-label="מדפי הספרים">
+    <div ref={container} className="lib3d-scroll" onScroll={onScroll} onPointerDown={() => controller.skipOpening()} role="group" aria-label="מדפי הספרים">
       <div className="lib3d-spacer" style={{ height: spacerH }} />
       <div className="lib3d-sticky" style={{ height: vh }}>
         <Canvas
@@ -87,7 +89,7 @@ export function Library3D({ layout, controller, quality, dueIds, onActivate, inv
             anim={controller.anim}
             scrollRef={scrollRef}
             dueIds={dueIds}
-            interactive={controller.activeId === null}
+            interactive={controller.activeId === null || returning}
             onPressStart={controller.press}
             onPressEnd={() => controller.press(null)}
             onActivate={(id) => { controller.press(null); onActivate(id); }}

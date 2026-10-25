@@ -1,3 +1,4 @@
+import { pageRange } from '@/app/format';
 import { useMemo, useState } from 'react';
 import { useStore } from '@/app/store';
 import { navigate } from '@/app/router';
@@ -33,7 +34,7 @@ export function SearchView({ q: initial }: { q?: string }) {
     for (const s of likkuteiSichos.sichos) {
       const v = likkuteiSichos.volumes.find((x) => x.id === s.volumeId);
       out.push({
-        kind: 'לקו״ש', title: `${s.heParsha} — ${s.heTitle}${s.topic ? `: ${s.topic}` : ''}`, sub: `לקוטי שיחות חלק ${v?.heNumber ?? ''} · עמ׳ ${s.pageStart ?? '?'}–${s.pageEnd ?? '?'} · ${s.sectionCount ?? '?'} אותיות`,
+        kind: 'לקו״ש', title: `${s.heParsha} — ${s.heTitle}${s.topic ? `: ${s.topic}` : ''}`, sub: `לקוטי שיחות חלק ${v?.heNumber ?? ''} · עמ׳ ${pageRange(s.pageStart ?? '?', s.pageEnd ?? '?')} · ${s.sectionCount ?? '?'} אותיות`,
         hay: n(`לקוטי שיחות לקו״ש חלק ${v?.heNumber ?? ''} ${v?.sefer ?? ''} ${s.heParsha} ${s.heTitle} ${s.topic ?? ''} ${s.occasion ?? ''} ${s.pageStart ?? ''}`), verification: s.verification,
         go: () => navigate({ name: 'log', programId: 'likkutei_sichos', workId: s.id }),
       });
@@ -42,7 +43,7 @@ export function SearchView({ q: initial }: { q?: string }) {
     for (const v of vols) out.push({ kind: 'ספר', title: v.coverTitle, sub: v.spineSubtitle ?? 'על המדף', hay: n(`${v.coverTitle} ${v.spineTitle} ${v.spineSubtitle ?? ''}`), verification: 'verified', go: () => navigate({ name: 'library', bookId: v.id }) });
     for (const m of SHAS) {
       const vol = shasVolumes().find((v) => v.canonicalIds.includes(`masechta:${m.name}`));
-      out.push({ kind: 'מסכת', title: `מסכת ${masechtaHe(m.name)}`, sub: `${m.seder} · ${m.name} · דפים ${m.firstDaf}–${m.lastDaf}`, hay: n(`מסכת ${m.he} ${m.name} ש״ס גמרא תלמוד ${m.seder}`), verification: 'verified', go: () => vol && navigate({ name: 'library', bookId: vol.id }) });
+      out.push({ kind: 'מסכת', title: `מסכת ${masechtaHe(m.name)}`, sub: `${m.seder} · ${m.name} · דפים ${pageRange(m.firstDaf, m.lastDaf)}`, hay: n(`מסכת ${m.he} ${m.name} ש״ס גמרא תלמוד ${m.seder}`), verification: 'verified', go: () => vol && navigate({ name: 'library', bookId: vol.id }) });
     }
     for (const p of PARSHIOT) {
       const hy = 5787;
