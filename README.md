@@ -61,5 +61,6 @@ cd android && ./gradlew assembleDebug     # APK ב-android/app/build/outputs/apk
 
 * מבנה הקוד, מקורות הנתונים ומה שלא אומת: `docs/VERIFICATION_REPORT.md`
 * סטטוס כל יכולת: `docs/FEATURE_STATUS.md`
+* דוח הפשטה, ביצועים ובדיקות (מה נבדק ומה לא): `docs/OVERHAUL_REPORT.md`
 * מערכת העיצוב: `docs/DESIGN_SYSTEM.md`
 * עיצוב הספרים (שחזור וקטורי מאפס, כולל מה שלא ודאי): `docs/BOOK_DESIGNS.md` — סימני ההוצאה ועיטורי הכריכות הם שחזורים; לשימוש אישי בלבד
