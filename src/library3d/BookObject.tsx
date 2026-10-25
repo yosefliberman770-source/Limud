@@ -64,11 +64,12 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
   // (The procedural textures stay as the instant placeholder / fallback.)
   const base = import.meta.env.BASE_URL ?? '/';
   const art = useRef<{ spine: THREE.Texture | null; cover: THREE.Texture | null; back: THREE.Texture | null; faces: { cover: boolean; back: boolean }; spineRequested: boolean; cancelled: boolean }>({ spine: null, cover: null, back: null, faces: { cover: false, back: false }, spineRequested: false, cancelled: false });
-  const loadFace = (face: 'cover' | 'back') => {
+  const dist = () => Math.abs(home.y - camera.position.y);
+  const loadFace = (face: 'cover' | 'back', prefetch = false) => {
     const a = art.current;
     if (a.faces[face] || !vol.design) return;
     a.faces[face] = true;
-    void artTexture(vol, face, quality, base).then((t) => {
+    void artTexture(vol, face, quality, base, () => (prefetch ? (dist() < ROW_PITCH * 1.2 ? 1000 + dist() : Infinity) : -1)).then((t) => {
       if (a.cancelled) { t.dispose(); return; }
       const mat = face === 'cover' ? assets.mCover : assets.mBack;
       a[face] = t; mat.color.set('#ffffff'); mat.map = t; mat.needsUpdate = true; invalidate();
@@ -80,12 +81,12 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     const a = art.current;
     if (a.spineRequested || !vol.design) return;
     a.spineRequested = true;
-    void artTexture(vol, 'spine', quality, base).then((t) => {
+    void artTexture(vol, 'spine', quality, base, dist).then((t) => {
       if (a.cancelled) { t.dispose(); return; }
       a.spine = t; assets.mSpine.color.set('#ffffff'); assets.mSpine.map = t; assets.mSpine.needsUpdate = true; invalidate();
       // books on screen are the likeliest to be opened: warm their cover while the device is idle so opening feels instant
       const idle = (window as unknown as { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 400));
-      idle(() => { if (!a.cancelled && Math.abs(home.y - camera.position.y) < ROW_PITCH * 1.2) loadFace('cover'); });
+      idle(() => { if (!a.cancelled && Math.abs(home.y - camera.position.y) < ROW_PITCH * 1.2) loadFace('cover', true); });
     }).catch((e) => { a.spineRequested = false; console.warn('[books] spine art unavailable', vol.id, e); });
   };
   useEffect(() => {

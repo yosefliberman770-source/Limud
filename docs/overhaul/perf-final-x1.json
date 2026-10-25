@@ -1,0 +1,79 @@
+{
+ "throttle": 1,
+ "base": "http://localhost:4173/",
+ "todayReadyMs": 515,
+ "todayLongTasksMs": 255,
+ "todayHeapMB": 14,
+ "todayCanvases": 1,
+ "libraryFirstFrameMs": 1239,
+ "libraryLongTasksMs": 3038,
+ "libraryHeapMB": 21,
+ "libraryCanvasesCreated": 70,
+ "stats": {
+  "calls": 311,
+  "triangles": 1436,
+  "frame": 8,
+  "geometries": 99,
+  "textures": 51,
+  "programs": 3,
+  "meshes": [
+   708,
+   708
+  ],
+  "camY": -6.218446601941743
+ },
+ "idleRendersPer3s": 5,
+ "idleRafPer3s": 10,
+ "scroll": {
+  "frames": 148,
+  "medianMs": 331,
+  "p95Ms": 393,
+  "maxMs": 852
+ },
+ "jumpToLowerRows": {
+  "texturesBefore": 107,
+  "texturesAfter": 107,
+  "settledMs": 424
+ },
+ "openToSheetMs": [
+  1486,
+  1059,
+  1314,
+  1667,
+  960,
+  1241,
+  952,
+  725,
+  962,
+  916,
+  1178,
+  1214
+ ],
+ "memoryAfterNOpens": [
+  {
+   "n": 3,
+   "heapMB": 27,
+   "geometries": 249,
+   "textures": 110
+  },
+  {
+   "n": 6,
+   "heapMB": 30,
+   "geometries": 252,
+   "textures": 114
+  },
+  {
+   "n": 9,
+   "heapMB": 25,
+   "geometries": 252,
+   "textures": 114
+  },
+  {
+   "n": 12,
+   "heapMB": 24,
+   "geometries": 252,
+   "textures": 114
+  }
+ ],
+ "totalLongTasksMs": 92555
+}

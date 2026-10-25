@@ -64,6 +64,12 @@ const BASE = process.env.BASE || 'http://localhost:4173/';
   R.scroll = scroll;
   await page.evaluate(() => { document.querySelector('.lib3d-scroll').scrollTop = 0; });
   await page.waitForTimeout(500);
+  // jump to the Shas rows and time how long until their spine art has finished loading (texture count stops changing)
+  { const t = Date.now(); const before = await page.evaluate(() => window.__seder_stats().textures);
+    await page.evaluate(() => { document.querySelector('.lib3d-scroll').scrollTop = 4200; });
+    let last = -1, same = 0; while (same < 3 && Date.now() - t < 60000) { await page.waitForTimeout(400); const n = await page.evaluate(() => window.__seder_stats().textures); same = n === last ? same + 1 : 0; last = n; }
+    R.jumpToLowerRows = { texturesBefore: before, texturesAfter: last, settledMs: Date.now() - t - 1200 };
+    await page.evaluate(() => { document.querySelector('.lib3d-scroll').scrollTop = 0; }); await page.waitForTimeout(800); }
 
   // 5. open / close books repeatedly; watch memory and GPU resource counts
   const ids = ['pv-tm-5710-01', 'pv-chitas', 'pv-rambam-3', 'pv-ramban-shemos', 'pv-ls-10', 'pv-tm-maamarim-5711'];

@@ -111,7 +111,7 @@ export function LibraryScene({ layout, quality, anim, scrollRef, dueIds, interac
     }
     const fog = scene.fog as THREE.Fog | null;
     if (fog) { fog.near = 400 - 300 * eased; fog.far = 900 - 560 * eased; }
-  });
+  }, -1); // runs before the books' own frame callbacks, so they see this frame's camera (not last frame's)
 
   return (
     <>
