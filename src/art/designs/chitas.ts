@@ -2,8 +2,8 @@ import type { ArtDesign, DesignContext } from './types';
 import { cornerCurl, f2, foilGradient, foilStampFilter, kehotMark, leatherFilter, rosette, svgDoc, text } from '../svgkit';
 
 /** ספר חת״ת — חומש, תהלים, תניא · סדור תהלת ה׳ · היום יום: maroon leatherette, gold frame, giant gold ח ת ת with red words. */
-const MAROON = '#5a1c22';
-const RED = '#c9282f';
+const MAROON = '#66232a';
+const RED = '#b81f27';
 
 function defs(w: number, h: number, id: string): string {
   return `${leatherFilter(`lea-${id}`, { base: MAROON, freq: 2.2, bump: 0.9, gain: 1.4, seed: 5, veining: false })}
@@ -12,20 +12,23 @@ ${foilGradient(`gold-${id}`, 'paleGold', w, h)}${foilStampFilter(`stamp-${id}`)}
 }
 
 /** The title block, drawn in a 160 × 230 coordinate frame and scaled/translated onto the cover or spine. */
-function titleBlock(id: string, withSubtitle = true): string {
+/** Measured from the rectified reference (735 × 1024 px → 160 × 230 mm). Text anchors are centres.
+ *  Each row is a giant gold initial plus the rest of the word in red, set flush against it. Gold is foil-stamped; the red is printed ink. */
+function goldBlock(id: string, withSubtitle = true): string {
   const gold = `url(#gold-${id})`;
-  // Measured from the rectified reference (735 × 1024 px → 160 × 230 mm). Text anchors are centres.
-  // Each row is a giant gold initial plus the rest of the word in red, set flush against it.
   return `
 ${text({ x: 78, y: 60.5, size: 11, font: 'block', weight: 700, fill: gold, text: 'ספר', width: 18.5 })}
 ${text({ x: 105.5, y: 84, size: 52, font: 'serifDisplay', weight: 400, fill: gold, text: 'ח', width: 23 })}
 ${text({ x: 99.5, y: 108, size: 44, font: 'serifDisplay', weight: 400, fill: gold, text: 'ת', width: 23 })}
 ${text({ x: 107, y: 133.6, size: 49, font: 'serifDisplay', weight: 400, fill: gold, text: 'ת', width: 25 })}
-${text({ x: 70, y: 85, size: 29, font: 'block', weight: 700, fill: RED, text: 'ומש', width: 44 })}
-${text({ x: 61.5, y: 104.5, size: 27, font: 'block', weight: 700, fill: RED, text: 'הלים', width: 49 })}
-${text({ x: 77, y: 127, size: 27, font: 'block', weight: 700, fill: RED, text: 'ניא', width: 34 })}
 ${rosette(49.5, 115, 6.2, gold)}
 ${withSubtitle ? `${text({ x: 61, y: 137, size: 11, font: 'block', weight: 600, fill: gold, text: 'סדור תהלת ה׳', width: 47.5 })}${text({ x: 72, y: 144.5, size: 9, font: 'block', weight: 600, fill: gold, text: 'היום יום', width: 25.7 })}` : ''}`;
+}
+function redBlock(): string {
+  return `
+${text({ x: 70, y: 85, size: 29, font: 'block', weight: 700, fill: RED, text: 'ומש', width: 44 })}
+${text({ x: 61.5, y: 104.5, size: 27, font: 'block', weight: 700, fill: RED, text: 'הלים', width: 49 })}
+${text({ x: 77, y: 127, size: 27, font: 'block', weight: 700, fill: RED, text: 'ניא', width: 34 })}`;
 }
 
 function cover(c: DesignContext): string {
@@ -38,8 +41,9 @@ function cover(c: DesignContext): string {
 <rect x="${x0}" y="${y0}" width="${f2(x1 - x0)}" height="${f2(y1 - y0)}" fill="none" stroke="${gold}" stroke-width="0.8"/>
 <rect x="${f2(x0 + 2.6)}" y="${f2(y0 + 2.6)}" width="${f2(x1 - x0 - 5.2)}" height="${f2(y1 - y0 - 5.2)}" fill="none" stroke="${RED}" stroke-width="0.5"/>
 ${cornerCurl(x0 - 1.5, y0 - 1.5, 1, 1, gold, RED, 1)}${cornerCurl(x1 + 1.5, y0 - 1.5, -1, 1, gold, RED, 1)}${cornerCurl(x0 - 1.5, y1 + 1.5, 1, -1, gold, RED, 1)}${cornerCurl(x1 + 1.5, y1 + 1.5, -1, -1, gold, RED, 1)}
-${titleBlock(id)}
+${goldBlock(id)}
 </g>
+${redBlock()}
 <rect width="${W}" height="${H}" fill="url(#wear-${id})"/>`;
   return svgDoc({ w: W, h: H, defs: defs(W, H, id), body });
 }
@@ -55,9 +59,10 @@ function spine(c: DesignContext): string {
 <rect x="4.2" y="7" width="${f2(T - 8.4)}" height="${f2(H - 14)}" fill="none" stroke="${gold}" stroke-width="0.7"/>
 <rect x="6.6" y="9.4" width="${f2(T - 13.2)}" height="${f2(H - 18.8)}" fill="none" stroke="${RED}" stroke-width="0.4"/>
 ${cornerCurl(3, 5.8, 1, 1, gold, RED, 0.62)}${cornerCurl(T - 3, 5.8, -1, 1, gold, RED, 0.62)}${cornerCurl(3, H - 5.8, 1, -1, gold, RED, 0.62)}${cornerCurl(T - 3, H - 5.8, -1, -1, gold, RED, 0.62)}
-<g transform="translate(${f2(T / 2 - 80 * k - 2)} ${f2(34 - 58.8 * k)}) scale(${f2(k)})">${titleBlock(id)}</g>
+<g transform="translate(${f2(T / 2 - 80 * k - 2)} ${f2(34 - 58.8 * k)}) scale(${f2(k)})">${goldBlock(id)}</g>
 ${kehotMark(T / 2, H - 38, Math.min(24, T - 16), gold, MAROON)}
 </g>
+<g transform="translate(${f2(T / 2 - 80 * k - 2)} ${f2(34 - 58.8 * k)}) scale(${f2(k)})">${redBlock()}</g>
 <rect width="${T}" height="${H}" fill="url(#wear-${id})" opacity="0.7"/>`;
   return svgDoc({ w: T, h: H, defs: defs(T, H, id), body });
 }

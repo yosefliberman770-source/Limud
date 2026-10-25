@@ -36,17 +36,19 @@ export function text(o: TextOpts): string {
 
 /* ------------------------------------------------------------------ materials */
 
-export interface LeatherOpts { base: string; seed?: number; freq?: number; bump?: number; gain?: number; veining?: boolean }
+export interface LeatherOpts { base: string; seed?: number; freq?: number; bump?: number; gain?: number; veining?: boolean; /** 0..1 — how much of the grain relief shows over the flat colour (default 0.55) */ strength?: number }
 
 /** Pebbled leather / leatherette: fractal noise lit as a height map and multiplied into the binding colour. */
 export function leatherFilter(id: string, o: LeatherOpts): string {
-  const freq = o.freq ?? 1.6, bump = o.bump ?? 1.4, gain = o.gain ?? 1.35;
+  // user-space frequency is per millimetre: keep the grain coarser than a texture pixel (≈ 1 mm) so it never aliases into speckle
+  const freq = Math.min(o.freq ?? 1.6, 3) * 0.4, bump = (o.bump ?? 1.4) * 0.7, gain = o.gain ?? 1.35, k = o.strength ?? 0.55;
   return `<filter id="${id}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
 <feTurbulence type="fractalNoise" baseFrequency="${freq}" numOctaves="3" seed="${o.seed ?? 3}" result="n"/>
 <feDiffuseLighting in="n" lighting-color="#ffffff" surfaceScale="${bump}" diffuseConstant="1.05" result="lit"><feDistantLight azimuth="235" elevation="58"/></feDiffuseLighting>
 <feComponentTransfer in="lit" result="lit2"><feFuncR type="linear" slope="${gain}"/><feFuncG type="linear" slope="${gain}"/><feFuncB type="linear" slope="${gain}"/></feComponentTransfer>
 <feFlood flood-color="${o.base}" result="c"/>
-<feBlend in="lit2" in2="c" mode="multiply"/>
+<feBlend in="lit2" in2="c" mode="multiply" result="m"/>
+<feComposite in="m" in2="c" operator="arithmetic" k1="0" k2="${k}" k3="${f2(1 - k)}" k4="0"/>
 ${o.veining ? `<feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="${(o.seed ?? 3) + 9}" result="v"/><feColorMatrix in="v" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.0" result="va"/><feComposite in="va" in2="SourceGraphic" operator="in" result="vv"/>` : ''}
 </filter>`;
 }
@@ -54,13 +56,14 @@ ${o.veining ? `<feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numO
 /** Woven book cloth: horizontal+vertical fine thread pattern over a tone-on-tone noise. */
 export function clothFilter(id: string, base: string, seed = 5): string {
   return `<filter id="${id}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-<feTurbulence type="fractalNoise" baseFrequency="0.9 3.2" numOctaves="2" seed="${seed}" result="h"/>
-<feTurbulence type="fractalNoise" baseFrequency="3.2 0.9" numOctaves="2" seed="${seed + 1}" result="v"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.45 1.5" numOctaves="2" seed="${seed}" result="h"/>
+<feTurbulence type="fractalNoise" baseFrequency="1.5 0.45" numOctaves="2" seed="${seed + 1}" result="v"/>
 <feBlend in="h" in2="v" mode="screen" result="w"/>
 <feDiffuseLighting in="w" lighting-color="#fff" surfaceScale="0.9" diffuseConstant="1.1" result="lit"><feDistantLight azimuth="235" elevation="62"/></feDiffuseLighting>
 <feComponentTransfer in="lit" result="lit2"><feFuncR type="linear" slope="1.25"/><feFuncG type="linear" slope="1.25"/><feFuncB type="linear" slope="1.25"/></feComponentTransfer>
 <feFlood flood-color="${base}" result="c"/>
-<feBlend in="lit2" in2="c" mode="multiply"/>
+<feBlend in="lit2" in2="c" mode="multiply" result="m"/>
+<feComposite in="m" in2="c" operator="arithmetic" k1="0" k2="0.6" k3="0.4" k4="0"/>
 </filter>`;
 }
 
