@@ -51,15 +51,18 @@ describe('vector cover art', () => {
     expect(ls.cover).toContain('לקוטי שיחות'); expect(ls.cover).toContain('>י<');
 
     const ch = faces('chitas', []);
-    for (const s of ['ספר', 'ומש', 'הלים', 'ניא', 'סדור תהלת ה׳', 'היום יום']) expect(ch.cover).toContain(s);
-    expect(ch.cover).not.toContain('>חומש<'); // the ח/ת/ת initials are the giant gold letters
+    // the giant gold ח ת ת and the red ומש / הלים / ניא are vector traces of the printed lettering (paths, not text)
+    for (const s of ['ספר', 'סדור תהלת ה׳', 'היום יום']) expect(ch.cover).toContain(s);
+    expect(ch.cover.match(/fill-rule="evenodd"/g)!.length).toBeGreaterThanOrEqual(2);
 
     const sh = faces('shas-ozvehadar', ['בבא קמא'], { h: 29, w: 20.5, t: 5 });
-    for (const s of ['תלמוד בבלי', 'עוז והדר', 'עם הרבה הוספות']) expect(sh.cover).toContain(s);
+    // title + 'עוז והדר' are traced vector letterforms; the cartouche line and the arched Friedman line are real text
+    expect(sh.cover).toContain('עם הרבה הוספות'); expect(sh.cover).toContain('<textPath'); expect(sh.cover).toContain('מהדורת פרידמאן');
+    expect(sh.cover.match(/fill-rule="evenodd"/g)!.length).toBeGreaterThanOrEqual(2);
     expect(sh.spine).toContain('בבא'); expect(sh.spine).toContain('קמא');
 
     const rb = faces('rambam', ['ספר מדע'], { h: 24, w: 16.5, t: 3.4 });
-    expect(rb.cover).toContain('משנה'); expect(rb.cover).toContain('תורה'); expect(rb.spine).toContain('ספר מדע');
+    expect(rb.cover).toMatch(/fill-rule="evenodd"/); expect(rb.spine).toContain('משנה'); expect(rb.spine).toContain('ספר מדע');
 
     const rm = faces('ramban', ['בראשית'], { h: 25.5, w: 17.5, t: 3.8 });
     for (const s of ['פירוש', 'הרמב״ן', 'על התורה']) expect(rm.cover).toContain(s);
