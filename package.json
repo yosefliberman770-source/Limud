@@ -15,7 +15,8 @@
     "cap:sync": "cap sync android",
     "android:build": "npm run build && cap sync android && cd android && ./gradlew assembleDebug",
     "postinstall": "node -e \"require('fs').copyFileSync('node_modules/sql.js/dist/sql-wasm-browser.wasm','public/sql-wasm-browser.wasm')\"",
-    "docs:designs": "vite-node scripts/gen-book-designs-doc.ts"
+    "docs:designs": "vite-node scripts/gen-book-designs-doc.ts",
+    "fixture:db": "vite-node scripts/make-fixture-db.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.0.0",

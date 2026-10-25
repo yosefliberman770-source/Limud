@@ -1,0 +1,810 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`golden schedules > daily shiurim 2026-10-25 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayera:1|Rishon — Genesis 18:1 – 18:14",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:8-14|Chapters 72–76",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:8-14:L|Iggeret HaKodesh 27 — until Iggeret HaKodesh 27",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sales:7|Sales ch. 7",
+      "rambam3:sales:8|Sales ch. 8",
+      "rambam3:sales:9|Sales ch. 9",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:8-14|Hayom Yom — 14 Cheshvan 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:arachin:2:a|Arachin 2a",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayera:1|Rishon — Genesis 18:1 – 18:14",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2026-10-26 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayera:2|Sheni — Genesis 18:15 – 18:33",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:8-15|Chapters 77–78",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:8-15:L|Iggeret HaKodesh 27 — until Iggeret HaKodesh 27",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sales:10|Sales ch. 10",
+      "rambam3:sales:11|Sales ch. 11",
+      "rambam3:sales:12|Sales ch. 12",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:8-15|Hayom Yom — 15 Cheshvan 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:arachin:2:b|Arachin 2b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayera:2|Sheni — Genesis 18:15 – 18:33",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2026-11-05 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Chayei Sara:5|Chamishi — Genesis 24:53 – 24:67",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:8-25|Chapters 119:1–119:96",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:8-25:L|Iggeret HaKodesh 31 — until Iggeret HaKodesh 32",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:ownerless-property-and-gifts:10|Ownerless Property and Gifts ch. 10",
+      "rambam3:ownerless-property-and-gifts:11|Ownerless Property and Gifts ch. 11",
+      "rambam3:ownerless-property-and-gifts:12|Ownerless Property and Gifts ch. 12",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:8-25|Hayom Yom — 25 Cheshvan 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:arachin:7:b|Arachin 7b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Chayei Sara:5|Chamishi — Genesis 24:53 – 24:67",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2026-12-13 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayigash:1|Rishon — Genesis 44:18 – 44:30",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:10-3|Chapters 18–22",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:10-3:L|Likkutei Amarim 4 — until Likkutei Amarim 5",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:4|The Sanhedrin and the Penalties within their Jurisdiction ch. 4",
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:5|The Sanhedrin and the Penalties within their Jurisdiction ch. 5",
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:6|The Sanhedrin and the Penalties within their Jurisdiction ch. 6",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:10-3|Hayom Yom — 3 Tevet 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:arachin:26:b|Arachin 26b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayigash:1|Rishon — Genesis 44:18 – 44:30",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2026-12-14 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayigash:2|Sheni — Genesis 44:31 – 45:7",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:10-4|Chapters 23–28",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:10-4:L|Likkutei Amarim 5 — until Likkutei Amarim 6",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:7|The Sanhedrin and the Penalties within their Jurisdiction ch. 7",
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:8|The Sanhedrin and the Penalties within their Jurisdiction ch. 8",
+      "rambam3:the-sanhedrin-and-the-penalties-within-their-jurisdiction:9|The Sanhedrin and the Penalties within their Jurisdiction ch. 9",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:10-4|Hayom Yom — 4 Tevet 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:arachin:27:a|Arachin 27a",
+      "daf:arachin:27:b|Arachin 27b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayigash:2|Sheni — Genesis 44:31 – 45:7",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2026-12-31 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Shemot:5|Chamishi — Exodus 3:16 – 4:17",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:10-21|Chapters 104–105",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:10-21:L|Likkutei Amarim 12 — until Likkutei Amarim 12",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:mourning:3|Mourning ch. 3",
+      "rambam3:mourning:4|Mourning ch. 4",
+      "rambam3:mourning:5|Mourning ch. 5",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:10-21|Hayom Yom — 21 Tevet 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:temurah:11:a|Temurah 11a",
+      "daf:temurah:11:b|Temurah 11b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Shemot:5|Chamishi — Exodus 3:16 – 4:17",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-01-17 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Beshalach:1|Rishon — Exodus 13:17 – 14:8",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:11-9|Chapters 49–54",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:11-9:L|Likkutei Amarim 18 — until Likkutei Amarim 19",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:human-dispositions:6|Human Dispositions ch. 6",
+      "rambam3:human-dispositions:7|Human Dispositions ch. 7",
+      "rambam3:torah-study:1|Torah Study ch. 1",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:11-9|Hayom Yom — 9 Sh'vat 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:temurah:28:a|Temurah 28a",
+      "daf:temurah:28:b|Temurah 28b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Beshalach:1|Rishon — Exodus 13:17 – 14:8",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-03-14 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayikra:1|Rishon — Leviticus 1:1 – 1:13",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:13-5|Chapters 29–34",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:13-5:L|Likkutei Amarim 35 — until Likkutei Amarim 35",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sanctification-of-the-new-month:18|Sanctification of the New Month ch. 18",
+      "rambam3:sanctification-of-the-new-month:19|Sanctification of the New Month ch. 19",
+      "rambam3:fasts:1|Fasts ch. 1",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:13-5|Hayom Yom — 5 Adar II 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:kinnim:24:a|Kinnim 24a",
+      "daf:kinnim:24:b|Kinnim 24b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayikra:1|Rishon — Leviticus 1:1 – 1:13",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-04-22 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Achrei Mot:5|Chamishi — Leviticus 17:8 – 18:5",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:1-15|Chapters 77–78",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:1-15:L|Likkutei Amarim 41 — until Likkutei Amarim 41",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:oaths:1|Oaths ch. 1",
+      "rambam3:oaths:2|Oaths ch. 2",
+      "rambam3:oaths:3|Oaths ch. 3",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:1-15|Hayom Yom — 15 Nisan 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:niddah:27:a|Niddah 27a",
+      "daf:niddah:27:b|Niddah 27b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Achrei Mot:5|Chamishi — Leviticus 17:8 – 18:5",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-06-15 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Nasso:3|Shlishi — Numbers 5:1 – 5:10",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:3-10|Chapters 55–59",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:3-10:L|Shaar HaYichud VehaEmunah 3 — until Shaar HaYichud VehaEmunah 3",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sacrificial-procedure:1|Sacrificial Procedure ch. 1",
+      "rambam3:sacrificial-procedure:2|Sacrificial Procedure ch. 2",
+      "rambam3:sacrificial-procedure:3|Sacrificial Procedure ch. 3",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:3-10|Hayom Yom — 10 Sivan 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:berachot:9:a|Berachot 9a",
+      "daf:berachot:9:b|Berachot 9b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Nasso:3|Shlishi — Numbers 5:1 – 5:10",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-09-01 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Shoftim:4|Revii — Deuteronomy 18:6 – 18:13",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:5-29|Chapters 140–144",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:5-29:L|Iggeret HaKodesh 9 — until Iggeret HaKodesh 10",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:vessels:24|Vessels ch. 24",
+      "rambam3:vessels:25|Vessels ch. 25",
+      "rambam3:vessels:26|Vessels ch. 26",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:5-29|Hayom Yom — 29 Av 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:shabbat:24:a|Shabbat 24a",
+      "daf:shabbat:24:b|Shabbat 24b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Shoftim:4|Revii — Deuteronomy 18:6 – 18:13",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-09-30 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Ha'azinu:5|Chamishi — Deuteronomy 32:29 – 32:39",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:6-28|Chapters 135–139",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:6-28:L|Iggeret HaKodesh 19 — until Iggeret HaKodesh 19",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sales:10|Sales ch. 10",
+      "rambam3:sales:11|Sales ch. 11",
+      "rambam3:sales:12|Sales ch. 12",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:6-28|Hayom Yom — 28 Elul 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:shabbat:53:a|Shabbat 53a",
+      "daf:shabbat:53:b|Shabbat 53b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Ha'azinu:5|Chamishi — Deuteronomy 32:29 – 32:39",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2027-10-01 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Ha'azinu:6|Shishi — Deuteronomy 32:40 – 32:43",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:6-29|Chapters 140–150",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:6-29:L|Iggeret HaKodesh 19 — until Iggeret HaKodesh 20",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:sales:13|Sales ch. 13",
+      "rambam3:sales:14|Sales ch. 14",
+      "rambam3:sales:15|Sales ch. 15",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:6-29|Hayom Yom — 29 Elul 5787",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:shabbat:54:a|Shabbat 54a",
+      "daf:shabbat:54:b|Shabbat 54b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Ha'azinu:6|Shishi — Deuteronomy 32:40 – 32:43",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > daily shiurim 2028-01-10 1`] = `
+[
+  {
+    "p": "chitas_chumash",
+    "units": [
+      "chumash:Vayechi:2|Sheni — Genesis 48:10 – 48:16",
+    ],
+  },
+  {
+    "p": "chitas_tehillim",
+    "units": [
+      "tehillim:10-11|Chapters 60–65",
+    ],
+  },
+  {
+    "p": "chitas_tanya",
+    "units": [
+      "tanya:10-11:R|Likkutei Amarim 10 — until Likkutei Amarim 10",
+    ],
+  },
+  {
+    "p": "rambam3",
+    "units": [
+      "rambam3:tefillin-mezuzah-and-the-torah-scroll:8|Tefillin, Mezuzah and the Torah Scroll ch. 8",
+      "rambam3:tefillin-mezuzah-and-the-torah-scroll:9|Tefillin, Mezuzah and the Torah Scroll ch. 9",
+      "rambam3:tefillin-mezuzah-and-the-torah-scroll:10|Tefillin, Mezuzah and the Torah Scroll ch. 10",
+    ],
+  },
+  {
+    "p": "hayom_yom",
+    "units": [
+      "hayomyom:10-11|Hayom Yom — 11 Tevet 5788",
+    ],
+  },
+  {
+    "p": "daf_yomi",
+    "units": [
+      "daf:shabbat:155:a|Shabbat 155a",
+      "daf:shabbat:155:b|Shabbat 155b",
+    ],
+  },
+  {
+    "p": "ramban",
+    "units": [
+      "ramban:Vayechi:2|Sheni — Genesis 48:10 – 48:16",
+    ],
+  },
+]
+`;
+
+exports[`golden schedules > likkutei sichos week of 2026-10-31 1`] = `
+[
+  "ls-10-vayera-1",
+  "ls-10-vayera-2",
+]
+`;
+
+exports[`golden schedules > likkutei sichos week of 2026-12-05 1`] = `
+[
+  "ls-10-vayeshev-1",
+  "ls-10-vayeshev-2",
+]
+`;
+
+exports[`golden schedules > likkutei sichos week of 2027-02-20 1`] = `
+[
+  "ls-11-tetzaveh-1",
+  "ls-11-tetzaveh-2",
+]
+`;
+
+exports[`golden schedules > likkutei sichos week of 2027-06-12 1`] = `
+[
+  "ls-13-nasso-1",
+  "ls-13-nasso-2",
+]
+`;
+
+exports[`golden schedules > maamar windows 1`] = `
+[
+  [
+    "maamar-03-veeleh-hamishpatim",
+    "2026-10-25",
+    "2026-11-11",
+  ],
+  [
+    "maamar-04-ki-sisa",
+    "2026-11-12",
+    "2026-11-30",
+  ],
+  [
+    "maamar-05-vekibel-hayehudim",
+    "2026-12-01",
+    "2026-12-20",
+  ],
+  [
+    "maamar-01-basi-legani",
+    "2026-12-21",
+    "2027-01-03",
+  ],
+  [
+    "maamar-02-hayosheves-baganim",
+    "2027-01-04",
+    "2027-01-17",
+  ],
+  [
+    "maamar-06-vayedaber-zos-chukas",
+    "2027-01-18",
+    "2027-02-07",
+  ],
+  [
+    "maamar-07-veheinif-yado",
+    "2027-02-08",
+    "2027-02-28",
+  ],
+  [
+    "maamar-08-vayomer-machar-chodesh",
+    "2027-03-01",
+    "2027-03-21",
+  ],
+  [
+    "maamar-09-usfartem-lachem",
+    "2027-03-22",
+    "2027-04-11",
+  ],
+  [
+    "maamar-10-vehishalachti",
+    "2027-04-12",
+    "2027-05-02",
+  ],
+  [
+    "maamar-11-alpayim-shana",
+    "2027-05-03",
+    "2027-05-23",
+  ],
+  [
+    "maamar-12-shlach-lecha",
+    "2027-05-24",
+    "2027-06-13",
+  ],
+  [
+    "maamar-13-nasata-lireiecha",
+    "2027-06-14",
+    "2027-07-04",
+  ],
+  [
+    "maamar-14-tzav-es-bnei-yisrael",
+    "2027-07-05",
+    "2027-07-25",
+  ],
+  [
+    "maamar-15-vehaya-eikev",
+    "2027-07-26",
+    "2027-08-15",
+  ],
+  [
+    "maamar-16-atem-nitzavim",
+    "2027-08-16",
+    "2027-09-05",
+  ],
+]
+`;

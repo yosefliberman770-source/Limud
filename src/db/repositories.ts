@@ -53,6 +53,19 @@ export class SettingsRepo {
 export class CompletionRepo {
   constructor(private db: SqlDriver) {}
 
+  /** Per-program snapshot of completed unit keys, rebuilt only after the database has been written to. */
+  private doneCache = new Map<string, Set<string>>();
+  private doneVersion = -1;
+  private doneSet(programId: string): Set<string> {
+    if (this.doneVersion !== this.db.writeVersion) { this.doneCache.clear(); this.doneVersion = this.db.writeVersion; }
+    let s = this.doneCache.get(programId);
+    if (!s) {
+      s = new Set(this.db.all<{ unit_id: string; occurrence_key: string }>('SELECT unit_id, occurrence_key FROM unit_state WHERE program_id = ? AND completed = 1', [programId]).map((r) => `${r.unit_id}|${r.occurrence_key}`));
+      this.doneCache.set(programId, s);
+    }
+    return s;
+  }
+
   state(ref: UnitRef): UnitState | null {
     const r = this.db.get<{ program_id: string; unit_id: string; occurrence_key: string; completed: number; completed_at: string | null; intended_date: string | null }>(
       'SELECT * FROM unit_state WHERE program_id = ? AND unit_id = ? AND occurrence_key = ?',
@@ -62,7 +75,7 @@ export class CompletionRepo {
   }
 
   isCompleted(ref: UnitRef): boolean {
-    return this.state(ref)?.completed ?? false;
+    return this.doneSet(ref.programId).has(`${ref.unitId}|${ref.occurrenceKey ?? ''}`);
   }
 
   /** Completion map for many units at once (keyed by `${unitId}|${occurrenceKey}`). */

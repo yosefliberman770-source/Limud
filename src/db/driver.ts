@@ -5,6 +5,8 @@ export type Params = SqlValue[] | Record<string, SqlValue>;
 /** Thin synchronous wrapper around a sql.js database with change tracking for persistence. */
 export class SqlDriver {
   private dirty = false;
+  /** Bumped by every statement that may write; lets read caches know when they are stale. */
+  writeVersion = 0;
   constructor(private readonly db: Database) {}
 
   static async create(bytes: Uint8Array | null, locateFile?: (f: string) => string): Promise<SqlDriver> {
@@ -17,11 +19,13 @@ export class SqlDriver {
   run(sql: string, params?: Params): void {
     this.db.run(sql, params as never);
     this.dirty = true;
+    this.writeVersion++;
   }
 
   exec(sql: string): void {
     this.db.exec(sql);
     this.dirty = true;
+    this.writeVersion++;
   }
 
   all<T = Record<string, SqlValue>>(sql: string, params?: Params): T[] {
@@ -53,9 +57,11 @@ export class SqlDriver {
       const r = fn();
       this.db.exec('COMMIT');
       this.dirty = true;
+      this.writeVersion++;
       return r;
     } catch (e) {
       this.db.exec('ROLLBACK');
+      this.writeVersion++;
       throw e;
     }
   }
