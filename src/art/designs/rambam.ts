@@ -1,4 +1,5 @@
 import type { ArtDesign, DesignContext } from './types';
+import GL from '../glyphs.json';
 import { clothFilter, debossPath, f2, foilStampFilter, svgDoc, text } from '../svgkit';
 
 /** משנה תורה (Rambam): cream cloth with a dark brown cloth panel; the title is a cream outline (hollow letters). */
@@ -14,13 +15,12 @@ function defs(id: string): string {
 function cover(c: DesignContext): string {
   const { W, H } = c; const id = 'c';
   const x0 = 17, x1 = W - 16; // dark panel edges measured on the reference (x 72–615 of 690 px)
-  const cx = (x0 + x1) / 2;
+  
   const body = `
 <rect width="${W}" height="${H}" fill="${CREAM}"/><rect width="${W}" height="${H}" fill="${CREAM}" filter="url(#cream-${id})" opacity="0.4"/>
 <rect x="${x0}" width="${f2(x1 - x0)}" height="${H}" fill="${PANEL}"/><rect x="${x0}" width="${f2(x1 - x0)}" height="${H}" fill="${PANEL}" filter="url(#panel-${id})" opacity="0.5"/>
 <rect x="${x0}" width="0.6" height="${H}" fill="#000" opacity="0.35"/><rect x="${f2(x1 - 0.6)}" width="0.6" height="${H}" fill="#000" opacity="0.35"/>
-${text({ x: cx, y: 71, size: 56, font: 'block', weight: 700, fill: 'none', stroke: INK, strokeWidth: 0.75, text: 'משנה', width: 86 })}
-${text({ x: cx, y: 110, size: 56, font: 'block', weight: 700, fill: 'none', stroke: INK, strokeWidth: 0.75, text: 'תורה', width: 86 })}
+<g filter="url(#stamp-${id})"><path d="${GL.rambamTitle.d}" fill="${INK}" fill-rule="evenodd"/></g>
 <rect width="${W}" height="${H}" fill="url(#wear-${id})"/>`;
   return svgDoc({ w: W, h: H, defs: defs(id), body });
 }
@@ -58,7 +58,7 @@ export const rambam: ArtDesign = {
   reference: 'assets-src/books/rambam.jpg (seller photo, cover + blurred spine)',
   uncertain: [
     'The photographed cover is cropped at the top and bottom; whether the dark panel stops short of the head and tail (a cream margin) is unknown. The panel is drawn full height.',
-    'The title is a hollow outline of Miriam Libre Bold; the original is an angular hand-drawn outline face. Position, width and line spacing were measured.',
+    'The cover title is a vector trace of the printed angular outline lettering (scripts/trace-art.py); outline weight is slightly irregular, as on the photo. The spine lettering uses a stand-in font.',
     'The spine photo is too blurred to read: the dark label panels, rules and positions are inferred from its light/dark pattern, and the spine lettering "משנה תורה" is a guess in the same stand-in face.',
     'The per-volume "ספר X" label panel at the foot of the spine is this app’s addition so the 14 volumes can be told apart; the photographed spine shows some unreadable text there.',
     'Cloth colours (cream #ddd0aa, brown #2a2321) are taken from the photo and may be shifted by its lighting.',

@@ -1,4 +1,5 @@
 import type { ArtDesign, DesignContext } from './types';
+import GL from '../glyphs.json';
 import { cornerCurl, f2, foilGradient, foilStampFilter, kehotMark, leatherFilter, rosette, svgDoc, text } from '../svgkit';
 
 /** ספר חת״ת — חומש, תהלים, תניא · סדור תהלת ה׳ · היום יום: maroon leatherette, gold frame, giant gold ח ת ת with red words. */
@@ -12,23 +13,17 @@ ${foilGradient(`gold-${id}`, 'paleGold', w, h)}${foilStampFilter(`stamp-${id}`)}
 }
 
 /** The title block, drawn in a 160 × 230 coordinate frame and scaled/translated onto the cover or spine. */
-/** Measured from the rectified reference (735 × 1024 px → 160 × 230 mm). Text anchors are centres.
- *  Each row is a giant gold initial plus the rest of the word in red, set flush against it. Gold is foil-stamped; the red is printed ink. */
+/** The giant gold ח ת ת and the red ומש / הלים / ניא are vector traces of the printed lettering (scripts/trace-art.py), positioned in the cover's own 160 × 230 mm frame. Gold is foil-stamped; the red is printed ink. */
 function goldBlock(id: string, withSubtitle = true): string {
   const gold = `url(#gold-${id})`;
   return `
 ${text({ x: 78, y: 60.5, size: 11, font: 'block', weight: 700, fill: gold, text: 'ספר', width: 18.5 })}
-${text({ x: 105.5, y: 84, size: 52, font: 'serifDisplay', weight: 400, fill: gold, text: 'ח', width: 23 })}
-${text({ x: 99.5, y: 108, size: 44, font: 'serifDisplay', weight: 400, fill: gold, text: 'ת', width: 23 })}
-${text({ x: 107, y: 133.6, size: 49, font: 'serifDisplay', weight: 400, fill: gold, text: 'ת', width: 25 })}
+<path d="${GL.chitasGold.d}" fill="${gold}" fill-rule="evenodd"/>
 ${rosette(49.5, 115, 6.2, gold)}
 ${withSubtitle ? `${text({ x: 61, y: 137, size: 11, font: 'block', weight: 600, fill: gold, text: 'סדור תהלת ה׳', width: 47.5 })}${text({ x: 72, y: 144.5, size: 9, font: 'block', weight: 600, fill: gold, text: 'היום יום', width: 25.7 })}` : ''}`;
 }
 function redBlock(): string {
-  return `
-${text({ x: 70, y: 85, size: 29, font: 'block', weight: 700, fill: RED, text: 'ומש', width: 44 })}
-${text({ x: 61.5, y: 104.5, size: 27, font: 'block', weight: 700, fill: RED, text: 'הלים', width: 49 })}
-${text({ x: 77, y: 127, size: 27, font: 'block', weight: 700, fill: RED, text: 'ניא', width: 34 })}`;
+  return `<path d="${GL.chitasRed.d}" fill="${RED}" fill-rule="evenodd"/>`;
 }
 
 function cover(c: DesignContext): string {
