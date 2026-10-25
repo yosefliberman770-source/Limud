@@ -57,7 +57,7 @@ function cover(c: DesignContext): string {
   for (let i = 0; i < 16; i++) { const x = 14 + ((W - 28) * (i + 0.5)) / 16; floral += `M${f2(x - 3)} 26q3 -6 6 0q-3 6 -6 0M${f2(x)} 21v10`; }
   const body = `
 <rect width="${W}" height="${H}" fill="${MAROON}" filter="url(#lea-${id})"/>
-<path id="arc-${id}" d="M${f2(cx - 30)} 227.5A40 40 0 0 1 ${f2(cx + 30)} 227.5" fill="none"/>
+<path id="arc-${id}" d="M${f2(cx - 36)} 232A45 45 0 0 1 ${f2(cx + 36)} 232" fill="none"/>
 ${debossPath(frame, 1.4, 'rgba(0,0,0,0.35)', { raised: true })}
 ${debossPath(`M12 18.5H${f2(W - 12)}V${f2(H - 8)}H12Z`, 0.8, 'rgba(0,0,0,0.3)', { raised: true })}
 ${debossPath(floral, 0.45, 'rgba(0,0,0,0.25)', { raised: true })}
@@ -67,7 +67,7 @@ ${debossPath(arch, 1.0, 'rgba(0,0,0,0.3)', { raised: true })}
 <g transform="scale(${f2(W / 205)} ${f2(H / 290)})"><path d="${GL.shasTitle.d}" fill="${gold}" fill-rule="evenodd"/><path d="${GL.shasOz.d}" fill="${gold}" fill-rule="evenodd"/></g>
 <g transform="translate(${f2(cx - 1)} 176.6)"><path d="${cartouche(65, 31)}" fill="none" stroke="${gold}" stroke-width="0.9"/><path d="${cartouche(61.2, 29)}" fill="none" stroke="${gold}" stroke-width="0.3"/></g>
 ${text({ x: cx - 1, y: 179, size: 13, font: 'block', weight: 600, fill: gold, text: 'עם הרבה הוספות', width: 50 })}
-<text font-family="${fontStack('block')}" font-weight="600" font-size="9.6" fill="${gold}" direction="rtl" unicode-bidi="plaintext" text-anchor="middle"><textPath href="#arc-${id}" startOffset="50%">מהדורת פרידמאן</textPath></text>
+<text font-family="${fontStack('block')}" font-weight="600" font-size="9.2" fill="${gold}" direction="rtl" unicode-bidi="plaintext" text-anchor="middle"><textPath href="#arc-${id}" startOffset="50%">מהדורת פריעדמאן</textPath></text>
 </g>
 <rect width="${W}" height="${H}" fill="url(#wear-${id})"/>`;
   return svgDoc({ w: W, h: H, defs: defs(W, H, id), body });
@@ -106,7 +106,7 @@ ${text({ x: T / 2, y: 121, size: 10.5, font: 'block', weight: 600, fill: gold, t
 ${text({ x: T / 2, y: 130, size: 10.5, font: 'block', weight: 600, fill: gold, text: 'והדר', width: 21 })}
 ${nameText}
 ${text({ x: T / 2, y: 244, size: 6.4, font: 'block', weight: 600, fill: gold, text: 'מהדורת', width: 15 })}
-${text({ x: T / 2, y: 250.6, size: 6.4, font: 'block', weight: 600, fill: gold, text: 'פרידמאן', width: 17 })}
+${text({ x: T / 2, y: 250.6, size: 6.4, font: 'block', weight: 600, fill: gold, text: 'פריעדמאן', width: 19 })}
 <rect x="${f2(T / 2 - 6.5)}" y="253.5" width="13" height="13" fill="none" stroke="${gold}" stroke-width="0.6"/>
 <path d="M${f2(T / 2 - 4)} 262.5q4 -5 8 0M${f2(T / 2 - 4)} 259.8q4 -5 8 0M${f2(T / 2 - 4)} 265q4 -2.5 8 0" fill="none" stroke="${gold}" stroke-width="0.5"/>
 </g>
@@ -123,11 +123,11 @@ function back(c: DesignContext): string {
 
 export const shasOzVehadar: ArtDesign = {
   id: 'shas-ozvehadar',
-  name: 'תלמוד בבלי · עוז והדר · מהדורת פרידמאן — maroon leatherette, gold title, black spine panels',
+  name: 'תלמוד בבלי · עוז והדר · מהדורת פריעדמאן — maroon leatherette, gold title, black spine panels',
   reference: 'assets-src/books/shas.jpg (seller photo, front + spine)',
   uncertain: [
     'The title lettering is set in Miriam Libre Bold as a stand-in; the original is a custom tapered face with a dark keyline. Size, position and width were measured.',
-    'The wording "מהדורת פרידמאן" follows the photo (spelled with an alef); verify against the physical book before shipping.',
+    'The wording "מהדורת פריעדמאן" (spelled with an ע, as printed) follows the photo and a second sharper product photo of the same edition; it is the printed spelling of "Friedman", not a typo.',
     'The blind-embossed floral band and arched panel are drawn as simplified arabesques; the photo is too dark to read the original pattern.',
     'The cartouche scallop geometry is approximated by eye.',
     'The Oz VeHadar publisher mark at the foot of the spine is a placeholder (open-book icon in a square), not the real logo.',

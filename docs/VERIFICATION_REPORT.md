@@ -54,7 +54,7 @@ Every sefer on the shelf is a **from-scratch vector recreation** of the edition 
 
 The Kehot mark on the Chabad volumes is a vector trace of the logo file the user supplied.
 
-**Verification method:** each design was rendered next to its rectified blueprint (`docs/screenshots/lab-*.png`) and compared on typography, colour, placement and border geometry; positions and widths were measured on a millimetre grid. Details that could not be read from the photographs are **not claimed as faithful** — they are listed per design in `docs/BOOK_DESIGNS.md` (generated from the code). The main ones: the display lettering uses stand-in typefaces (the originals are custom or engraved faces); ornaments, corner scrolls and the Oz VeHadar mark are simplified; blurred spines (Rambam, Ramban) are inferred; the wording "מהדורת פרידמאן" follows the photo and should be checked against the book; sizes and thicknesses are estimates.
+**Verification method:** each design was rendered next to its rectified blueprint (`docs/screenshots/lab-*.png`) and compared on typography, colour, placement and border geometry; positions and widths were measured on a millimetre grid. Details that could not be read from the photographs are **not claimed as faithful** — they are listed per design in `docs/BOOK_DESIGNS.md` (generated from the code). The main ones: the display lettering uses stand-in typefaces (the originals are custom or engraved faces); ornaments, corner scrolls and the Oz VeHadar mark are simplified; blurred spines (Rambam, Ramban) are inferred; the wording "מהדורת פריעדמאן" follows the photo and should be checked against the book; sizes and thicknesses are estimates.
 
 ## 5. Licensing and rights
 

@@ -69,7 +69,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 * Printed size (16 × 23 cm), the thick 6 cm spine and the rounded corners are estimated.
 * Whether the back cover carries any ornament is unknown (shown plain).
 
-## תלמוד בבלי · עוז והדר · מהדורת פרידמאן — maroon leatherette, gold title, black spine panels
+## תלמוד בבלי · עוז והדר · מהדורת פריעדמאן — maroon leatherette, gold title, black spine panels
 
 * Design id: `shas-ozvehadar` · volumes using it: 30
 * Blueprint: assets-src/books/shas.jpg (seller photo, front + spine)
@@ -79,7 +79,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 **Could not be established from the reference (approximated — verify against the physical book):**
 
 * The title lettering is set in Miriam Libre Bold as a stand-in; the original is a custom tapered face with a dark keyline. Size, position and width were measured.
-* The wording "מהדורת פרידמאן" follows the photo (spelled with an alef); verify against the physical book before shipping.
+* The wording "מהדורת פריעדמאן" (spelled with an ע, as printed) follows the photo and a second sharper product photo of the same edition; it is the printed spelling of "Friedman", not a typo.
 * The blind-embossed floral band and arched panel are drawn as simplified arabesques; the photo is too dark to read the original pattern.
 * The cartouche scallop geometry is approximated by eye.
 * The Oz VeHadar publisher mark at the foot of the spine is a placeholder (open-book icon in a square), not the real logo.

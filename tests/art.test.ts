@@ -57,7 +57,7 @@ describe('vector cover art', () => {
 
     const sh = faces('shas-ozvehadar', ['בבא קמא'], { h: 29, w: 20.5, t: 5 });
     // title + 'עוז והדר' are traced vector letterforms; the cartouche line and the arched Friedman line are real text
-    expect(sh.cover).toContain('עם הרבה הוספות'); expect(sh.cover).toContain('<textPath'); expect(sh.cover).toContain('מהדורת פרידמאן');
+    expect(sh.cover).toContain('עם הרבה הוספות'); expect(sh.cover).toContain('<textPath'); expect(sh.cover).toContain('מהדורת פריעדמאן');
     expect(sh.cover.match(/fill-rule="evenodd"/g)!.length).toBeGreaterThanOrEqual(2);
     expect(sh.spine).toContain('בבא'); expect(sh.spine).toContain('קמא');
 
