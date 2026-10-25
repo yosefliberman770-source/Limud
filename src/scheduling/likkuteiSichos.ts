@@ -40,6 +40,10 @@ const FESTIVAL_KEY: Record<string, { type: 'festival' | 'fixed_date' | 'special_
   'Yom Kippur': { type: 'festival', festival: 'Yom Kippur' },
   Sukkos: { type: 'festival', festival: 'Sukkot I' },
   'Shabbos Shuva': { type: 'special_shabbos', festival: 'Shabbat Shuva' },
+  'Shabbos Shuvah': { type: 'special_shabbos', festival: 'Shabbat Shuva' },
+  'Chof Av (20 Menachem Av)': { type: 'fixed_date', month: 'Av', day: 20 },
+  'Chof Av': { type: 'fixed_date', month: 'Av', day: 20 },
+  'Rosh Hashanah': { type: 'festival', festival: 'Rosh Hashana I' },
   'Shabbos Shira': { type: 'special_shabbos', festival: 'Shabbat Shirah' },
   'Shabbos Chazon': { type: 'special_shabbos', festival: 'Shabbat Chazon' },
   'Shabbos Nachamu': { type: 'special_shabbos', festival: 'Shabbat Nachamu' },
@@ -66,7 +70,7 @@ export function weeklyLikkuteiSichos(civil: CivilDate, allSichos: LsSicha[], il 
     .sort((a, b) => a.volumeId.localeCompare(b.volumeId) || week.studyParsha.indexOf(a.parsha!) - week.studyParsha.indexOf(b.parsha!) || a.ordinal - b.ordinal);
   const festivalSichos: WeeklyLsAssignment['festivalSichos'] = [];
   for (const s of allSichos) {
-    if (s.kind === 'parsha') continue;
+    if (!s.occasion) continue; // parsha sichos that are also tied to an occasion (e.g. Vayishlach-1 ↔ י״ט כסלו) show on both
     const d = festivalSichaDate(s, week.hebrewYear, il);
     if (d && d.date >= week.weekStart && d.date <= week.shabbos) festivalSichos.push({ sicha: s, date: d.date, explanationHe: d.explanationHe });
   }

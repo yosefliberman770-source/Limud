@@ -31,3 +31,32 @@ describe('catalogue source validation', () => {
     for (const t of targets) if (t.targetDate) expect(t.targetDate <= '2027-10-01').toBe(true);
   });
 });
+
+import { likkuteiSichos, lsSichosForParsha } from '@/catalogue';
+import { weeklyLikkuteiSichos } from '@/scheduling';
+
+describe('Likkutei Sichos catalogue (vols. 10–14)', () => {
+  it('113 sichos, every one with pages and a section count, contiguous page ranges per volume', () => {
+    expect(likkuteiSichos.volumes.length).toBe(5);
+    expect(likkuteiSichos.sichos.length).toBe(113);
+    for (const s of likkuteiSichos.sichos) { expect(s.sectionCount, s.id).toBeGreaterThan(0); expect(s.pageEnd! >= s.pageStart!, s.id).toBe(true); }
+    for (const v of likkuteiSichos.volumes) {
+      const list = likkuteiSichos.sichos.filter((s) => s.volumeId === v.id).sort((a, b) => a.pageStart! - b.pageStart!);
+      for (let i = 1; i < list.length; i++) expect(list[i].pageStart, `${v.id} ${list[i].id}`).toBe(list[i - 1].pageEnd! + 1);
+    }
+  });
+  it('Vayera 5787 week returns all its sichos; Vayakhel-Pekudei returns both parshiyot', () => {
+    const w = weeklyLikkuteiSichos('2026-10-27', likkuteiSichos.sichos);
+    expect(w.sichos.length).toBe(lsSichosForParsha(['Vayera']).length);
+    expect(w.sichos.length).toBeGreaterThan(0);
+    expect(lsSichosForParsha(['Vayakhel', 'Pekudei']).length).toBeGreaterThan(1);
+  });
+  it('festival-tagged sichos map to dates (Chanukah, Pesach, Chof Av, Simchas Torah)', () => {
+    const wk = (d: string) => weeklyLikkuteiSichos(d, likkuteiSichos.sichos).festivalSichos.map((f) => f.sicha.id);
+    expect(wk('2026-12-02')).toContain('ls-10-chanukah-1');
+    expect(wk('2027-04-21')).toContain('ls-12-pesach-1');
+    expect(wk('2027-08-05')).toContain('ls-14-eikev-1');
+    expect(wk('2026-10-01')).toContain('ls-14-vezot-haberakhah-1');
+    expect(wk('2026-11-30')).toContain('ls-10-vayishlach-1');
+  });
+});

@@ -82,6 +82,11 @@ export class CompletionRepo {
     return new Set(rows.map((r) => r.unit_id));
   }
 
+  /** Every occurrence key under which a unit is currently completed (used to clear a unit regardless of date). */
+  completedOccurrences(programId: string, unitId: string): string[] {
+    return this.db.all<{ occurrence_key: string }>('SELECT occurrence_key FROM unit_state WHERE program_id = ? AND unit_id = ? AND completed = 1', [programId, unitId]).map((r) => r.occurrence_key);
+  }
+
   countCompleted(programId: string, unitPrefix: string): number {
     return (this.db.scalar<number>('SELECT COUNT(*) AS c FROM unit_state WHERE program_id = ? AND completed = 1 AND unit_id LIKE ?', [programId, `${unitPrefix}%`]) as number) ?? 0;
   }

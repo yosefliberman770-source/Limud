@@ -62,9 +62,9 @@ export function TodayView({ date }: { date?: string }) {
         <div className="row between wrap">
           <h1 className="serif">{isToday ? 'היום' : formatHebrewDateCivil(civil, { year: false })}</h1>
           <div className="row">
-            <button className="btn ghost sm" onClick={() => navigate({ name: 'today', date: addDays(civil, -1) })} aria-label="יום קודם">‹ קודם</button>
+            <button className="btn ghost sm" onClick={() => navigate({ name: 'today', date: addDays(civil, -1) })} aria-label="יום קודם">› קודם</button>
             {!isToday && <button className="btn ghost sm" onClick={() => navigate({ name: 'today' })}>היום</button>}
-            <button className="btn ghost sm" onClick={() => navigate({ name: 'today', date: addDays(civil, 1) })} aria-label="יום הבא">הבא ›</button>
+            <button className="btn ghost sm" onClick={() => navigate({ name: 'today', date: addDays(civil, 1) })} aria-label="יום הבא">הבא ‹</button>
           </div>
         </div>
         <DateLine date={civil} />
@@ -186,7 +186,7 @@ function WorkRow({ work, progress, badge, sub, expanded, onToggle }: { work: Log
   );
 }
 
-function DailyRow({ a, date }: { a: DailyAssignment; date: string }) {
+export function DailyRow({ a, date }: { a: DailyAssignment; date: string }) {
   const db = useStore((s) => s.db)!;
   const toggleUnit = useStore((s) => s.toggleUnit);
   const showToast = useStore((s) => s.showToast);

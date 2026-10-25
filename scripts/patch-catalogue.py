@@ -16,3 +16,15 @@ for it in d['items']:
         patches.append(it['id'])
 json.dump(d, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print('patched', patches)
+
+# Likkutei Sichos: volume.verification must be an enum; keep the research prose as verificationNote.
+lp = os.path.join(root, 'data/catalogue/likkutei-sichos.json')
+ls = json.load(open(lp, encoding='utf-8'))
+ENUM = {'verified', 'source_imported_needs_crosscheck', 'manual', 'unverified', 'computed'}
+for v in ls['volumes']:
+    if v['verification'] not in ENUM:
+        v['verificationNote'] = v['verification']
+        mine = [x for x in ls['sichos'] if x['volumeId'] == v['id']]
+        v['verification'] = 'verified' if mine and all(x['verification'] == 'verified' for x in mine) else 'source_imported_needs_crosscheck'
+json.dump(ls, open(lp, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('LS volumes normalized')

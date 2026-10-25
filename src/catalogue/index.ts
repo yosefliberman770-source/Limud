@@ -120,3 +120,5 @@ export function shasVolumes(): PhysicalVolume[] {
 }
 
 export * from './types';
+
+export const SHAS_NAMES_HE = SHAS.map((m) => m.he);

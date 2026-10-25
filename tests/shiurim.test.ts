@@ -214,3 +214,20 @@ describe('dailyShiurim aggregate', () => {
     expect(addDays('2026-10-25', 49)).toBe('2026-12-13');
   });
 });
+
+import { allHalachosNames, rambamPhysicalVolume, sefarOf } from '@/shiurim/rambamBooks';
+
+describe('Rambam sefarim mapping', () => {
+  it('every halachos name that occurs in a full 339-day cycle maps to a sefer and a physical volume', () => {
+    const seen = new Set<string>();
+    const start = new HDate(1, 7, 5787).abs();
+    for (let i = 0; i < 700; i++) for (const it of dailyRambam3(new HDate(start + i)) as { name: string }[]) seen.add(it.name);
+    const known = new Set(allHalachosNames());
+    for (const n of seen) expect(known.has(n), n).toBe(true);
+    for (const n of seen) expect([1, 2, 3]).toContain(rambamPhysicalVolume(n));
+    expect(seen.size).toBe(known.size);
+    expect(sefarOf('Sales')!.sefer).toBe('קנין');
+    expect(rambamPhysicalVolume('Sales')).toBe(3);
+    expect(rambamPhysicalVolume('Repentance')).toBe(1);
+  });
+});

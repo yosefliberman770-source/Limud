@@ -1,0 +1,17 @@
+.lib2d { flex: 1; overflow-y: auto; background: radial-gradient(120% 60% at 50% 0%, #17203a 0%, #0c111c 70%); padding: 16px 12px calc(var(--nav-h) + var(--safe-bottom) + 24px); }
+.lib2d-cabinet { max-width: 520px; margin: 0 auto; background: linear-gradient(180deg, #2b1a10, #3a2416 8%, #2f1d12); border: 10px solid #46301f; border-radius: 6px; box-shadow: var(--shadow-paper), inset 0 0 40px #000a; }
+.lib2d-row { position: relative; padding: 18px 10px 0; background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0) 28%); }
+.lib2d-shelf { display: flex; justify-content: flex-start; align-items: flex-end; gap: 1px; min-height: 100px; direction: rtl; padding-bottom: 0; }
+.lib2d-board { height: 14px; background: linear-gradient(180deg, #5a3d26, #3b2515); box-shadow: 0 6px 10px -4px #000c; }
+.lib2d-plates { display: flex; gap: 8px; margin-bottom: 4px; direction: rtl; }
+.lib2d-plate { font-family: var(--font-serif); font-size: 11px; font-weight: 700; color: #2a1a05; background: linear-gradient(180deg, #d6b678, #8e6e3f); padding: 1px 8px; border-radius: 2px; }
+.lib2d-book { position: relative; display: grid; place-items: center; border-radius: 2px 2px 0 0; padding: 0; overflow: hidden; transition: transform var(--dur-med) var(--ease-out); flex-shrink: 0; min-width: 28px; }
+.lib2d-book:active { transform: translateY(-3px); }
+.lib2d-book.due { transform: translateY(-3px); }
+.lib2d-book.out { opacity: 0.25; }
+.lib2d-title { writing-mode: vertical-rl; font-family: var(--font-serif); font-weight: 700; font-size: 13px; letter-spacing: 0.02em; text-shadow: 0 1px 0 #0006; white-space: nowrap; }
+.lib2d-title.horiz { writing-mode: horizontal-tb; white-space: normal; text-align: center; line-height: 1.1; font-size: 14px; }
+.lib2d-sub { position: absolute; bottom: 8%; writing-mode: vertical-rl; font-size: 9px; opacity: 0.8; font-family: var(--font-serif); }
+.lib2d-band { position: absolute; inset-inline: 12%; top: 5%; height: 2px; opacity: 0.85; }
+.lib2d-band.b2 { top: auto; bottom: 5%; }
+.lib2d-due { position: absolute; inset-inline: 8%; top: 9%; height: 6px; background: #c9a86a; border-radius: 1px; box-shadow: 0 0 6px #c9a86aaa; }
