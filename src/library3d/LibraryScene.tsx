@@ -60,8 +60,8 @@ export function LibraryScene({ layout, quality, anim, scrollRef, dueIds, interac
   // QA only (?qa): renderer statistics for the profiling script
   useEffect(() => {
     if (!/[?&]qa\b/.test(location.search)) return;
-    (window as unknown as { __seder_stats: () => unknown }).__seder_stats = () => ({ calls: gl.info.render.calls, triangles: gl.info.render.triangles, frame: gl.info.render.frame, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, programs: gl.info.programs?.length ?? 0 });
-  }, [gl]);
+    (window as unknown as { __seder_stats: () => unknown }).__seder_stats = () => ({ calls: gl.info.render.calls, triangles: gl.info.render.triangles, frame: gl.info.render.frame, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, programs: gl.info.programs?.length ?? 0, meshes: (() => { let n = 0, v = 0; scene.traverse((o) => { if ((o as THREE.Mesh).isMesh) { n++; if (o.visible) v++; } }); return [n, v]; })(), camY: camera.position.y });
+  }, [gl, scene, camera]);
   useEffect(() => { invalidateRef.current = invalidate; return () => { invalidateRef.current = null; }; }, [invalidate, invalidateRef]);
   useEffect(() => {
     scene.background = new THREE.Color(WALL_COLOR);

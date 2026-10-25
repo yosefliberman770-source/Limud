@@ -11,7 +11,7 @@ import type { Quality } from './textures';
 
 export type ArtFace = 'cover' | 'spine' | 'back';
 
-const SPINE_PX = { high: 1280, low: 640 } as const;
+const SPINE_PX = { high: 1024, low: 640 } as const;
 const COVER_PX = { high: 1024, low: 512 } as const;
 
 let running = 0;

@@ -5,6 +5,7 @@ import { LibraryScene, computeFraming, type Framing } from './LibraryScene';
 import type { BookController } from './useBookController';
 import type { Quality } from './textures';
 import { ROW_PITCH } from './layout';
+import { disposeShared } from './shared';
 import './library3d.css';
 
 export interface Library3DProps {
@@ -59,6 +60,9 @@ export function Library3D({ layout, controller, quality, dueIds, onActivate, inv
     scrollRef.current = container.current.scrollTop;
     invalidateRef.current?.();
   }, [scrollToVolume, layout, framing, pxPerCm, invalidateRef]);
+
+  // release every shared texture/material/geometry when the library goes away (leaving and returning must not leak GPU memory)
+  useEffect(() => () => disposeShared(), []);
 
   const high = quality === 'high';
   return (

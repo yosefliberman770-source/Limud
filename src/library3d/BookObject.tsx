@@ -2,10 +2,11 @@ import { memo, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { Placed } from './layout';
-import { homeCenter } from './layout';
+import { homeCenter, ROW_PITCH } from './layout';
 import { poseAt, folioAngle, FOLIO_COUNT, type Stage } from './pose';
 import { bindingMaterialProps } from './materials';
-import { coverTexture, spineTexture, paperTexture, pageEdgeTexture, plainBinding, type Quality } from './textures';
+import { sharedGeos, sharedMaterials } from './shared';
+import type { Quality } from './textures';
 import { artTexture } from './artTextures';
 import { getDesign } from '@/art';
 
@@ -35,7 +36,7 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     const h = homeCenter(placed, zSpine);
     return due ? { ...h, z: h.z + 0.9 } : h;
   }, [placed, zSpine, due]);
-  const { invalidate } = useThree();
+  const { invalidate, camera } = useThree();
   const root = useRef<THREE.Group>(null);
   const hinge = useRef<THREE.Group>(null);
   const folioGroup = useRef<THREE.Group>(null);
@@ -43,73 +44,62 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
   const wasActive = useRef(false);
   const wasPressed = useRef(false);
 
+  // Per-book state is only the three materials whose maps change (spine / cover / back art); everything else is shared across books.
   const assets = useMemo(() => {
-    const spine = spineTexture(vol, quality);
-    const cover = coverTexture(vol, quality);
-    // plain surfaces (hinge, back until its art arrives) take the design's own binding colour so the object is one piece
     const dz = vol.design ? getDesign(vol.design.id) : null;
-    const tinted = dz ? { ...vol, colors: { ...vol.colors, binding: dz.bindingColor } } : vol;
-    const back = plainBinding(tinted, 128, 192, 'back');
-    const plain = plainBinding(tinted, 64, 64, 'edge');
-    const endpaper = paperTexture({ w: 256, h: 384, seed: 3, warm: '#efe5cc' });
-    const logPage = paperTexture({ w: 256, h: 384, ruled: true, seed: 11 });
-    const edge = pageEdgeTexture(dz?.edgeColor);
+    const binding = dz?.bindingColor ?? vol.colors.binding;
+    const sh = sharedMaterials(vol, binding, dz?.edgeColor);
     const bp = bindingMaterialProps(vol.material);
-    const mSpine = new THREE.MeshStandardMaterial({ map: spine, ...bp });
-    const mPlain = new THREE.MeshStandardMaterial({ map: plain, ...bp });
-    const mBack = new THREE.MeshStandardMaterial({ map: back, ...bp });
-    const mCover = new THREE.MeshStandardMaterial({ map: cover, ...bp });
-    const mEndpaper = new THREE.MeshStandardMaterial({ map: endpaper, roughness: 0.95 });
-    const mEdge = new THREE.MeshStandardMaterial({ map: edge, roughness: 0.95 });
-    const mLog = new THREE.MeshStandardMaterial({ map: logPage, roughness: 0.95 });
-    const mFolio = new THREE.MeshStandardMaterial({ map: logPage, roughness: 0.95, side: THREE.DoubleSide });
-    const geos = {
-      back: new THREE.BoxGeometry(W, H, COVER_T),
-      spine: new THREE.BoxGeometry(COVER_T, H, T),
-      pages: new THREE.BoxGeometry(W - 0.55, H - 0.6, T - COVER_T * 2 - 0.04),
-      cover: new THREE.BoxGeometry(W, H, COVER_T),
-      folio: new THREE.PlaneGeometry(W - 0.7, H - 0.9),
-    };
-    return { spine, cover, back, plain, endpaper, logPage, edge, mSpine, mPlain, mBack, mCover, mEndpaper, mEdge, mLog, mFolio, geos };
-  }, [vol, quality, W, H, T]);
+    // flat binding colour until the vector art arrives (no per-book canvas)
+    const mSpine = new THREE.MeshStandardMaterial({ color: binding, ...bp });
+    const mCover = new THREE.MeshStandardMaterial({ color: binding, ...bp });
+    const mBack = new THREE.MeshStandardMaterial({ color: binding, ...bp });
+    const geos = sharedGeos(W, H, T, COVER_T);
+    return { mSpine, mCover, mBack, mPlain: sh.plain, mEndpaper: sh.endpaper, mEdge: sh.edge, mLog: sh.log, mFolio: sh.folio, geos };
+  }, [vol, W, H, T]);
 
-  useEffect(() => () => {
-    const a = assets;
-    [a.spine, a.cover, a.back, a.plain, a.endpaper, a.logPage, a.edge, a.mSpine, a.mPlain, a.mBack, a.mCover, a.mEndpaper, a.mEdge, a.mLog, a.mFolio, ...Object.values(a.geos)].forEach((x) => x.dispose());
-  }, [assets]);
+  useEffect(() => () => { assets.mSpine.dispose(); assets.mCover.dispose(); assets.mBack.dispose(); }, [assets]);
 
   // Swap in the vector-art textures: the spine as soon as the queue gets to it, the cover and back the first time the book is touched.
   // (The procedural textures stay as the instant placeholder / fallback.)
   const base = import.meta.env.BASE_URL ?? '/';
-  const art = useRef<{ spine: THREE.Texture | null; cover: THREE.Texture | null; back: THREE.Texture | null; wantFull: boolean; cancelled: boolean }>({ spine: null, cover: null, back: null, wantFull: false, cancelled: false });
-  const loadFull = () => {
+  const art = useRef<{ spine: THREE.Texture | null; cover: THREE.Texture | null; back: THREE.Texture | null; faces: { cover: boolean; back: boolean }; spineRequested: boolean; cancelled: boolean }>({ spine: null, cover: null, back: null, faces: { cover: false, back: false }, spineRequested: false, cancelled: false });
+  const loadFace = (face: 'cover' | 'back') => {
     const a = art.current;
-    if (a.wantFull || !vol.design) return;
-    a.wantFull = true;
-    for (const face of ['cover', 'back'] as const) {
-      void artTexture(vol, face, quality, base).then((t) => {
-        if (art.current.cancelled) { t.dispose(); return; }
-        const mat = face === 'cover' ? assets.mCover : assets.mBack;
-        art.current[face] = t; mat.map = t; mat.needsUpdate = true; invalidate();
-      }).catch((e) => console.warn('[books] art unavailable', vol.id, face, e));
-    }
+    if (a.faces[face] || !vol.design) return;
+    a.faces[face] = true;
+    void artTexture(vol, face, quality, base).then((t) => {
+      if (a.cancelled) { t.dispose(); return; }
+      const mat = face === 'cover' ? assets.mCover : assets.mBack;
+      a[face] = t; mat.color.set('#ffffff'); mat.map = t; mat.needsUpdate = true; invalidate();
+    }).catch((e) => { a.faces[face] = false; console.warn('[books] art unavailable', vol.id, face, e); });
   };
-  useEffect(() => {
-    if (!vol.design) return;
-    const a: typeof art.current = { spine: null, cover: null, back: null, wantFull: false, cancelled: false };
-    art.current = a;
+  const loadFull = () => { loadFace('cover'); loadFace('back'); };
+
+  const requestSpine = () => {
+    const a = art.current;
+    if (a.spineRequested || !vol.design) return;
+    a.spineRequested = true;
     void artTexture(vol, 'spine', quality, base).then((t) => {
       if (a.cancelled) { t.dispose(); return; }
-      a.spine = t; assets.mSpine.map = t; assets.mSpine.needsUpdate = true; invalidate();
-    }).catch((e) => console.warn('[books] spine art unavailable', vol.id, e));
+      a.spine = t; assets.mSpine.color.set('#ffffff'); assets.mSpine.map = t; assets.mSpine.needsUpdate = true; invalidate();
+      // books on screen are the likeliest to be opened: warm their cover while the device is idle so opening feels instant
+      const idle = (window as unknown as { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 400));
+      idle(() => { if (!a.cancelled && Math.abs(home.y - camera.position.y) < ROW_PITCH * 1.2) loadFace('cover'); });
+    }).catch((e) => { a.spineRequested = false; console.warn('[books] spine art unavailable', vol.id, e); });
+  };
+  useEffect(() => {
+    const a: typeof art.current = { spine: null, cover: null, back: null, faces: { cover: false, back: false }, spineRequested: false, cancelled: false };
+    art.current = a;
+    invalidate(); // let the first frame decide which spines are near the viewport
     return () => { a.cancelled = true; a.spine?.dispose(); a.cover?.dispose(); a.back?.dispose(); };
   }, [vol, quality, assets, base, invalidate]);
 
-  // Materials arrays per box face order: +x, -x, +y, -y, +z, -z
-  const spineMats = useMemo(() => [assets.mSpine, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain], [assets]);
-  const pageMats = useMemo(() => [assets.mEdge, assets.mEdge, assets.mEdge, assets.mEdge, assets.mLog, assets.mEndpaper], [assets]);
-  const coverMats = useMemo(() => [assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain, assets.mCover, assets.mEndpaper], [assets]);
-  const backMats = useMemo(() => [assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain, assets.mEndpaper, assets.mBack], [assets]);
+  // Compact material arrays (one entry per face group — see groupedBox in shared.ts)
+  const spineMats = useMemo(() => [assets.mSpine, assets.mPlain], [assets]);
+  const pageMats = useMemo(() => [assets.mEdge, assets.mLog, assets.mEndpaper], [assets]);
+  const coverMats = useMemo(() => [assets.mPlain, assets.mCover, assets.mEndpaper], [assets]);
+  const backMats = useMemo(() => [assets.mPlain, assets.mEndpaper, assets.mBack], [assets]);
 
   const apply = (p: number) => {
     const g = root.current;
@@ -132,6 +122,8 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     const active = anim.activeId === vol.id;
     const pressed = anim.pressedId === vol.id;
     if (active || pressed) loadFull();
+    // load the spine art only for books near the viewport (two rows either side), so a 90-book shelf never rasterises everything at once
+    if (!art.current.spineRequested && Math.abs(home.y - camera.position.y) < ROW_PITCH * 2.2) requestSpine();
     if (active) { apply(anim.p); wasActive.current = true; }
     else if (wasActive.current) { apply(0); wasActive.current = false; }
     else if (pressed !== wasPressed.current) { apply(0); }
