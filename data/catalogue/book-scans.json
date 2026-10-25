@@ -1,0 +1,314 @@
+{
+ "schemaVersion": 1,
+ "notes": "Every book texture marked photo_scan was produced from a photograph the user supplied (screenshots of web search/e-commerce listings). Corner coordinates are in the source image pixels (TL, TR, BR, BL). The originals live in assets-src/books (not committed); rectified+cleaned textures are in public/books.",
+ "licensing": "The photographs are the work of their original photographers/publishers (Oz Vehadar, Chitas edition publisher, Kehot/Vaad Hanachos, Eichlers, eBay seller). They are used here only as visual reference textures for the user's personal, non-distributed build. Do not publish or redistribute the app, its web build or APK publicly without replacing these textures or obtaining permission.",
+ "sources": [
+  {
+   "key": "shas",
+   "file": "shas-ozvehadar.jpg",
+   "subject": "תלמוד בבלי עוז והדר (מהדורת פרידמאן)",
+   "host": "עוז והדר (Google Images result)",
+   "coverQuad": [
+    [
+     145,
+     452
+    ],
+    [
+     752,
+     454
+    ],
+    [
+     752,
+     1614
+    ],
+    [
+     143,
+     1478
+    ]
+   ],
+   "spineQuad": [
+    [
+     754,
+     455
+    ],
+    [
+     880,
+     456
+    ],
+    [
+     880,
+     1612
+    ],
+    [
+     754,
+     1616
+    ]
+   ],
+   "usedFor": "all Shas volumes (masechta names redrawn on the spine panel)"
+  },
+  {
+   "key": "chitas",
+   "file": "chitas.jpg",
+   "subject": "ספר חת״ת — חומש תהלים תניא, סדור תהלת ה׳ היום יום",
+   "host": "ספרי אור החיים (Google Images result)",
+   "coverQuad": [
+    [
+     50,
+     482
+    ],
+    [
+     845,
+     462
+    ],
+    [
+     848,
+     1812
+    ],
+    [
+     52,
+     1765
+    ]
+   ],
+   "spineQuad": [
+    [
+     848,
+     462
+    ],
+    [
+     1000,
+     468
+    ],
+    [
+     1000,
+     1800
+    ],
+    [
+     848,
+     1812
+    ]
+   ],
+   "usedFor": "ספר חת״ת (unmodified)"
+  },
+  {
+   "key": "tm",
+   "file": "tm-hisvaaduyos.jpg",
+   "subject": "תורת מנחם התוועדויות (Kehot set photo, front volume cover + neighbouring spines)",
+   "host": "KehotOnline.com (Google Images result)",
+   "coverQuad": [
+    [
+     413,
+     393
+    ],
+    [
+     1028,
+     383
+    ],
+    [
+     1038,
+     1272
+    ],
+    [
+     448,
+     1306
+    ]
+   ],
+   "spineQuad": [
+    [
+     255,
+     350
+    ],
+    [
+     385,
+     345
+    ],
+    [
+     385,
+     1112
+    ],
+    [
+     258,
+     1100
+    ]
+   ],
+   "usedFor": "Toras Menachem 5710/5711 Hisvaaduyos (cover year line and tiny text removed, redrawn as ה׳שי״ת / ה׳תשי״א; spine adds the volume number)"
+  },
+  {
+   "key": "ls",
+   "file": "ls-vol25.jpg",
+   "subject": "לקוטי שיחות חלק כה בראשית",
+   "host": "eBay listing (Books_Bklyn)",
+   "coverQuad": [
+    [
+     195,
+     308
+    ],
+    [
+     505,
+     292
+    ],
+    [
+     505,
+     850
+    ],
+    [
+     122,
+     862
+    ]
+   ],
+   "spineQuad": [
+    [
+     528,
+     272
+    ],
+    [
+     618,
+     272
+    ],
+    [
+     620,
+     853
+    ],
+    [
+     525,
+     853
+    ]
+   ],
+   "usedFor": "Likkutei Sichos vols. 10–14 (volume letter shown without punctuation, e.g. י, יא; sefer name redrawn)"
+  },
+  {
+   "key": "rambam",
+   "file": "rambam-mishneh-torah.jpg",
+   "subject": "משנה תורה — ספר מדע",
+   "host": "Eichlers.com (Google Images result)",
+   "coverQuad": [
+    [
+     122,
+     588
+    ],
+    [
+     832,
+     590
+    ],
+    [
+     832,
+     1690
+    ],
+    [
+     125,
+     1625
+    ]
+   ],
+   "spineQuad": [
+    [
+     835,
+     582
+    ],
+    [
+     890,
+     584
+    ],
+    [
+     890,
+     1690
+    ],
+    [
+     835,
+     1692
+    ]
+   ],
+   "usedFor": "all 14 Mishneh Torah volumes (sefer name redrawn; spine photo is only ~55 px wide, so it is soft)"
+  },
+  {
+   "key": "maamarim",
+   "file": "tm-maamarim.jpg",
+   "subject": "תורת מנחם — ספר המאמרים (photographed volume: תשמ״א)",
+   "host": "KehotOnline.com (Google Images result)",
+   "coverQuad": [
+    [
+     100,
+     498
+    ],
+    [
+     855,
+     415
+    ],
+    [
+     860,
+     1880
+    ],
+    [
+     115,
+     1765
+    ]
+   ],
+   "spineQuad": [
+    [
+     862,
+     410
+    ],
+    [
+     948,
+     414
+    ],
+    [
+     948,
+     1890
+    ],
+    [
+     864,
+     1896
+    ]
+   ],
+   "usedFor": "ספר המאמרים תשי״א (year lettering removed and redrawn as תשי״א, per the user)"
+  },
+  {
+   "key": "ramban",
+   "file": "ramban.jpg",
+   "subject": "פירוש הרמב״ן על התורה (הוצאת בלום)",
+   "host": "אוצר הספרים (Google Images result)",
+   "coverQuad": [
+    [
+     78,
+     428
+    ],
+    [
+     878,
+     415
+    ],
+    [
+     882,
+     1676
+    ],
+    [
+     80,
+     1640
+    ]
+   ],
+   "spineQuad": [
+    [
+     886,
+     412
+    ],
+    [
+     955,
+     418
+    ],
+    [
+     955,
+     1672
+    ],
+    [
+     886,
+     1678
+    ]
+   ],
+   "usedFor": "all five Ramban volumes (sefer name redrawn on the spine; the spine in the photo is only ~70 px wide, so it is soft)"
+  }
+ ],
+ "unusedPhotos": [],
+ "missing": [
+  "Exact photos of the Toras Menachem 5710/5711 volumes (the series photo is used; year redrawn as ה׳שי״ת / ה׳תשי״א)",
+  "Per-volume photos of Likkutei Sichos 10–14 (vol. 25 photo used; volume letter redrawn)",
+  "Per-masechta photos of Shas (generic Oz VeHadar binding used)"
+ ]
+}

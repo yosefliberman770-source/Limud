@@ -146,7 +146,7 @@ export function TodayView({ date }: { date?: string }) {
   );
 }
 
-function Section({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
+export function Section({ title, count, children }: { title: string; count?: number; children: React.ReactNode }) {
   return (
     <section>
       <h2 className="section-title">{title}{count != null && count > 0 && <span className="chip">{count}</span>}</h2>
@@ -155,11 +155,11 @@ function Section({ title, count, children }: { title: string; count?: number; ch
   );
 }
 
-function Empty({ text }: { text: string }) {
+export function Empty({ text }: { text: string }) {
   return <div className="empty">{text}</div>;
 }
 
-function WorkRow({ work, progress, badge, sub, expanded, onToggle }: { work: LogWork; progress: ReturnType<typeof workProgress>; badge: { cls: string; text: string }; sub: string; expanded: boolean; onToggle: () => void }) {
+export function WorkRow({ work, progress, badge, sub, expanded, onToggle }: { work: LogWork; progress: ReturnType<typeof workProgress>; badge: { cls: string; text: string }; sub: string; expanded: boolean; onToggle: () => void }) {
   const next = progress.nextIndex != null && work.sections ? work.sections[progress.nextIndex] : null;
   return (
     <div className={`work-row ${expanded ? 'open' : ''}`}>

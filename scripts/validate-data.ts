@@ -100,7 +100,8 @@ export function validateAll(): Issue[] {
     if (pvIds.has(v.id)) issues.push({ severity: 'error', code: 'pv.duplicate', entity: v.id, message: 'duplicate volume id' });
     pvIds.add(v.id);
     if (!lib.collections.some((c: { id: string }) => c.id === v.collectionId)) issues.push({ severity: 'error', code: 'pv.collection', entity: v.id, message: 'unknown collection' });
-    if (v.visual?.basis !== 'stylized' && v.visual?.basis !== 'edition_reference') issues.push({ severity: 'error', code: 'pv.visual_basis', entity: v.id, message: 'visual basis must be declared' });
+    if (!['stylized', 'edition_reference', 'photo_scan'].includes(v.visual?.basis)) issues.push({ severity: 'error', code: 'pv.visual_basis', entity: v.id, message: 'visual basis must be declared' });
+    if (v.visual?.basis === 'photo_scan' && !v.scan?.key) issues.push({ severity: 'error', code: 'pv.scan_missing', entity: v.id, message: 'photo_scan without scan key' });
     for (const c of v.canonicalIds) if (c.startsWith('tm-') && !volIds.has(c)) issues.push({ severity: 'error', code: 'pv.canonical', entity: v.id, message: `unknown TM volume ${c}` });
     for (const c of v.canonicalIds) if (c.startsWith('ls-') && !lsVol.has(c)) issues.push({ severity: 'error', code: 'pv.canonical', entity: v.id, message: `unknown LS volume ${c}` });
   }

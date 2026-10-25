@@ -25,12 +25,11 @@ export function sefarOf(halachosName: string): { sefer: string; index: number } 
   return null;
 }
 
-/** Which physical volume (1..3) of the illustrative 3-volume set contains the halachos. Intro material is in volume 1. */
-export function rambamPhysicalVolume(halachosName: string): 1 | 2 | 3 {
+/** Physical volume number (1..14): one volume per sefer of Mishneh Torah; the introductory material sits in volume 1 (מדע). */
+export function rambamPhysicalVolume(halachosName: string): number {
   if (INTRO.includes(halachosName)) return 1;
   const s = sefarOf(halachosName);
-  if (!s) return 1;
-  return s.index <= 2 ? 1 : s.index <= 6 ? 2 : 3;
+  return s ? s.index + 1 : 1;
 }
 
 export function allHalachosNames(): string[] {

@@ -1,11 +1,11 @@
 import { memo, useEffect, useMemo, useRef } from 'react';
-import { useFrame, type ThreeEvent } from '@react-three/fiber';
+import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { Placed } from './layout';
 import { homeCenter } from './layout';
 import { poseAt, folioAngle, FOLIO_COUNT, type Stage } from './pose';
 import { bindingMaterialProps } from './materials';
-import { coverTexture, spineTexture, paperTexture, pageEdgeTexture, plainBinding, type Quality } from './textures';
+import { coverTexture, spineTexture, paperTexture, pageEdgeTexture, plainBinding, loadScanTextures, type Quality } from './textures';
 
 export interface BookObjectProps {
   placed: Placed;
@@ -33,6 +33,7 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     const h = homeCenter(placed, zSpine);
     return due ? { ...h, z: h.z + 0.9 } : h;
   }, [placed, zSpine, due]);
+  const { invalidate } = useThree();
   const root = useRef<THREE.Group>(null);
   const hinge = useRef<THREE.Group>(null);
   const folioGroup = useRef<THREE.Group>(null);
@@ -71,6 +72,21 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     const a = assets;
     [a.spine, a.cover, a.back, a.plain, a.endpaper, a.logPage, a.edge, a.mSpine, a.mPlain, a.mBack, a.mCover, a.mEndpaper, a.mEdge, a.mLog, a.mFolio, ...Object.values(a.geos)].forEach((x) => x.dispose());
   }, [assets]);
+
+  // Swap in the real-photo textures once loaded (procedural ones remain as the instant placeholder / fallback).
+  useEffect(() => {
+    if (!vol.scan) return;
+    let cancelled = false;
+    let loaded: { cover: THREE.Texture; spine: THREE.Texture } | null = null;
+    void loadScanTextures(vol, quality, import.meta.env.BASE_URL ?? '/').then((t) => {
+      if (cancelled || !t) { t?.cover.dispose(); t?.spine.dispose(); return; }
+      loaded = t;
+      assets.mCover.map = t.cover; assets.mCover.needsUpdate = true;
+      assets.mSpine.map = t.spine; assets.mSpine.needsUpdate = true;
+      invalidate();
+    });
+    return () => { cancelled = true; loaded?.cover.dispose(); loaded?.spine.dispose(); };
+  }, [vol, quality, assets, invalidate]);
 
   // Materials arrays per box face order: +x, -x, +y, -y, +z, -z
   const spineMats = useMemo(() => [assets.mSpine, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain], [assets]);

@@ -1,35 +1,1161 @@
 {
-  "schemaVersion": 1,
-  "notes": "Visual bindings are STYLIZED representations designed for this app (original procedural textures). They are not reproductions of any publisher's cover art. Sizes are approximate for standard Kehot/Lahak octavo seforim and a standard Vilna-format Shas; label 'stylized' means not verified against a specific printing.",
-  "collections": [
-    { "id": "toras-menachem", "heTitle": "תורת מנחם — התוועדויות", "enTitle": "Toras Menachem — Hisvaaduyos", "order": 1 },
-    { "id": "likkutei-sichos", "heTitle": "לקוטי שיחות", "enTitle": "Likkutei Sichos", "order": 2 },
-    { "id": "chitas", "heTitle": "חת״ת", "enTitle": "Chitas", "order": 3 },
-    { "id": "rambam", "heTitle": "משנה תורה להרמב״ם", "enTitle": "Mishneh Torah", "order": 4 },
-    { "id": "hayom-yom", "heTitle": "היום יום", "enTitle": "Hayom Yom", "order": 5 },
-    { "id": "ramban", "heTitle": "חומש עם פירוש הרמב״ן", "enTitle": "Chumash with Ramban", "order": 6 },
-    { "id": "shas", "heTitle": "תלמוד בבלי", "enTitle": "Talmud Bavli", "order": 7 }
-  ],
-  "volumes": [
-    { "id": "pv-tm-5710-01", "canonicalIds": ["tm-5710-01"], "collectionId": "toras-menachem", "spineTitle": "תורת מנחם", "spineSubtitle": "התוועדויות · תש״י · א", "coverTitle": "תורת מנחם — התוועדויות תש״י", "size": { "h": 24.5, "w": 17.5, "t": 3.2 }, "material": "cloth", "colors": { "binding": "#3b2a1e", "accent": "#c9a86a", "text": "#e8d9b5", "edge": "#efe6d2" }, "shelf": 0, "order": 0, "visual": { "basis": "stylized", "note": "Dark brown cloth with stamped title — stylized, not the Lahak/Kehot cover." }, "programs": ["tm_sichos", "tm_maamarim"] },
-    { "id": "pv-tm-5711-02", "canonicalIds": ["tm-5711-02"], "collectionId": "toras-menachem", "spineTitle": "תורת מנחם", "spineSubtitle": "התוועדויות · תשי״א · ב", "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק א", "size": { "h": 24.5, "w": 17.5, "t": 3.4 }, "material": "cloth", "colors": { "binding": "#3b2a1e", "accent": "#c9a86a", "text": "#e8d9b5", "edge": "#efe6d2" }, "shelf": 0, "order": 1, "visual": { "basis": "stylized", "note": "Same set styling as volume 1." }, "programs": ["tm_sichos", "tm_maamarim"] },
-    { "id": "pv-tm-5711-03", "canonicalIds": ["tm-5711-03"], "collectionId": "toras-menachem", "spineTitle": "תורת מנחם", "spineSubtitle": "התוועדויות · תשי״א · ג", "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק ב", "size": { "h": 24.5, "w": 17.5, "t": 3.4 }, "material": "cloth", "colors": { "binding": "#3b2a1e", "accent": "#c9a86a", "text": "#e8d9b5", "edge": "#efe6d2" }, "shelf": 0, "order": 2, "visual": { "basis": "stylized", "note": "Same set styling as volume 1." }, "programs": ["tm_sichos", "tm_maamarim"] },
-    { "id": "pv-ls-10", "canonicalIds": ["ls-10"], "collectionId": "likkutei-sichos", "spineTitle": "לקוטי שיחות", "spineSubtitle": "חלק י׳ · בראשית", "coverTitle": "לקוטי שיחות חלק י׳", "size": { "h": 24.0, "w": 17.0, "t": 2.6 }, "material": "leatherette", "colors": { "binding": "#1f2d4a", "accent": "#d4b06a", "text": "#f1e6c8", "edge": "#f3ecd9" }, "shelf": 0, "order": 3, "visual": { "basis": "stylized", "note": "Navy binding with gold stamping — stylized." }, "programs": ["likkutei_sichos"] },
-    { "id": "pv-ls-11", "canonicalIds": ["ls-11"], "collectionId": "likkutei-sichos", "spineTitle": "לקוטי שיחות", "spineSubtitle": "חלק י״א · שמות", "coverTitle": "לקוטי שיחות חלק י״א", "size": { "h": 24.0, "w": 17.0, "t": 2.6 }, "material": "leatherette", "colors": { "binding": "#1f2d4a", "accent": "#d4b06a", "text": "#f1e6c8", "edge": "#f3ecd9" }, "shelf": 0, "order": 4, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["likkutei_sichos"] },
-    { "id": "pv-ls-12", "canonicalIds": ["ls-12"], "collectionId": "likkutei-sichos", "spineTitle": "לקוטי שיחות", "spineSubtitle": "חלק י״ב · ויקרא", "coverTitle": "לקוטי שיחות חלק י״ב", "size": { "h": 24.0, "w": 17.0, "t": 2.5 }, "material": "leatherette", "colors": { "binding": "#1f2d4a", "accent": "#d4b06a", "text": "#f1e6c8", "edge": "#f3ecd9" }, "shelf": 0, "order": 5, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["likkutei_sichos"] },
-    { "id": "pv-ls-13", "canonicalIds": ["ls-13"], "collectionId": "likkutei-sichos", "spineTitle": "לקוטי שיחות", "spineSubtitle": "חלק י״ג · במדבר", "coverTitle": "לקוטי שיחות חלק י״ג", "size": { "h": 24.0, "w": 17.0, "t": 2.6 }, "material": "leatherette", "colors": { "binding": "#1f2d4a", "accent": "#d4b06a", "text": "#f1e6c8", "edge": "#f3ecd9" }, "shelf": 0, "order": 6, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["likkutei_sichos"] },
-    { "id": "pv-ls-14", "canonicalIds": ["ls-14"], "collectionId": "likkutei-sichos", "spineTitle": "לקוטי שיחות", "spineSubtitle": "חלק י״ד · דברים", "coverTitle": "לקוטי שיחות חלק י״ד", "size": { "h": 24.0, "w": 17.0, "t": 2.7 }, "material": "leatherette", "colors": { "binding": "#1f2d4a", "accent": "#d4b06a", "text": "#f1e6c8", "edge": "#f3ecd9" }, "shelf": 0, "order": 7, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["likkutei_sichos"] },
-    { "id": "pv-chumash", "canonicalIds": ["chitas-chumash"], "collectionId": "chitas", "spineTitle": "חומש", "spineSubtitle": "עם פירוש רש״י", "coverTitle": "חמשה חומשי תורה", "size": { "h": 22.0, "w": 15.0, "t": 4.2 }, "material": "leather", "colors": { "binding": "#5a1e1e", "accent": "#d8b36a", "text": "#f3e3c0", "edge": "#f5efe0" }, "shelf": 1, "order": 0, "visual": { "basis": "stylized", "note": "Oxblood leather — stylized." }, "programs": ["chitas_chumash"] },
-    { "id": "pv-tehillim", "canonicalIds": ["chitas-tehillim"], "collectionId": "chitas", "spineTitle": "תהלים", "spineSubtitle": "אהל יוסף יצחק", "coverTitle": "ספר תהלים", "size": { "h": 17.5, "w": 12.0, "t": 2.0 }, "material": "leather", "colors": { "binding": "#2d3a2a", "accent": "#d8b36a", "text": "#eee3c4", "edge": "#f5efe0" }, "shelf": 1, "order": 1, "visual": { "basis": "stylized", "note": "Forest green leather — stylized." }, "programs": ["chitas_tehillim"] },
-    { "id": "pv-tanya", "canonicalIds": ["chitas-tanya"], "collectionId": "chitas", "spineTitle": "תניא", "spineSubtitle": "לקוטי אמרים", "coverTitle": "לקוטי אמרים — תניא", "size": { "h": 17.5, "w": 12.0, "t": 2.4 }, "material": "leather", "colors": { "binding": "#1c1c22", "accent": "#c9a86a", "text": "#e9dcc0", "edge": "#f3ecd9" }, "shelf": 1, "order": 2, "visual": { "basis": "stylized", "note": "Near-black leather — stylized." }, "programs": ["chitas_tanya"] },
-    { "id": "pv-hayom-yom", "canonicalIds": ["hayom-yom"], "collectionId": "hayom-yom", "spineTitle": "היום יום", "spineSubtitle": null, "coverTitle": "היום יום", "size": { "h": 17.0, "w": 11.5, "t": 1.6 }, "material": "cloth", "colors": { "binding": "#6b2f2a", "accent": "#e2c184", "text": "#f3e3c0", "edge": "#f5efe0" }, "shelf": 1, "order": 3, "visual": { "basis": "stylized", "note": "Small red-brown cloth volume — stylized." }, "programs": ["hayom_yom"] },
-    { "id": "pv-rambam-1", "canonicalIds": ["mishneh-torah"], "collectionId": "rambam", "spineTitle": "משנה תורה", "spineSubtitle": "להרמב״ם · מדע · אהבה · זמנים", "coverTitle": "משנה תורה להרמב״ם", "size": { "h": 25.0, "w": 18.0, "t": 4.0 }, "material": "cloth", "colors": { "binding": "#21344d", "accent": "#d8b36a", "text": "#f0e5c8", "edge": "#f3ecd9" }, "shelf": 1, "order": 4, "visual": { "basis": "stylized", "note": "Multi-volume Mishneh Torah set, stylized; volume split is illustrative." }, "programs": ["rambam3"] },
-    { "id": "pv-rambam-2", "canonicalIds": ["mishneh-torah"], "collectionId": "rambam", "spineTitle": "משנה תורה", "spineSubtitle": "נשים · קדושה · הפלאה · זרעים", "coverTitle": "משנה תורה להרמב״ם", "size": { "h": 25.0, "w": 18.0, "t": 4.0 }, "material": "cloth", "colors": { "binding": "#21344d", "accent": "#d8b36a", "text": "#f0e5c8", "edge": "#f3ecd9" }, "shelf": 1, "order": 5, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["rambam3"] },
-    { "id": "pv-rambam-3", "canonicalIds": ["mishneh-torah"], "collectionId": "rambam", "spineTitle": "משנה תורה", "spineSubtitle": "עבודה · קרבנות · טהרה · נזיקין · קנין · משפטים · שופטים", "coverTitle": "משנה תורה להרמב״ם", "size": { "h": 25.0, "w": 18.0, "t": 4.2 }, "material": "cloth", "colors": { "binding": "#21344d", "accent": "#d8b36a", "text": "#f0e5c8", "edge": "#f3ecd9" }, "shelf": 1, "order": 6, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["rambam3"] },
-    { "id": "pv-ramban-bereishis", "canonicalIds": ["ramban-bereishis"], "collectionId": "ramban", "spineTitle": "בראשית", "spineSubtitle": "חומש עם פירוש הרמב״ן", "coverTitle": "חומש בראשית עם פירוש הרמב״ן", "size": { "h": 24.5, "w": 17.0, "t": 3.6 }, "material": "leather", "colors": { "binding": "#4a2a12", "accent": "#d8b36a", "text": "#f1e4c6", "edge": "#f5efe0" }, "shelf": 2, "order": 0, "visual": { "basis": "stylized", "note": "Five-volume Chumash with Ramban — stylized warm brown leather." }, "programs": ["ramban"] },
-    { "id": "pv-ramban-shemos", "canonicalIds": ["ramban-shemos"], "collectionId": "ramban", "spineTitle": "שמות", "spineSubtitle": "חומש עם פירוש הרמב״ן", "coverTitle": "חומש שמות עם פירוש הרמב״ן", "size": { "h": 24.5, "w": 17.0, "t": 3.6 }, "material": "leather", "colors": { "binding": "#4a2a12", "accent": "#d8b36a", "text": "#f1e4c6", "edge": "#f5efe0" }, "shelf": 2, "order": 1, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["ramban"] },
-    { "id": "pv-ramban-vayikra", "canonicalIds": ["ramban-vayikra"], "collectionId": "ramban", "spineTitle": "ויקרא", "spineSubtitle": "חומש עם פירוש הרמב״ן", "coverTitle": "חומש ויקרא עם פירוש הרמב״ן", "size": { "h": 24.5, "w": 17.0, "t": 3.0 }, "material": "leather", "colors": { "binding": "#4a2a12", "accent": "#d8b36a", "text": "#f1e4c6", "edge": "#f5efe0" }, "shelf": 2, "order": 2, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["ramban"] },
-    { "id": "pv-ramban-bamidbar", "canonicalIds": ["ramban-bamidbar"], "collectionId": "ramban", "spineTitle": "במדבר", "spineSubtitle": "חומש עם פירוש הרמב״ן", "coverTitle": "חומש במדבר עם פירוש הרמב״ן", "size": { "h": 24.5, "w": 17.0, "t": 3.2 }, "material": "leather", "colors": { "binding": "#4a2a12", "accent": "#d8b36a", "text": "#f1e4c6", "edge": "#f5efe0" }, "shelf": 2, "order": 3, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["ramban"] },
-    { "id": "pv-ramban-devarim", "canonicalIds": ["ramban-devarim"], "collectionId": "ramban", "spineTitle": "דברים", "spineSubtitle": "חומש עם פירוש הרמב״ן", "coverTitle": "חומש דברים עם פירוש הרמב״ן", "size": { "h": 24.5, "w": 17.0, "t": 3.4 }, "material": "leather", "colors": { "binding": "#4a2a12", "accent": "#d8b36a", "text": "#f1e4c6", "edge": "#f5efe0" }, "shelf": 2, "order": 4, "visual": { "basis": "stylized", "note": "Set styling." }, "programs": ["ramban"] }
-  ]
+ "schemaVersion": 1,
+ "notes": "Books marked basis 'photo_scan' use real photographs of the actual editions, supplied by the user (see book-scans.json for provenance, corner coordinates and licensing). The photographed binding is untouched; only volume-specific lettering (year/volume/sefer/masechta) is redrawn at runtime so every volume carries its own correct label — those labels are flagged in scan.lettering. All books now have photo-based bindings. Sizes are approximate.",
+ "collections": [
+  {
+   "id": "toras-menachem",
+   "heTitle": "תורת מנחם — התוועדויות",
+   "enTitle": "Toras Menachem — Hisvaaduyos",
+   "order": 1
+  },
+  {
+   "id": "tm-maamarim",
+   "heTitle": "תורת מנחם — ספר המאמרים",
+   "enTitle": "Toras Menachem — Sefer HaMaamarim",
+   "order": 2
+  },
+  {
+   "id": "likkutei-sichos",
+   "heTitle": "לקוטי שיחות",
+   "enTitle": "Likkutei Sichos",
+   "order": 3
+  },
+  {
+   "id": "chitas",
+   "heTitle": "ספר חת״ת",
+   "enTitle": "Chitas (incl. Hayom Yom)",
+   "order": 4
+  },
+  {
+   "id": "rambam",
+   "heTitle": "משנה תורה להרמב״ם",
+   "enTitle": "Mishneh Torah",
+   "order": 5
+  },
+  {
+   "id": "ramban",
+   "heTitle": "פירוש הרמב״ן על התורה",
+   "enTitle": "Ramban on the Torah",
+   "order": 6
+  },
+  {
+   "id": "shas",
+   "heTitle": "תלמוד בבלי",
+   "enTitle": "Talmud Bavli",
+   "order": 7
+  }
+ ],
+ "volumes": [
+  {
+   "id": "pv-tm-5710-01",
+   "canonicalIds": [
+    "tm-5710-01"
+   ],
+   "collectionId": "toras-menachem",
+   "spineTitle": "תורת מנחם",
+   "spineSubtitle": "התוועדויות · תש״י · א",
+   "coverTitle": "תורת מנחם — התוועדויות תש״י",
+   "size": {
+    "h": 24.5,
+    "w": 17.5,
+    "t": 3.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b2720",
+    "accent": "#caa43c",
+    "text": "#d3ae46",
+    "edge": "#efe6d2"
+   },
+   "shelf": 0,
+   "order": 0,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot/Vaad Hanachos Toras Menachem binding (black cloth, gold bands, grey patterned sides) from the user's photo of the series; year and volume lettering redrawn for this volume."
+   },
+   "programs": [
+    "tm_sichos"
+   ],
+   "scan": {
+    "key": "tm",
+    "labels": [
+     "ה׳שי״ת",
+     "כרך א"
+    ],
+    "lettering": "year redrawn on cover and spine (ה׳שי״ת / ה׳תשי״א); volume number on spine only"
+   }
+  },
+  {
+   "id": "pv-tm-5711-02",
+   "canonicalIds": [
+    "tm-5711-02"
+   ],
+   "collectionId": "toras-menachem",
+   "spineTitle": "תורת מנחם",
+   "spineSubtitle": "התוועדויות · תשי״א · ב",
+   "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק א",
+   "size": {
+    "h": 24.5,
+    "w": 17.5,
+    "t": 3.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b2720",
+    "accent": "#caa43c",
+    "text": "#d3ae46",
+    "edge": "#efe6d2"
+   },
+   "shelf": 0,
+   "order": 1,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot/Vaad Hanachos Toras Menachem binding (black cloth, gold bands, grey patterned sides) from the user's photo of the series; year and volume lettering redrawn for this volume."
+   },
+   "programs": [
+    "tm_sichos"
+   ],
+   "scan": {
+    "key": "tm",
+    "labels": [
+     "ה׳תשי״א",
+     "כרך ב"
+    ],
+    "lettering": "year redrawn on cover and spine (ה׳שי״ת / ה׳תשי״א); volume number on spine only"
+   }
+  },
+  {
+   "id": "pv-tm-5711-03",
+   "canonicalIds": [
+    "tm-5711-03"
+   ],
+   "collectionId": "toras-menachem",
+   "spineTitle": "תורת מנחם",
+   "spineSubtitle": "התוועדויות · תשי״א · ג",
+   "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק ב",
+   "size": {
+    "h": 24.5,
+    "w": 17.5,
+    "t": 3.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b2720",
+    "accent": "#caa43c",
+    "text": "#d3ae46",
+    "edge": "#efe6d2"
+   },
+   "shelf": 0,
+   "order": 2,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot/Vaad Hanachos Toras Menachem binding (black cloth, gold bands, grey patterned sides) from the user's photo of the series; year and volume lettering redrawn for this volume."
+   },
+   "programs": [
+    "tm_sichos"
+   ],
+   "scan": {
+    "key": "tm",
+    "labels": [
+     "ה׳תשי״א",
+     "כרך ג"
+    ],
+    "lettering": "year redrawn on cover and spine (ה׳שי״ת / ה׳תשי״א); volume number on spine only"
+   }
+  },
+  {
+   "id": "pv-ls-10",
+   "canonicalIds": [
+    "ls-10"
+   ],
+   "collectionId": "likkutei-sichos",
+   "spineTitle": "לקוטי שיחות",
+   "spineSubtitle": "חלק י׳ · בראשית",
+   "coverTitle": "לקוטי שיחות חלק י׳",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 2.8
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#1d2a4a",
+    "accent": "#c9ccd2",
+    "text": "#d6d9de",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 0,
+   "order": 3,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot Likkutei Sichos binding (navy, silver stamping) from the user's photo of vol. 25 Bereishis; volume letter and sefer name redrawn for this volume."
+   },
+   "programs": [
+    "likkutei_sichos"
+   ],
+   "scan": {
+    "key": "ls",
+    "labels": [
+     "י",
+     "בראשית"
+    ],
+    "lettering": "volume letter and sefer name redrawn"
+   }
+  },
+  {
+   "id": "pv-ls-11",
+   "canonicalIds": [
+    "ls-11"
+   ],
+   "collectionId": "likkutei-sichos",
+   "spineTitle": "לקוטי שיחות",
+   "spineSubtitle": "חלק י״א · שמות",
+   "coverTitle": "לקוטי שיחות חלק י״א",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 2.8
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#1d2a4a",
+    "accent": "#c9ccd2",
+    "text": "#d6d9de",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 0,
+   "order": 4,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot Likkutei Sichos binding (navy, silver stamping) from the user's photo of vol. 25 Bereishis; volume letter and sefer name redrawn for this volume."
+   },
+   "programs": [
+    "likkutei_sichos"
+   ],
+   "scan": {
+    "key": "ls",
+    "labels": [
+     "יא",
+     "שמות"
+    ],
+    "lettering": "volume letter and sefer name redrawn"
+   }
+  },
+  {
+   "id": "pv-ls-12",
+   "canonicalIds": [
+    "ls-12"
+   ],
+   "collectionId": "likkutei-sichos",
+   "spineTitle": "לקוטי שיחות",
+   "spineSubtitle": "חלק י״ב · ויקרא",
+   "coverTitle": "לקוטי שיחות חלק י״ב",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 2.8
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#1d2a4a",
+    "accent": "#c9ccd2",
+    "text": "#d6d9de",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 0,
+   "order": 5,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot Likkutei Sichos binding (navy, silver stamping) from the user's photo of vol. 25 Bereishis; volume letter and sefer name redrawn for this volume."
+   },
+   "programs": [
+    "likkutei_sichos"
+   ],
+   "scan": {
+    "key": "ls",
+    "labels": [
+     "יב",
+     "ויקרא"
+    ],
+    "lettering": "volume letter and sefer name redrawn"
+   }
+  },
+  {
+   "id": "pv-ls-13",
+   "canonicalIds": [
+    "ls-13"
+   ],
+   "collectionId": "likkutei-sichos",
+   "spineTitle": "לקוטי שיחות",
+   "spineSubtitle": "חלק י״ג · במדבר",
+   "coverTitle": "לקוטי שיחות חלק י״ג",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 2.8
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#1d2a4a",
+    "accent": "#c9ccd2",
+    "text": "#d6d9de",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 0,
+   "order": 6,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot Likkutei Sichos binding (navy, silver stamping) from the user's photo of vol. 25 Bereishis; volume letter and sefer name redrawn for this volume."
+   },
+   "programs": [
+    "likkutei_sichos"
+   ],
+   "scan": {
+    "key": "ls",
+    "labels": [
+     "יג",
+     "במדבר"
+    ],
+    "lettering": "volume letter and sefer name redrawn"
+   }
+  },
+  {
+   "id": "pv-ls-14",
+   "canonicalIds": [
+    "ls-14"
+   ],
+   "collectionId": "likkutei-sichos",
+   "spineTitle": "לקוטי שיחות",
+   "spineSubtitle": "חלק י״ד · דברים",
+   "coverTitle": "לקוטי שיחות חלק י״ד",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 2.8
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#1d2a4a",
+    "accent": "#c9ccd2",
+    "text": "#d6d9de",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 0,
+   "order": 7,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Kehot Likkutei Sichos binding (navy, silver stamping) from the user's photo of vol. 25 Bereishis; volume letter and sefer name redrawn for this volume."
+   },
+   "programs": [
+    "likkutei_sichos"
+   ],
+   "scan": {
+    "key": "ls",
+    "labels": [
+     "יד",
+     "דברים"
+    ],
+    "lettering": "volume letter and sefer name redrawn"
+   }
+  },
+  {
+   "id": "pv-chitas",
+   "canonicalIds": [
+    "chitas"
+   ],
+   "collectionId": "chitas",
+   "spineTitle": "חת״ת",
+   "spineSubtitle": "חומש תהלים תניא היום יום",
+   "coverTitle": "ספר חת״ת — חומש תהלים תניא · סדור תהלת ה׳ · היום יום",
+   "size": {
+    "h": 23.0,
+    "w": 16.0,
+    "t": 6.0
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#5b1f24",
+    "accent": "#d9b86a",
+    "text": "#e8cf8a",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 1,
+   "order": 0,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Single-volume \"ספר חת״ת\" (חומש, תהלים, תניא, סדור תהלת ה׳ והיום יום) from the user's photo — unmodified. Hayom Yom is part of this book."
+   },
+   "scan": {
+    "key": "chitas",
+    "labels": [],
+    "lettering": "none (photo unmodified)"
+   },
+   "programs": [
+    "chitas_chumash",
+    "chitas_tehillim",
+    "chitas_tanya",
+    "hayom_yom"
+   ]
+  },
+  {
+   "id": "pv-rambam-1",
+   "canonicalIds": [
+    "mishneh-torah:1"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר מדע",
+   "coverTitle": "משנה תורה — ספר מדע",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.4
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 0,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר מדע"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-2",
+   "canonicalIds": [
+    "mishneh-torah:2"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר אהבה",
+   "coverTitle": "משנה תורה — ספר אהבה",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.0
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 1,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר אהבה"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-3",
+   "canonicalIds": [
+    "mishneh-torah:3"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר זמנים",
+   "coverTitle": "משנה תורה — ספר זמנים",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 4.0
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 2,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר זמנים"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-4",
+   "canonicalIds": [
+    "mishneh-torah:4"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר נשים",
+   "coverTitle": "משנה תורה — ספר נשים",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.6
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 3,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר נשים"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-5",
+   "canonicalIds": [
+    "mishneh-torah:5"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר קדושה",
+   "coverTitle": "משנה תורה — ספר קדושה",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 4,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר קדושה"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-6",
+   "canonicalIds": [
+    "mishneh-torah:6"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר הפלאה",
+   "coverTitle": "משנה תורה — ספר הפלאה",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.4
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 5,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר הפלאה"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-7",
+   "canonicalIds": [
+    "mishneh-torah:7"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר זרעים",
+   "coverTitle": "משנה תורה — ספר זרעים",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.8
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 6,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר זרעים"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-8",
+   "canonicalIds": [
+    "mishneh-torah:8"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר עבודה",
+   "coverTitle": "משנה תורה — ספר עבודה",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 4.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 7,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר עבודה"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-9",
+   "canonicalIds": [
+    "mishneh-torah:9"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר קרבנות",
+   "coverTitle": "משנה תורה — ספר קרבנות",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.6
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 8,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר קרבנות"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-10",
+   "canonicalIds": [
+    "mishneh-torah:10"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר טהרה",
+   "coverTitle": "משנה תורה — ספר טהרה",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.2
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 9,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר טהרה"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-11",
+   "canonicalIds": [
+    "mishneh-torah:11"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר נזיקין",
+   "coverTitle": "משנה תורה — ספר נזיקין",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.8
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 10,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר נזיקין"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-12",
+   "canonicalIds": [
+    "mishneh-torah:12"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר קנין",
+   "coverTitle": "משנה תורה — ספר קנין",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.6
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 11,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר קנין"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-13",
+   "canonicalIds": [
+    "mishneh-torah:13"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר משפטים",
+   "coverTitle": "משנה תורה — ספר משפטים",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 2.6
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 12,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר משפטים"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-rambam-14",
+   "canonicalIds": [
+    "mishneh-torah:14"
+   ],
+   "collectionId": "rambam",
+   "spineTitle": "משנה תורה",
+   "spineSubtitle": "ספר שופטים",
+   "coverTitle": "משנה תורה — ספר שופטים",
+   "size": {
+    "h": 24.0,
+    "w": 16.5,
+    "t": 3.0
+   },
+   "material": "cloth",
+   "colors": {
+    "binding": "#2b1d1a",
+    "accent": "#e9e0c8",
+    "text": "#e8e0cc",
+    "edge": "#f3ecd9"
+   },
+   "shelf": 1,
+   "order": 13,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Mishneh Torah binding (dark brown, cream bands, outlined title) from the user's photo of ספר מדע; the sefer name on the spine is redrawn for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "rambam",
+    "labels": [
+     "ספר שופטים"
+    ],
+    "lettering": "sefer name redrawn"
+   },
+   "programs": [
+    "rambam3"
+   ]
+  },
+  {
+   "id": "pv-tm-maamarim-5711",
+   "canonicalIds": [
+    "maamarim-5711"
+   ],
+   "collectionId": "tm-maamarim",
+   "spineTitle": "תורת מנחם",
+   "spineSubtitle": "ספר המאמרים תשי״א",
+   "coverTitle": "תורת מנחם — ספר המאמרים — תשי״א",
+   "size": {
+    "h": 24.0,
+    "w": 17.0,
+    "t": 3.0
+   },
+   "material": "leatherette",
+   "colors": {
+    "binding": "#2a2325",
+    "accent": "#d9c27f",
+    "text": "#e3d28c",
+    "edge": "#efe6d2"
+   },
+   "shelf": 0,
+   "order": 3,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "Toras Menachem Sefer HaMaamarim binding (dark crocodile-grain leatherette, gold stamping) from the user's photo of the תשמ״א volume; the year is redrawn as תשי״א on cover and spine."
+   },
+   "scan": {
+    "key": "maamarim",
+    "labels": [
+     "תשי״א"
+    ],
+    "lettering": "year redrawn as תשי״א (photographed volume says תשמ״א)"
+   },
+   "programs": [
+    "tm_maamarim"
+   ]
+  },
+  {
+   "id": "pv-ramban-bereishis",
+   "canonicalIds": [
+    "ramban-bereishis"
+   ],
+   "collectionId": "ramban",
+   "spineTitle": "בראשית",
+   "spineSubtitle": "פירוש הרמב״ן על התורה",
+   "coverTitle": "פירוש הרמב״ן על התורה — בראשית",
+   "size": {
+    "h": 25.5,
+    "w": 17.5,
+    "t": 3.8
+   },
+   "material": "leather",
+   "colors": {
+    "binding": "#3a1f22",
+    "accent": "#cfae5a",
+    "text": "#d9c27f",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 2,
+   "order": 0,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "פירוש הרמב״ן על התורה binding (maroon leather, ornate gold border and oval) from the user's photo; the sefer name is redrawn on the spine for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "ramban",
+    "labels": [
+     "בראשית"
+    ],
+    "lettering": "sefer name redrawn on spine"
+   },
+   "programs": [
+    "ramban"
+   ]
+  },
+  {
+   "id": "pv-ramban-shemos",
+   "canonicalIds": [
+    "ramban-shemos"
+   ],
+   "collectionId": "ramban",
+   "spineTitle": "שמות",
+   "spineSubtitle": "פירוש הרמב״ן על התורה",
+   "coverTitle": "פירוש הרמב״ן על התורה — שמות",
+   "size": {
+    "h": 25.5,
+    "w": 17.5,
+    "t": 3.8
+   },
+   "material": "leather",
+   "colors": {
+    "binding": "#3a1f22",
+    "accent": "#cfae5a",
+    "text": "#d9c27f",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 2,
+   "order": 1,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "פירוש הרמב״ן על התורה binding (maroon leather, ornate gold border and oval) from the user's photo; the sefer name is redrawn on the spine for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "ramban",
+    "labels": [
+     "שמות"
+    ],
+    "lettering": "sefer name redrawn on spine"
+   },
+   "programs": [
+    "ramban"
+   ]
+  },
+  {
+   "id": "pv-ramban-vayikra",
+   "canonicalIds": [
+    "ramban-vayikra"
+   ],
+   "collectionId": "ramban",
+   "spineTitle": "ויקרא",
+   "spineSubtitle": "פירוש הרמב״ן על התורה",
+   "coverTitle": "פירוש הרמב״ן על התורה — ויקרא",
+   "size": {
+    "h": 25.5,
+    "w": 17.5,
+    "t": 3.2
+   },
+   "material": "leather",
+   "colors": {
+    "binding": "#3a1f22",
+    "accent": "#cfae5a",
+    "text": "#d9c27f",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 2,
+   "order": 2,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "פירוש הרמב״ן על התורה binding (maroon leather, ornate gold border and oval) from the user's photo; the sefer name is redrawn on the spine for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "ramban",
+    "labels": [
+     "ויקרא"
+    ],
+    "lettering": "sefer name redrawn on spine"
+   },
+   "programs": [
+    "ramban"
+   ]
+  },
+  {
+   "id": "pv-ramban-bamidbar",
+   "canonicalIds": [
+    "ramban-bamidbar"
+   ],
+   "collectionId": "ramban",
+   "spineTitle": "במדבר",
+   "spineSubtitle": "פירוש הרמב״ן על התורה",
+   "coverTitle": "פירוש הרמב״ן על התורה — במדבר",
+   "size": {
+    "h": 25.5,
+    "w": 17.5,
+    "t": 3.4
+   },
+   "material": "leather",
+   "colors": {
+    "binding": "#3a1f22",
+    "accent": "#cfae5a",
+    "text": "#d9c27f",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 2,
+   "order": 3,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "פירוש הרמב״ן על התורה binding (maroon leather, ornate gold border and oval) from the user's photo; the sefer name is redrawn on the spine for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "ramban",
+    "labels": [
+     "במדבר"
+    ],
+    "lettering": "sefer name redrawn on spine"
+   },
+   "programs": [
+    "ramban"
+   ]
+  },
+  {
+   "id": "pv-ramban-devarim",
+   "canonicalIds": [
+    "ramban-devarim"
+   ],
+   "collectionId": "ramban",
+   "spineTitle": "דברים",
+   "spineSubtitle": "פירוש הרמב״ן על התורה",
+   "coverTitle": "פירוש הרמב״ן על התורה — דברים",
+   "size": {
+    "h": 25.5,
+    "w": 17.5,
+    "t": 3.6
+   },
+   "material": "leather",
+   "colors": {
+    "binding": "#3a1f22",
+    "accent": "#cfae5a",
+    "text": "#d9c27f",
+    "edge": "#f1e6c8"
+   },
+   "shelf": 2,
+   "order": 4,
+   "visual": {
+    "basis": "photo_scan",
+    "note": "פירוש הרמב״ן על התורה binding (maroon leather, ornate gold border and oval) from the user's photo; the sefer name is redrawn on the spine for this volume. Thickness approximate."
+   },
+   "scan": {
+    "key": "ramban",
+    "labels": [
+     "דברים"
+    ],
+    "lettering": "sefer name redrawn on spine"
+   },
+   "programs": [
+    "ramban"
+   ]
+  }
+ ]
 }

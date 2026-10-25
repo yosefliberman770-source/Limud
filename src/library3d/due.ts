@@ -21,7 +21,7 @@ export function computeDueVolumes(db: AppDatabase, settings: UserSettings, today
   if (en.has('tm_maamarim')) {
     const w = currentMaamarWindow(buildMaamarSchedule(maamarimCatalogue.maamarim, { overrides }), today);
     const m = w && maamarimCatalogue.maamarim.find((x) => x.id === w.maamarId);
-    if (m?.volumeId) due.add(`pv-${m.volumeId}`);
+    if (m) due.add('pv-tm-maamarim-5711');
   }
   if (en.has('tm_sichos')) {
     const targets = buildSichaTargets(torasMenachem.gatherings, torasMenachem.items, { il: settings.il });
@@ -40,10 +40,10 @@ export function computeDueVolumes(db: AppDatabase, settings: UserSettings, today
     const pending = a.units.filter((u) => !isDone(a.programId, u.unitId, today));
     if (pending.length === 0) continue;
     switch (a.programId) {
-      case 'chitas_chumash': due.add('pv-chumash'); break;
-      case 'chitas_tehillim': due.add('pv-tehillim'); break;
-      case 'chitas_tanya': due.add('pv-tanya'); break;
-      case 'hayom_yom': due.add('pv-hayom-yom'); break;
+      case 'chitas_chumash':
+      case 'chitas_tehillim':
+      case 'chitas_tanya':
+      case 'hayom_yom': due.add('pv-chitas'); break; // one physical book holds all four
       case 'rambam3': for (const u of pending) due.add(`pv-rambam-${rambamPhysicalVolume(u.labelEn.replace(/ (ch\. )?[\d:\-, ]+$/, ''))}`); break;
       case 'ramban': { const wk = parshaWeekFor(today, settings.il); due.add(`pv-ramban-${SEFER_IDS[parshaBook(wk.studyParsha[0])]}`); break; }
       case 'daf_yomi': {

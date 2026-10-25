@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import type { ShelfLayout } from './layout';
 import { spineCss } from './spineCss';
+import { spineOverlays } from './scanOverlays';
 import './library2d.css';
 
 /** Attractive, fast 2D fallback: the same shelves and spines drawn with CSS (no WebGL). */
@@ -16,12 +17,21 @@ export function Library2D({ layout, dueIds, onActivate, activeId }: { layout: Sh
             <div className="lib2d-shelf">
               {books.map((b) => {
                 const css = spineCss(b.vol);
+                const scan = b.vol.scan;
+                const base = import.meta.env.BASE_URL ?? '/';
+                const hpx = b.H * 3.1;
                 return (
-                  <button key={b.vol.id} className={`lib2d-book ${dueIds.has(b.vol.id) ? 'due' : ''} ${activeId === b.vol.id ? 'out' : ''}`} style={{ width: `${b.T * 3.1}px`, height: `${b.H * 3.1}px`, ...css.style }} onClick={() => onActivate(b.vol.id)} aria-label={`${b.vol.coverTitle}${b.vol.spineSubtitle ? ` — ${b.vol.spineSubtitle}` : ''}`}>
-                    <span className={`lib2d-title ${b.T >= 3.5 ? 'horiz' : ''}`} style={{ color: b.vol.colors.text }}>{b.vol.spineTitle}</span>
-                    {b.vol.spineSubtitle && b.T >= 3.5 && <span className="lib2d-sub" style={{ color: b.vol.colors.text }}>{b.vol.spineSubtitle}</span>}
-                    <i className="lib2d-band" style={{ background: b.vol.colors.accent }} />
-                    <i className="lib2d-band b2" style={{ background: b.vol.colors.accent }} />
+                  <button key={b.vol.id} className={`lib2d-book ${dueIds.has(b.vol.id) ? 'due' : ''} ${activeId === b.vol.id ? 'out' : ''}`} style={{ width: `${b.T * 3.1}px`, height: `${hpx}px`, ...css.style, ...(scan ? { backgroundImage: `url(${base}books/${scan.key}-spine.jpg)`, backgroundSize: '100% 100%' } : {}) }} onClick={() => onActivate(b.vol.id)} aria-label={`${b.vol.coverTitle}${b.vol.spineSubtitle ? ` — ${b.vol.spineSubtitle}` : ''}`}>
+                    {scan ? spineOverlays(scan.key, scan.labels).map((o, i) => (
+                      <span key={i} className="lib2d-ov" style={{ left: `${o.slot.x * 100}%`, top: `${o.slot.y * 100}%`, fontSize: `${Math.max(7, o.slot.size * hpx * 0.8)}px`, color: o.slot.color, fontWeight: o.slot.weight }}>{o.text}</span>
+                    )) : (
+                      <>
+                        <span className={`lib2d-title ${b.T >= 3.5 ? 'horiz' : ''}`} style={{ color: b.vol.colors.text }}>{b.vol.spineTitle}</span>
+                        {b.vol.spineSubtitle && b.T >= 3.5 && <span className="lib2d-sub" style={{ color: b.vol.colors.text }}>{b.vol.spineSubtitle}</span>}
+                        <i className="lib2d-band" style={{ background: b.vol.colors.accent }} />
+                        <i className="lib2d-band b2" style={{ background: b.vol.colors.accent }} />
+                      </>
+                    )}
                     {dueIds.has(b.vol.id) && <i className="lib2d-due" />}
                   </button>
                 );

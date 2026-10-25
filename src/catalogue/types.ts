@@ -159,7 +159,9 @@ export interface PhysicalVolume {
   shelf: number;
   order: number;
   /** Provenance of the visual representation. */
-  visual: { basis: 'stylized' | 'edition_reference'; note: string };
+  visual: { basis: 'stylized' | 'edition_reference' | 'photo_scan'; note: string };
+  /** Real-photo textures (public/books/<key>-cover.jpg and -spine.jpg) with per-volume labels redrawn on cleaned areas. */
+  scan?: { key: 'shas' | 'chitas' | 'tm' | 'ls' | 'rambam' | 'maamarim' | 'ramban'; labels: string[]; lettering: string };
   /** Which program(s) open this book's log. */
   programs: string[];
   /** For Shas: the masechta id, so the current masechta can be highlighted. */

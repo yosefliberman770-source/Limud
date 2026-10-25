@@ -224,10 +224,12 @@ describe('Rambam sefarim mapping', () => {
     for (let i = 0; i < 700; i++) for (const it of dailyRambam3(new HDate(start + i)) as { name: string }[]) seen.add(it.name);
     const known = new Set(allHalachosNames());
     for (const n of seen) expect(known.has(n), n).toBe(true);
-    for (const n of seen) expect([1, 2, 3]).toContain(rambamPhysicalVolume(n));
+    for (const n of seen) expect(rambamPhysicalVolume(n)).toBeGreaterThanOrEqual(1);
+    for (const n of seen) expect(rambamPhysicalVolume(n)).toBeLessThanOrEqual(14);
     expect(seen.size).toBe(known.size);
     expect(sefarOf('Sales')!.sefer).toBe('קנין');
-    expect(rambamPhysicalVolume('Sales')).toBe(3);
+    expect(rambamPhysicalVolume('Sales')).toBe(12);
     expect(rambamPhysicalVolume('Repentance')).toBe(1);
+    expect(rambamPhysicalVolume('Transmission of the Oral Law')).toBe(1);
   });
 });

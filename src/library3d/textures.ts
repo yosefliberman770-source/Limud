@@ -4,6 +4,7 @@
  */
 import * as THREE from 'three';
 import type { PhysicalVolume } from '@/catalogue/types';
+import { coverOverlays, spineOverlays, type Overlay } from './scanOverlays';
 
 export type Quality = 'high' | 'low';
 
@@ -131,7 +132,7 @@ export function spineTexture(v: PhysicalVolume, q: Quality): THREE.CanvasTexture
   g.globalAlpha = 1;
   g.direction = 'rtl'; g.textAlign = 'center'; g.textBaseline = 'middle';
   g.fillStyle = text;
-  const thick = v.size.t >= 3.5;
+  const thick = v.size.t >= 3.3;
   const sub = v.spineSubtitle;
   if (thick) {
     // horizontal title stacked in the thick spine
@@ -254,4 +255,65 @@ export function cavityTexture(): THREE.CanvasTexture {
 
 export function disposeAll(items: Array<THREE.Texture | THREE.Material | THREE.BufferGeometry | undefined | null>): void {
   for (const i of items) i?.dispose();
+}
+
+/* ------------------------------------------------------------------ real-photo textures */
+
+const imageCache = new Map<string, Promise<HTMLImageElement>>();
+function loadImage(src: string): Promise<HTMLImageElement> {
+  let p = imageCache.get(src);
+  if (!p) {
+    p = new Promise((resolve, reject) => {
+      const im = new Image();
+      im.decoding = 'async';
+      im.onload = () => resolve(im);
+      im.onerror = () => reject(new Error(`failed to load ${src}`));
+      im.src = src;
+    });
+    imageCache.set(src, p);
+  }
+  return p;
+}
+
+function paintOverlays(g: CanvasRenderingContext2D, w: number, h: number, overlays: Overlay[]): void {
+  g.direction = 'rtl'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  for (const o of overlays) {
+    if (!o.text) continue;
+    const s = fitText(g, o.text, o.slot.maxW * w, o.slot.size * h, SERIF, o.slot.weight ?? 700);
+    g.font = `${o.slot.weight ?? 700} ${s}px ${SERIF}`;
+    g.fillStyle = o.slot.color;
+    g.shadowColor = 'rgba(0,0,0,0.35)'; g.shadowBlur = 1.5; g.shadowOffsetY = 0.5;
+    g.fillText(o.text, o.slot.x * w, o.slot.y * h);
+    g.shadowBlur = 0;
+  }
+}
+
+async function scanTexture(url: string, overlays: Overlay[], scale: number): Promise<THREE.CanvasTexture> {
+  const im = await loadImage(url);
+  const w = Math.max(32, Math.round(im.naturalWidth * scale)), h = Math.round(im.naturalHeight * scale);
+  const [c, g] = canvas(w, h);
+  g.drawImage(im, 0, 0, w, h);
+  if (overlays.length) {
+    // make sure the web fonts are ready so the redrawn labels use real Hebrew faces
+    try { await (document as Document & { fonts?: FontFaceSet }).fonts?.load(`700 32px ${SERIF}`, 'אבגדהוזחטיכלמנסעפצקרשת'); } catch { /* fall through to system serif */ }
+    paintOverlays(g, w, h, overlays);
+  }
+  return tex(c, { aniso: 8 });
+}
+
+/** Real-photo cover + spine for a volume (with its own correct lettering redrawn). Resolves null if the files are missing. */
+export async function loadScanTextures(v: PhysicalVolume, q: Quality, base = '/'): Promise<{ cover: THREE.CanvasTexture; spine: THREE.CanvasTexture } | null> {
+  if (!v.scan) return null;
+  const key = v.scan.key;
+  const scale = q === 'high' ? 1 : 0.55;
+  try {
+    const [cover, spine] = await Promise.all([
+      scanTexture(`${base}books/${key}-cover.jpg`, coverOverlays(key, v.scan.labels), scale),
+      scanTexture(`${base}books/${key}-spine.jpg`, spineOverlays(key, v.scan.labels), scale),
+    ]);
+    return { cover, spine };
+  } catch (e) {
+    console.warn('[books] scan textures unavailable for', v.id, e);
+    return null;
+  }
 }

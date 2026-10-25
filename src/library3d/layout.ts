@@ -1,7 +1,7 @@
 /** Shelf layout: pure function of the physical library, so it is testable and shared by 3D and 2D views. */
 import type { PhysicalVolume, Collection } from '@/catalogue/types';
 
-export const SHELF_INNER_WIDTH = 32; // usable cm per row
+export const SHELF_INNER_WIDTH = 33; // usable cm per row
 export const ROW_PITCH = 33; // cm between row floors
 export const BOARD_T = 2;
 export const GAP = 0.12;

@@ -55,8 +55,8 @@ describe('Likkutei Sichos catalogue (vols. 10–14)', () => {
     const wk = (d: string) => weeklyLikkuteiSichos(d, likkuteiSichos.sichos).festivalSichos.map((f) => f.sicha.id);
     expect(wk('2026-12-02')).toContain('ls-10-chanukah-1');
     expect(wk('2027-04-21')).toContain('ls-12-pesach-1');
-    expect(wk('2027-08-05')).toContain('ls-14-eikev-1');
-    expect(wk('2026-10-01')).toContain('ls-14-vezot-haberakhah-1');
+    expect(wk('2027-08-24')).toContain('ls-14-eikev-1');
+    expect(wk('2026-10-06')).toContain('ls-14-vezot-haberakhah-1');
     expect(wk('2026-11-30')).toContain('ls-10-vayishlach-1');
   });
 });

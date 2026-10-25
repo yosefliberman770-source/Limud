@@ -15,3 +15,6 @@ android/capacitor-cordova-android-plugins
 coverage
 playwright-report
 test-results
+
+# original third-party photos supplied by the user (not committed; see data/catalogue/book-scans.json)
+assets-src/

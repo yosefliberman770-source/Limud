@@ -1,0 +1,23 @@
+.pg-hero { display: grid; gap: var(--s-3); background: linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev)); }
+.pg-hero-k { font-size: var(--fs-xs); color: var(--fg-muted); letter-spacing: 0.04em; }
+.pg-hero-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-3); text-align: center; }
+.pg-big { font-size: calc(var(--fs-2xl) * var(--text-scale)); line-height: 1.1; color: var(--fg); }
+.pg-cap { font-size: var(--fs-xs); color: var(--fg-muted); margin-top: 2px; }
+.pg-note { font-size: var(--fs-sm); color: var(--fg-muted); }
+.pg-list { display: grid; gap: 6px; }
+.pg-row { display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'txt chip' 'bar bar'; align-items: center; gap: 8px var(--s-3); width: 100%; text-align: start; padding: var(--s-3) var(--s-4); background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--r-md); min-height: var(--tap); }
+.pg-row.static { grid-template-areas: 'txt strip' 'bar bar'; }
+.pg-row > .grow { grid-area: txt; }
+.pg-row .chip { grid-area: chip; }
+.pg-row-bar { grid-area: bar; }
+.pg-row-t { display: block; font-size: calc(var(--fs-md) * var(--text-scale)); }
+.pg-row-s { display: block; font-size: var(--fs-xs); color: var(--fg-muted); margin-top: 2px; }
+.pg-bar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--s-2); }
+.pg-bar .bar { height: 8px; }
+.pg-bar .bar.warn > i { background: var(--c-overdue); }
+.pg-bar-n { font-size: var(--fs-xs); color: var(--fg-muted); min-width: 44px; text-align: end; }
+.pg-strip { grid-area: strip; display: inline-flex; gap: 3px; direction: rtl; }
+.pg-strip i { width: 12px; height: 18px; border-radius: 3px; border: 1.5px solid var(--fg-faint); display: block; }
+.pg-strip i.all { background: var(--c-done); border-color: var(--c-done); }
+.pg-strip i.some { background: linear-gradient(180deg, transparent 50%, var(--c-brass-500) 50%); border-color: var(--c-brass-500); }
+.pg-totals { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); text-align: center; }

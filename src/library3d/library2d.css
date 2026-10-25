@@ -15,3 +15,6 @@
 .lib2d-band { position: absolute; inset-inline: 12%; top: 5%; height: 2px; opacity: 0.85; }
 .lib2d-band.b2 { top: auto; bottom: 5%; }
 .lib2d-due { position: absolute; inset-inline: 8%; top: 9%; height: 6px; background: #c9a86a; border-radius: 1px; box-shadow: 0 0 6px #c9a86aaa; }
+
+.lib2d-ov { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-serif); white-space: nowrap; text-shadow: 0 1px 0 #0008; line-height: 1; }
+.lib2d-due { z-index: 2; }

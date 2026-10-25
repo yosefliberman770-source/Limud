@@ -19,8 +19,8 @@ export function BookNavigator({ vol }: { vol: PhysicalVolume }) {
   switch (vol.collectionId) {
     case 'toras-menachem': return <TmNavigator volumeId={vol.canonicalIds[0]} />;
     case 'likkutei-sichos': return <LsNavigator volumeId={vol.canonicalIds[0]} />;
-    case 'chitas': return <DailyNavigator programId={vol.programs[0] as ProgramId} vol={vol} />;
-    case 'hayom-yom': return <DailyNavigator programId="hayom_yom" vol={vol} />;
+    case 'chitas': return <ChitasNavigator vol={vol} />;
+    case 'tm-maamarim': return <MaamarimNavigator />;
     case 'rambam': return <DailyNavigator programId="rambam3" vol={vol} />;
     case 'ramban': return <RambanNavigator vol={vol} />;
     case 'shas': return <ShasNavigator vol={vol} />;
@@ -249,8 +249,8 @@ function DailyNavigator({ programId, vol }: { programId: ProgramId; vol: Physica
     const x = dailyShiurim(d, { ...dailySettings, enabledPrograms: [programId] })[0];
     if (x && x.units.some((u) => !db.completions.isCompleted({ programId, unitId: u.unitId, occurrenceKey: d }))) missed.push(d);
   }
-  const ramvol = programId === 'rambam3' && a ? [...new Set(a.units.map((u) => u.labelEn.split(' ch.')[0]))].map((n) => ({ n, v: rambamPhysicalVolume(n), s: sefarOf(n)?.sefer })) : [];
-  const thisVolNo = vol.id.endsWith('-1') ? 1 : vol.id.endsWith('-2') ? 2 : vol.id.endsWith('-3') ? 3 : 0;
+  const ramvol = programId === 'rambam3' && a ? [...new Set(a.units.map((u) => u.labelEn.replace(/ (ch\. )?[\d:\-, ]+$/, '')))].map((n) => ({ n, v: rambamPhysicalVolume(n), s: sefarOf(n)?.sefer })) : [];
+  const thisVolNo = Number(/pv-rambam-(\d+)/.exec(vol.id)?.[1] ?? 0);
   return (
     <div className="nav">
       <div className="nav-date">
@@ -261,7 +261,7 @@ function DailyNavigator({ programId, vol }: { programId: ProgramId; vol: Physica
       {programId === 'rambam3' && thisVolNo > 0 && ramvol.length > 0 && (
         <div className={`nav-continue static ${ramvol.some((r) => r.v === thisVolNo) ? 'hot' : ''}`}>
           <span className="nav-continue-k">באיזה כרך?</span>
-          <span className="serif nav-continue-t">{ramvol.map((r) => `כרך ${r.v}${r.s ? ` (${r.s})` : ''}`).join(' · ')}</span>
+          <span className="serif nav-continue-t">{ramvol.map((r) => `ספר ${r.s ?? ''} (כרך ${r.v})`).join(' · ')}</span>
           {!ramvol.some((r) => r.v === thisVolNo) && <span className="faint">כרך זה אינו הכרך של היום</span>}
         </div>
       )}
@@ -272,6 +272,95 @@ function DailyNavigator({ programId, vol }: { programId: ProgramId; vol: Physica
           <ul className="nav-list">{missed.map((d) => <li key={d}><button className="nav-item" onClick={() => setDate(d)}><span className="chip overdue">{formatCivilHe(d)}</span><span className="grow">{formatHebrewDateCivil(d, { year: false })}</span><IconChevron /></button></li>)}</ul>
         </>
       )}
+    </div>
+  );
+}
+
+/* ---------------------------------------------------- Chitas (one physical book) */
+
+const CHITAS_PROGRAMS: ProgramId[] = ['chitas_chumash', 'chitas_tehillim', 'chitas_tanya', 'hayom_yom'];
+
+function ChitasNavigator({ vol }: { vol: PhysicalVolume }) {
+  const settings = useStore((s) => s.settings);
+  const today = useStore((s) => s.today);
+  const db = useStore((s) => s.db)!;
+  useStore((s) => s.version);
+  const [date, setDate] = useState(today);
+  const enabled = CHITAS_PROGRAMS.filter((p) => settings.enabledPrograms.includes(p));
+  const base = { il: settings.il, personalDaf: settings.personalDaf };
+  const list = dailyShiurim(date, { ...base, enabledPrograms: enabled });
+  const missed: { d: string; n: number }[] = [];
+  for (let i = 1; i <= 14; i++) {
+    const d = addDays(today, -i);
+    const n = dailyShiurim(d, { ...base, enabledPrograms: enabled }).reduce((c, a) => c + a.units.filter((u) => !db.completions.isCompleted({ programId: a.programId, unitId: u.unitId, occurrenceKey: d })).length, 0);
+    if (n > 0) missed.push({ d, n });
+  }
+  const done = list.reduce((c, a) => c + a.units.filter((u) => db.completions.isCompleted({ programId: a.programId, unitId: u.unitId, occurrenceKey: date })).length, 0);
+  const total = list.reduce((c, a) => c + a.units.length, 0);
+  return (
+    <div className="nav">
+      <div className="nav-date">
+        <button className="btn paper sm" onClick={() => setDate(addDays(date, -1))}>› אתמול</button>
+        <div className="serif nav-date-t">{date === today ? 'היום' : formatCivilHe(date)} · {formatHebrewDateCivil(date, { year: false })}</div>
+        <button className="btn paper sm" onClick={() => setDate(addDays(date, 1))}>מחר ‹</button>
+      </div>
+      <div className="nav-stats">
+        <Stat label="הושלמו היום" value={`${done}/${total}`} />
+        <Stat label="בספר זה" value="חומש · תהלים · תניא · היום יום" />
+        <Stat label="ימים פתוחים" value={String(missed.length)} />
+      </div>
+      <div className="nav-daily">{list.map((a) => <DailyRow key={a.programId} a={a} date={date} />)}</div>
+      {missed.length > 0 && date === today && (
+        <>
+          <h3 className="nav-h">ימים קודמים שלא הושלמו</h3>
+          <ul className="nav-list">{missed.map(({ d, n }) => <li key={d}><button className="nav-item" onClick={() => setDate(d)}><span className="chip overdue">{formatCivilHe(d)}</span><span className="grow">{formatHebrewDateCivil(d, { year: false })} · {n} יחידות</span><IconChevron /></button></li>)}</ul>
+        </>
+      )}
+      <p className="faint nav-note">{vol.visual.note}</p>
+    </div>
+  );
+}
+
+/* ------------------------------------------------- Sefer HaMaamarim תשי״א */
+
+function MaamarimNavigator() {
+  const db = useStore((s) => s.db)!;
+  const today = useStore((s) => s.today);
+  useStore((s) => s.version);
+  const done = db.completions.completedUnitIds('tm_maamarim');
+  const [openId, setOpenId] = useState<string | null>(null);
+  const overrides = db.overrides.get<Record<string, { start: string; end: string }>>('maamar_windows') ?? undefined;
+  const windows = useMemo(() => buildMaamarSchedule(maamarimCatalogue.maamarim, { overrides }), [overrides]);
+  const entries = windows.map((w) => ({ w, m: maamarimCatalogue.maamarim.find((x) => x.id === w.maamarId)! }));
+  const work = (id: string) => { const m = maamarimCatalogue.maamarim.find((x) => x.id === id)!; return tmItemWork(torasMenachem.items.find((i) => i.id === m.tmItemId)!, db); };
+  if (openId) return <WorkScreen work={work(openId)} onBack={() => setOpenId(null)} />;
+  const cur = entries.find((e) => today >= e.w.start && today <= e.w.end);
+  let doneCount = 0;
+  const rows = entries.map(({ w, m }) => { const wk = work(m.id); const p = workProgress(wk, (u) => done.has(u)); if (p.allDone) doneCount++; return { w, m, p, wk }; });
+  return (
+    <div className="nav">
+      <div className="nav-stats">
+        <Stat label="מאמרים שהושלמו" value={`${doneCount}/${entries.length}`} />
+        <Stat label="שנה" value="תשי״א" />
+        <Stat label="סיום" value="כ״ט אלול" />
+      </div>
+      {cur && <button className="nav-continue" onClick={() => setOpenId(cur.m.id)}><span className="nav-continue-k">המאמר הנוכחי</span><span className="serif nav-continue-t">ד״ה {cur.m.heTitle}</span><span className="faint">{formatCivilHe(cur.w.start)} – {formatCivilHe(cur.w.end)}</span></button>}
+      <p className="faint nav-note">הסדר לפי לוח הלימוד (ואלה המשפטים תחילה; באתי לגני והיושבת בגנים לפני י׳ שבט). המעקב לפי עמודי ״התוועדויות״ עד שתזין חלוקה לאותיות/סעיפים לפי ספר המאמרים שלך.</p>
+      <ul className="nav-list">
+        {rows.map(({ w, m, p }) => {
+          const status = p.allDone ? 'done' : today > w.end ? 'overdue' : today >= w.start ? 'current' : 'scheduled';
+          return (
+            <li key={m.id}>
+              <button className="nav-item" onClick={() => setOpenId(m.id)}>
+                <span className={`nav-dot ${p.allDone ? 'done' : p.done > 0 ? 'part' : ''}`}>{p.allDone && <IconCheck width={14} height={14} />}</span>
+                <span className="grow"><span className="serif nav-item-t">ד״ה {m.heTitle}</span><span className="nav-item-s">{m.heDate} · {formatCivilHe(w.start)} – {formatCivilHe(w.end)}{w.fixed ? ' · קבוע' : ''} · {p.total != null ? `${p.done}/${p.total}` : 'לא אומת'}</span></span>
+                <span className={`chip ${status === 'done' ? 'done' : status === 'overdue' ? 'overdue' : status === 'current' ? 'current' : 'scheduled'}`}>{status === 'done' ? 'הושלם' : status === 'overdue' ? 'בפיגור' : status === 'current' ? 'עכשיו' : 'עתידי'}</span>
+                <IconChevron />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
