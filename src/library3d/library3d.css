@@ -1,0 +1,5 @@
+.lib3d-scroll { position: relative; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; background: #0c111c; scrollbar-width: none; }
+.lib3d-scroll::-webkit-scrollbar { display: none; }
+.lib3d-spacer { width: 1px; position: absolute; top: 0; inset-inline-start: 0; pointer-events: none; }
+.lib3d-sticky { position: sticky; top: 0; width: 100%; }
+.lib3d-sticky canvas { display: block; width: 100% !important; height: 100% !important; touch-action: pan-y; }

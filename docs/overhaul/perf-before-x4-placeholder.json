@@ -1,0 +1,74 @@
+{
+ "throttle": 4,
+ "base": "http://localhost:4173/",
+ "todayReadyMs": 2104,
+ "todayLongTasksMs": 1659,
+ "todayHeapMB": 14,
+ "todayCanvases": 1,
+ "libraryFirstFrameMs": 4158,
+ "libraryLongTasksMs": 7722,
+ "libraryHeapMB": 29,
+ "libraryCanvasesCreated": 67,
+ "stats": {
+  "calls": 311,
+  "triangles": 1436,
+  "frame": 7,
+  "geometries": 99,
+  "textures": 48,
+  "programs": 3,
+  "meshes": [
+   708,
+   708
+  ],
+  "camY": -6.218446601941743
+ },
+ "idleRendersPer3s": 2,
+ "idleRafPer3s": 4,
+ "scroll": {
+  "frames": 149,
+  "medianMs": 429,
+  "p95Ms": 566,
+  "maxMs": 2500
+ },
+ "openToSheetMs": [
+  6211,
+  3613,
+  1589,
+  3895,
+  1151,
+  2668,
+  1587,
+  2759,
+  1984,
+  948,
+  1912,
+  1929
+ ],
+ "memoryAfterNOpens": [
+  {
+   "n": 3,
+   "heapMB": 28,
+   "geometries": 249,
+   "textures": 104
+  },
+  {
+   "n": 6,
+   "heapMB": 32,
+   "geometries": 251,
+   "textures": 109
+  },
+  {
+   "n": 9,
+   "heapMB": 37,
+   "geometries": 251,
+   "textures": 109
+  },
+  {
+   "n": 12,
+   "heapMB": 38,
+   "geometries": 251,
+   "textures": 109
+  }
+ ],
+ "totalLongTasksMs": 124702
+}

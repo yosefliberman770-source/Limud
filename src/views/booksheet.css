@@ -1,0 +1,15 @@
+.sheet { position: fixed; inset: 0 0 calc(var(--nav-h) + var(--safe-bottom)) 0; z-index: 30; display: flex; justify-content: center; align-items: stretch; pointer-events: none; opacity: 0; transform: scale(0.97); transition: opacity 220ms var(--ease-out), transform 260ms var(--ease-out); }
+.sheet.ready { opacity: 1; transform: none; pointer-events: auto; }
+:root[data-motion='off'] .sheet { transition: none; }
+.sheet-paper { position: relative; width: 100%; max-width: 760px; background: var(--paper); color: var(--paper-fg); display: flex; flex-direction: column; box-shadow: 0 0 60px #000a; overflow: hidden; }
+.sheet-paper::before { content: ''; position: absolute; inset: 0; pointer-events: none; background:
+  repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(90,70,40,0.07) 31px, rgba(90,70,40,0.07) 32px),
+  radial-gradient(120% 70% at 100% 0%, rgba(255,255,255,0.4), transparent 60%); }
+.sheet-gutter { position: absolute; inset-block: 0; inset-inline-end: 0; width: 26px; pointer-events: none; background: linear-gradient(270deg, rgba(60,40,15,0.28), rgba(60,40,15,0)); }
+.sheet-head { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); padding: calc(var(--safe-top) + var(--s-4)) var(--s-5) var(--s-3) var(--s-4); border-bottom: 1px solid var(--paper-line); background: linear-gradient(180deg, var(--paper), color-mix(in srgb, var(--paper) 90%, transparent)); z-index: 1; }
+.sheet-kicker { font-size: var(--fs-xs); color: var(--paper-fg-muted); letter-spacing: 0.04em; }
+.sheet-title { font-size: calc(var(--fs-xl) * var(--text-scale)); font-weight: 600; margin-top: 2px; }
+.sheet-close { width: var(--tap); height: var(--tap); border-radius: 50%; display: grid; place-items: center; color: var(--paper-fg); border: 1px solid var(--paper-line); background: rgba(255,255,255,0.5); flex-shrink: 0; }
+.sheet-body { position: relative; flex: 1; overflow-y: auto; padding: var(--s-4) var(--s-5) var(--s-8) var(--s-4); overscroll-behavior: contain; }
+
+:root[data-hide-sheet] .sheet { display: none; }

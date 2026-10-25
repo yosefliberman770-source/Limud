@@ -1,0 +1,1129 @@
+{
+  "schemaVersion": 1,
+  "notes": "Books marked basis 'photo_scan' use real photographs of the actual editions, supplied by the user (see book-scans.json for provenance, corner coordinates and licensing). The photographed binding is untouched; only volume-specific lettering (year/volume/sefer/masechta) is redrawn at runtime so every volume carries its own correct label — those labels are flagged in scan.lettering. All books now have photo-based bindings. Sizes are approximate.",
+  "collections": [
+    {
+      "id": "toras-menachem",
+      "heTitle": "תורת מנחם — התוועדויות",
+      "enTitle": "Toras Menachem — Hisvaaduyos",
+      "order": 1
+    },
+    {
+      "id": "tm-maamarim",
+      "heTitle": "תורת מנחם — ספר המאמרים",
+      "enTitle": "Toras Menachem — Sefer HaMaamarim",
+      "order": 2
+    },
+    {
+      "id": "likkutei-sichos",
+      "heTitle": "לקוטי שיחות",
+      "enTitle": "Likkutei Sichos",
+      "order": 3
+    },
+    {
+      "id": "chitas",
+      "heTitle": "ספר חת״ת",
+      "enTitle": "Chitas (incl. Hayom Yom)",
+      "order": 4
+    },
+    {
+      "id": "rambam",
+      "heTitle": "משנה תורה להרמב״ם",
+      "enTitle": "Mishneh Torah",
+      "order": 5
+    },
+    {
+      "id": "ramban",
+      "heTitle": "פירוש הרמב״ן על התורה",
+      "enTitle": "Ramban on the Torah",
+      "order": 6
+    },
+    {
+      "id": "shas",
+      "heTitle": "תלמוד בבלי",
+      "enTitle": "Talmud Bavli",
+      "order": 7
+    }
+  ],
+  "volumes": [
+    {
+      "id": "pv-tm-5710-01",
+      "canonicalIds": [
+        "tm-5710-01"
+      ],
+      "collectionId": "toras-menachem",
+      "spineTitle": "תורת מנחם",
+      "spineSubtitle": "התוועדויות · תש״י · א",
+      "coverTitle": "תורת מנחם — התוועדויות תש״י",
+      "size": {
+        "h": 24.5,
+        "w": 17.5,
+        "t": 3.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b2720",
+        "accent": "#caa43c",
+        "text": "#d3ae46",
+        "edge": "#efe6d2"
+      },
+      "shelf": 0,
+      "order": 0,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Toras Menachem Hisvaaduyos: black cloth, two gold bands, grey patterned sides — redrawn as vector artwork from the user's photo (used only as a blueprint); year and volume lettering set for this volume."
+      },
+      "programs": [
+        "tm_sichos"
+      ],
+      "design": {
+        "id": "tm-hisvaaduyos",
+        "labels": [
+          "ה׳שי״ת"
+        ]
+      }
+    },
+    {
+      "id": "pv-tm-5711-02",
+      "canonicalIds": [
+        "tm-5711-02"
+      ],
+      "collectionId": "toras-menachem",
+      "spineTitle": "תורת מנחם",
+      "spineSubtitle": "התוועדויות · תשי״א · ב",
+      "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק א",
+      "size": {
+        "h": 24.5,
+        "w": 17.5,
+        "t": 3.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b2720",
+        "accent": "#caa43c",
+        "text": "#d3ae46",
+        "edge": "#efe6d2"
+      },
+      "shelf": 0,
+      "order": 1,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Toras Menachem Hisvaaduyos: black cloth, two gold bands, grey patterned sides — redrawn as vector artwork from the user's photo (used only as a blueprint); year and volume lettering set for this volume."
+      },
+      "programs": [
+        "tm_sichos"
+      ],
+      "design": {
+        "id": "tm-hisvaaduyos",
+        "labels": [
+          "ה׳תשי״א"
+        ]
+      }
+    },
+    {
+      "id": "pv-tm-5711-03",
+      "canonicalIds": [
+        "tm-5711-03"
+      ],
+      "collectionId": "toras-menachem",
+      "spineTitle": "תורת מנחם",
+      "spineSubtitle": "התוועדויות · תשי״א · ג",
+      "coverTitle": "תורת מנחם — התוועדויות תשי״א חלק ב",
+      "size": {
+        "h": 24.5,
+        "w": 17.5,
+        "t": 3.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b2720",
+        "accent": "#caa43c",
+        "text": "#d3ae46",
+        "edge": "#efe6d2"
+      },
+      "shelf": 0,
+      "order": 2,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Toras Menachem Hisvaaduyos: black cloth, two gold bands, grey patterned sides — redrawn as vector artwork from the user's photo (used only as a blueprint); year and volume lettering set for this volume."
+      },
+      "programs": [
+        "tm_sichos"
+      ],
+      "design": {
+        "id": "tm-hisvaaduyos",
+        "labels": [
+          "ה׳תשי״א"
+        ]
+      }
+    },
+    {
+      "id": "pv-ls-10",
+      "canonicalIds": [
+        "ls-10"
+      ],
+      "collectionId": "likkutei-sichos",
+      "spineTitle": "לקוטי שיחות",
+      "spineSubtitle": "חלק י׳ · בראשית",
+      "coverTitle": "לקוטי שיחות חלק י׳",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 2.8
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#1d2a4a",
+        "accent": "#c9ccd2",
+        "text": "#d6d9de",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 0,
+      "order": 3,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Likkutei Sichos (Kehot): navy cloth with a silver scalloped frame — redrawn as vector artwork from the user's photo (blueprint only); the volume letter is set for this volume."
+      },
+      "programs": [
+        "likkutei_sichos"
+      ],
+      "design": {
+        "id": "ls-kehot",
+        "labels": [
+          "י",
+          "בראשית"
+        ]
+      }
+    },
+    {
+      "id": "pv-ls-11",
+      "canonicalIds": [
+        "ls-11"
+      ],
+      "collectionId": "likkutei-sichos",
+      "spineTitle": "לקוטי שיחות",
+      "spineSubtitle": "חלק י״א · שמות",
+      "coverTitle": "לקוטי שיחות חלק י״א",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 2.8
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#1d2a4a",
+        "accent": "#c9ccd2",
+        "text": "#d6d9de",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 0,
+      "order": 4,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Likkutei Sichos (Kehot): navy cloth with a silver scalloped frame — redrawn as vector artwork from the user's photo (blueprint only); the volume letter is set for this volume."
+      },
+      "programs": [
+        "likkutei_sichos"
+      ],
+      "design": {
+        "id": "ls-kehot",
+        "labels": [
+          "יא",
+          "שמות"
+        ]
+      }
+    },
+    {
+      "id": "pv-ls-12",
+      "canonicalIds": [
+        "ls-12"
+      ],
+      "collectionId": "likkutei-sichos",
+      "spineTitle": "לקוטי שיחות",
+      "spineSubtitle": "חלק י״ב · ויקרא",
+      "coverTitle": "לקוטי שיחות חלק י״ב",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 2.8
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#1d2a4a",
+        "accent": "#c9ccd2",
+        "text": "#d6d9de",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 0,
+      "order": 5,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Likkutei Sichos (Kehot): navy cloth with a silver scalloped frame — redrawn as vector artwork from the user's photo (blueprint only); the volume letter is set for this volume."
+      },
+      "programs": [
+        "likkutei_sichos"
+      ],
+      "design": {
+        "id": "ls-kehot",
+        "labels": [
+          "יב",
+          "ויקרא"
+        ]
+      }
+    },
+    {
+      "id": "pv-ls-13",
+      "canonicalIds": [
+        "ls-13"
+      ],
+      "collectionId": "likkutei-sichos",
+      "spineTitle": "לקוטי שיחות",
+      "spineSubtitle": "חלק י״ג · במדבר",
+      "coverTitle": "לקוטי שיחות חלק י״ג",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 2.8
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#1d2a4a",
+        "accent": "#c9ccd2",
+        "text": "#d6d9de",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 0,
+      "order": 6,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Likkutei Sichos (Kehot): navy cloth with a silver scalloped frame — redrawn as vector artwork from the user's photo (blueprint only); the volume letter is set for this volume."
+      },
+      "programs": [
+        "likkutei_sichos"
+      ],
+      "design": {
+        "id": "ls-kehot",
+        "labels": [
+          "יג",
+          "במדבר"
+        ]
+      }
+    },
+    {
+      "id": "pv-ls-14",
+      "canonicalIds": [
+        "ls-14"
+      ],
+      "collectionId": "likkutei-sichos",
+      "spineTitle": "לקוטי שיחות",
+      "spineSubtitle": "חלק י״ד · דברים",
+      "coverTitle": "לקוטי שיחות חלק י״ד",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 2.8
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#1d2a4a",
+        "accent": "#c9ccd2",
+        "text": "#d6d9de",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 0,
+      "order": 7,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Likkutei Sichos (Kehot): navy cloth with a silver scalloped frame — redrawn as vector artwork from the user's photo (blueprint only); the volume letter is set for this volume."
+      },
+      "programs": [
+        "likkutei_sichos"
+      ],
+      "design": {
+        "id": "ls-kehot",
+        "labels": [
+          "יד",
+          "דברים"
+        ]
+      }
+    },
+    {
+      "id": "pv-chitas",
+      "canonicalIds": [
+        "chitas"
+      ],
+      "collectionId": "chitas",
+      "spineTitle": "חת״ת",
+      "spineSubtitle": "חומש תהלים תניא היום יום",
+      "coverTitle": "ספר חת״ת — חומש תהלים תניא · סדור תהלת ה׳ · היום יום",
+      "size": {
+        "h": 23.0,
+        "w": 16.0,
+        "t": 6.0
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#5b1f24",
+        "accent": "#d9b86a",
+        "text": "#e8cf8a",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 1,
+      "order": 0,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Sefer Chitas (Chumash, Tehillim, Tanya, Siddur Tehillas Hashem, Hayom Yom): maroon leatherette, gold frame, giant gold ח ת ת — redrawn as vector artwork (blueprint only)."
+      },
+      "programs": [
+        "chitas_chumash",
+        "chitas_tehillim",
+        "chitas_tanya",
+        "hayom_yom"
+      ],
+      "design": {
+        "id": "chitas",
+        "labels": []
+      }
+    },
+    {
+      "id": "pv-rambam-1",
+      "canonicalIds": [
+        "mishneh-torah:1"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר מדע",
+      "coverTitle": "משנה תורה — ספר מדע",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.4
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 0,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר מדע"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-2",
+      "canonicalIds": [
+        "mishneh-torah:2"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר אהבה",
+      "coverTitle": "משנה תורה — ספר אהבה",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.0
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 1,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר אהבה"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-3",
+      "canonicalIds": [
+        "mishneh-torah:3"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר זמנים",
+      "coverTitle": "משנה תורה — ספר זמנים",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 4.0
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 2,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר זמנים"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-4",
+      "canonicalIds": [
+        "mishneh-torah:4"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר נשים",
+      "coverTitle": "משנה תורה — ספר נשים",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.6
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 3,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר נשים"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-5",
+      "canonicalIds": [
+        "mishneh-torah:5"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר קדושה",
+      "coverTitle": "משנה תורה — ספר קדושה",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 4,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר קדושה"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-6",
+      "canonicalIds": [
+        "mishneh-torah:6"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר הפלאה",
+      "coverTitle": "משנה תורה — ספר הפלאה",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.4
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 5,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר הפלאה"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-7",
+      "canonicalIds": [
+        "mishneh-torah:7"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר זרעים",
+      "coverTitle": "משנה תורה — ספר זרעים",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.8
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 6,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר זרעים"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-8",
+      "canonicalIds": [
+        "mishneh-torah:8"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר עבודה",
+      "coverTitle": "משנה תורה — ספר עבודה",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 4.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 7,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר עבודה"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-9",
+      "canonicalIds": [
+        "mishneh-torah:9"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר קרבנות",
+      "coverTitle": "משנה תורה — ספר קרבנות",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.6
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 8,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר קרבנות"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-10",
+      "canonicalIds": [
+        "mishneh-torah:10"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר טהרה",
+      "coverTitle": "משנה תורה — ספר טהרה",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.2
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 9,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר טהרה"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-11",
+      "canonicalIds": [
+        "mishneh-torah:11"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר נזיקין",
+      "coverTitle": "משנה תורה — ספר נזיקין",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.8
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 10,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר נזיקין"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-12",
+      "canonicalIds": [
+        "mishneh-torah:12"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר קנין",
+      "coverTitle": "משנה תורה — ספר קנין",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.6
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 11,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר קנין"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-13",
+      "canonicalIds": [
+        "mishneh-torah:13"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר משפטים",
+      "coverTitle": "משנה תורה — ספר משפטים",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 2.6
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 12,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר משפטים"
+        ]
+      }
+    },
+    {
+      "id": "pv-rambam-14",
+      "canonicalIds": [
+        "mishneh-torah:14"
+      ],
+      "collectionId": "rambam",
+      "spineTitle": "משנה תורה",
+      "spineSubtitle": "ספר שופטים",
+      "coverTitle": "משנה תורה — ספר שופטים",
+      "size": {
+        "h": 24.0,
+        "w": 16.5,
+        "t": 3.0
+      },
+      "material": "cloth",
+      "colors": {
+        "binding": "#2b1d1a",
+        "accent": "#e9e0c8",
+        "text": "#e8e0cc",
+        "edge": "#f3ecd9"
+      },
+      "shelf": 1,
+      "order": 13,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Mishneh Torah (Rambam): cream cloth with a dark panel and outlined title — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "rambam3"
+      ],
+      "design": {
+        "id": "rambam",
+        "labels": [
+          "ספר שופטים"
+        ]
+      }
+    },
+    {
+      "id": "pv-tm-maamarim-5711",
+      "canonicalIds": [
+        "maamarim-5711"
+      ],
+      "collectionId": "tm-maamarim",
+      "spineTitle": "תורת מנחם",
+      "spineSubtitle": "ספר המאמרים תשי״א",
+      "coverTitle": "תורת מנחם — ספר המאמרים — תשי״א",
+      "size": {
+        "h": 24.0,
+        "w": 17.0,
+        "t": 3.0
+      },
+      "material": "leatherette",
+      "colors": {
+        "binding": "#2a2325",
+        "accent": "#d9c27f",
+        "text": "#e3d28c",
+        "edge": "#efe6d2"
+      },
+      "shelf": 0,
+      "order": 3,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Toras Menachem Sefer HaMaamarim: black crocodile-grain leatherette with a raised frame and gold lettering — redrawn as vector artwork (blueprint only); year per the user's correction (תשי״א)."
+      },
+      "programs": [
+        "tm_maamarim"
+      ],
+      "design": {
+        "id": "tm-maamarim",
+        "labels": [
+          "תשי״א"
+        ]
+      }
+    },
+    {
+      "id": "pv-ramban-bereishis",
+      "canonicalIds": [
+        "ramban-bereishis"
+      ],
+      "collectionId": "ramban",
+      "spineTitle": "בראשית",
+      "spineSubtitle": "פירוש הרמב״ן על התורה",
+      "coverTitle": "פירוש הרמב״ן על התורה — בראשית",
+      "size": {
+        "h": 25.5,
+        "w": 17.5,
+        "t": 3.8
+      },
+      "material": "leather",
+      "colors": {
+        "binding": "#3a1f22",
+        "accent": "#cfae5a",
+        "text": "#d9c27f",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 2,
+      "order": 0,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Ramban on the Torah: maroon leather, gold ornamental frame, oval medallion — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "ramban"
+      ],
+      "design": {
+        "id": "ramban",
+        "labels": [
+          "בראשית"
+        ]
+      }
+    },
+    {
+      "id": "pv-ramban-shemos",
+      "canonicalIds": [
+        "ramban-shemos"
+      ],
+      "collectionId": "ramban",
+      "spineTitle": "שמות",
+      "spineSubtitle": "פירוש הרמב״ן על התורה",
+      "coverTitle": "פירוש הרמב״ן על התורה — שמות",
+      "size": {
+        "h": 25.5,
+        "w": 17.5,
+        "t": 3.8
+      },
+      "material": "leather",
+      "colors": {
+        "binding": "#3a1f22",
+        "accent": "#cfae5a",
+        "text": "#d9c27f",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 2,
+      "order": 1,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Ramban on the Torah: maroon leather, gold ornamental frame, oval medallion — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "ramban"
+      ],
+      "design": {
+        "id": "ramban",
+        "labels": [
+          "שמות"
+        ]
+      }
+    },
+    {
+      "id": "pv-ramban-vayikra",
+      "canonicalIds": [
+        "ramban-vayikra"
+      ],
+      "collectionId": "ramban",
+      "spineTitle": "ויקרא",
+      "spineSubtitle": "פירוש הרמב״ן על התורה",
+      "coverTitle": "פירוש הרמב״ן על התורה — ויקרא",
+      "size": {
+        "h": 25.5,
+        "w": 17.5,
+        "t": 3.2
+      },
+      "material": "leather",
+      "colors": {
+        "binding": "#3a1f22",
+        "accent": "#cfae5a",
+        "text": "#d9c27f",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 2,
+      "order": 2,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Ramban on the Torah: maroon leather, gold ornamental frame, oval medallion — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "ramban"
+      ],
+      "design": {
+        "id": "ramban",
+        "labels": [
+          "ויקרא"
+        ]
+      }
+    },
+    {
+      "id": "pv-ramban-bamidbar",
+      "canonicalIds": [
+        "ramban-bamidbar"
+      ],
+      "collectionId": "ramban",
+      "spineTitle": "במדבר",
+      "spineSubtitle": "פירוש הרמב״ן על התורה",
+      "coverTitle": "פירוש הרמב״ן על התורה — במדבר",
+      "size": {
+        "h": 25.5,
+        "w": 17.5,
+        "t": 3.4
+      },
+      "material": "leather",
+      "colors": {
+        "binding": "#3a1f22",
+        "accent": "#cfae5a",
+        "text": "#d9c27f",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 2,
+      "order": 3,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Ramban on the Torah: maroon leather, gold ornamental frame, oval medallion — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "ramban"
+      ],
+      "design": {
+        "id": "ramban",
+        "labels": [
+          "במדבר"
+        ]
+      }
+    },
+    {
+      "id": "pv-ramban-devarim",
+      "canonicalIds": [
+        "ramban-devarim"
+      ],
+      "collectionId": "ramban",
+      "spineTitle": "דברים",
+      "spineSubtitle": "פירוש הרמב״ן על התורה",
+      "coverTitle": "פירוש הרמב״ן על התורה — דברים",
+      "size": {
+        "h": 25.5,
+        "w": 17.5,
+        "t": 3.6
+      },
+      "material": "leather",
+      "colors": {
+        "binding": "#3a1f22",
+        "accent": "#cfae5a",
+        "text": "#d9c27f",
+        "edge": "#f1e6c8"
+      },
+      "shelf": 2,
+      "order": 4,
+      "visual": {
+        "basis": "vector_recreation",
+        "note": "Ramban on the Torah: maroon leather, gold ornamental frame, oval medallion — redrawn as vector artwork (blueprint only); per-volume sefer name on the spine."
+      },
+      "programs": [
+        "ramban"
+      ],
+      "design": {
+        "id": "ramban",
+        "labels": [
+          "דברים"
+        ]
+      }
+    }
+  ]
+}

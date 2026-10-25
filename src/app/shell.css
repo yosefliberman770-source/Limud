@@ -1,0 +1,32 @@
+.shell { display: flex; flex-direction: column; min-height: 100dvh; }
+.shell-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.bottom-nav {
+  position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  height: calc(var(--nav-h) + var(--safe-bottom)); padding-bottom: var(--safe-bottom);
+  background: color-mix(in srgb, var(--bg-elev) 92%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+}
+.shell.immersive .bottom-nav { background: color-mix(in srgb, var(--c-room-900) 78%, transparent); }
+.nav-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--fg-muted); min-height: var(--tap); border-radius: 0; transition: color var(--dur-fast); }
+.nav-tab svg { width: 24px; height: 24px; }
+.nav-tab.active { color: var(--accent); }
+.nav-label { font-size: 11px; line-height: 1.1; font-family: var(--font-sans); }
+.nav-label.en { font-size: 9px; opacity: 0.7; }
+.date-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; color: var(--fg-muted); font-size: var(--fs-sm); }
+.date-line .date-he { color: var(--fg); font-size: calc(var(--fs-md) * var(--text-scale)); }
+.date-line.compact .date-he { font-size: var(--fs-sm); }
+.date-sep { opacity: 0.5; }
+.toast {
+  position: fixed; bottom: calc(var(--nav-h) + var(--safe-bottom) + 12px); inset-inline: 16px; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--paper); color: var(--paper-fg); padding: 12px 16px; border-radius: var(--r-md); box-shadow: var(--shadow-2);
+  animation: toast-in var(--dur-med) var(--ease-out);
+}
+@keyframes toast-in { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+.toast button { font-weight: 600; color: var(--c-oxblood); min-height: 36px; padding: 0 8px; }
+.boot { flex: 1; display: grid; place-items: center; text-align: center; padding: 32px; color: var(--fg-muted); }
+.boot h1 { color: var(--fg); margin-bottom: 8px; font-weight: 400; letter-spacing: 0.02em; }
+.boot .spinner { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line-strong); border-top-color: var(--accent); animation: spin 0.9s linear infinite; margin: 20px auto 0; }
+@keyframes spin { to { transform: rotate(360deg); } }

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">סדר הלימוד</string>
+    <string name="title_activity_main">סדר הלימוד</string>
+    <string name="package_name">org.sederhalimud.app</string>
+    <string name="custom_url_scheme">org.sederhalimud.app</string>
+</resources>

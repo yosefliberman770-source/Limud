@@ -1,0 +1,3216 @@
+{
+ "schemaVersion": 1,
+ "generatedAt": "2026-10-25T12:06:13Z",
+ "sources": [
+  {
+   "id": "src-tr-index",
+   "url": "https://www.torahrecordings.com/likutei-sichos/",
+   "title": "Torah Recordings - Likkutei Sichos volume index pages (010..014)",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "Per-volume listing of every sicha (parsha + ordinal, Hebrew heading). Pages /likutei-sichos/0NN/ ; sicha pages /likutei-sichos/0NN/PPP_SSS. Hebrew text (c) WikiSource credit in footer; audio (c) Chabad of Sharon."
+  },
+  {
+   "id": "src-tr-scans",
+   "url": "https://audio.torahrecordings.com/likuteisichosimages/",
+   "title": "Torah Recordings - page scans of the printed Kehot volumes",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "GIF scans named by printed page number (e.g. 010/42.gif, 012_likuteisichos_vol12/9.gif, 013_likuteisichos_vol13/1.gif). Used for page ranges and for counting the printed section letters (א. ב. ג. ...). Page-range ownership per sicha was taken from the image list on each TR sicha page and corrected where the scans disagreed (see notes)."
+  },
+  {
+   "id": "src-tr-vol13-mafteach",
+   "url": "https://www.torahrecordings.com/likutei-sichos/013/000",
+   "title": "Printed מפתח of Likkutei Sichos vol 13 (scans 607-610)",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "Printed table of contents with page number and topic line for each of the 20 sichos of vol 13, plus the הוספות list. Hand-transcribed into raw/vol13-printed-mafteach-transcription.json."
+  },
+  {
+   "id": "src-pls-pages",
+   "url": "https://projectlikkuteisichos.org/",
+   "title": "Project Likkutei Sichos - per-sicha pages and \"Kehos pages\" PDFs",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "Pages /<vol><parsha><n>/ (e.g. /10lech-lecha1/) link to Google-Drive hosted PDFs: \"Kehos pages\" (the sicha layout) and \"Sicha Translation\" (English). Sitemaps: /wp-sitemap.xml. Not firebasestorage for these volumes - Drive links. Kehos PDF page counts differ from the printed page counts (reflowed layout) and are not used for page ranges."
+  },
+  {
+   "id": "src-pls-translation",
+   "url": "https://projectlikkuteisichos.org/",
+   "title": "Project Likkutei Sichos - English translation PDFs",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "Numbered paragraph counts extracted with pdftotext (raw/pls-translation-sections.json). Used only as a cross-check of the printed section count; several PDFs are formatted with question lists so counts are only trusted when they equal the count read from the printed scans."
+  },
+  {
+   "id": "src-pls-schedule-y1",
+   "url": "https://projectlikkuteisichos.org/wp-content/uploads/2020/01/LS_Schedule_Eng_v2.pdf",
+   "title": "PLS Year-1 (5780-81) schedule and checklist PDFs",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "Independent list of the sichos of vols 10, 11, 12, 13, 14 by name and ordinal (e.g. \"וישלח-יט\"כ\", \"בשלח ג*\", \"חנוכה\", \"שבת הגדול\", \"חג הפסח\", \"ראש השנה\", \"ברכה - שמח\"ת א\"). Used as the second source for the sicha inventory."
+  },
+  {
+   "id": "src-chabadlibrary",
+   "url": "https://chabadlibrary.org/books/api/main?path=/1300000000",
+   "title": "Chabad Library - Likkutei Sichos catalogue API",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "API: GET /books/api/main?path=/<id>. Its Likkutei Sichos node (1300000000) lists only volumes 30-39 (כרך ל..לט); volumes 10-14 are not hosted, so it gave no data for this task."
+  },
+  {
+   "id": "src-hewiki",
+   "url": "https://he.wikipedia.org/wiki/לקוטי_שיחות",
+   "title": "Hebrew Wikipedia - לקוטי שיחות",
+   "accessedAt": "2026-10-25T12:06:13Z",
+   "notes": "General description of the series only; no per-volume contents."
+  }
+ ],
+ "volumes": [
+  {
+   "id": "ls-10",
+   "number": 10,
+   "heNumber": "י׳",
+   "sefer": "Bereishis",
+   "heTitle": "לקוטי שיחות חלק י׳",
+   "pageCount": null,
+   "sourceIds": [
+    "src-tr-index",
+    "src-tr-scans",
+    "src-pls-pages",
+    "src-pls-translation",
+    "src-pls-schedule-y1",
+    "src-chabadlibrary"
+   ],
+   "verification": "verified",
+   "sichoCount": 27,
+   "verifiedSichos": 27,
+   "withSectionCount": 27,
+   "pageCountNote": "Printed page count of the whole volume not available; sicha section ends at p.172 (הוספות, indexes follow in the printed book).",
+   "verificationNote": "27 sichos enumerated from torahrecordings.com and matched against the PLS Year-1 schedule list; sicha pages cover printed pages 1-172 without gaps (the numbered sicha section). Printed הוספות/indexes after p.172 were not available for enumeration."
+  },
+  {
+   "id": "ls-11",
+   "number": 11,
+   "heNumber": "י״א",
+   "sefer": "Shemos",
+   "heTitle": "לקוטי שיחות חלק י״א",
+   "pageCount": null,
+   "sourceIds": [
+    "src-tr-index",
+    "src-tr-scans",
+    "src-pls-pages",
+    "src-pls-translation",
+    "src-pls-schedule-y1",
+    "src-chabadlibrary"
+   ],
+   "verification": "verified",
+   "sichoCount": 24,
+   "verifiedSichos": 24,
+   "withSectionCount": 24,
+   "pageCountNote": "Printed page count of the whole volume not available; sicha section ends at p.187 (הוספות, indexes follow in the printed book).",
+   "verificationNote": "24 sichos enumerated from torahrecordings.com and matched against the PLS Year-1 schedule list; sicha pages cover printed pages 1-187 without gaps (the numbered sicha section). Printed הוספות/indexes after p.187 were not available for enumeration."
+  },
+  {
+   "id": "ls-12",
+   "number": 12,
+   "heNumber": "י״ב",
+   "sefer": "Vayikra",
+   "heTitle": "לקוטי שיחות חלק י״ב",
+   "pageCount": null,
+   "sourceIds": [
+    "src-tr-index",
+    "src-tr-scans",
+    "src-pls-pages",
+    "src-pls-translation",
+    "src-pls-schedule-y1",
+    "src-chabadlibrary"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "sichoCount": 18,
+   "verifiedSichos": 10,
+   "withSectionCount": 18,
+   "pageCountNote": "Printed page count of the whole volume not available; sicha section ends at p.137 (הוספות, indexes follow in the printed book).",
+   "verificationNote": "18 sichos enumerated from torahrecordings.com and matched against the PLS Year-1 schedule list; sicha pages cover printed pages 1-137 without gaps (the numbered sicha section). Printed הוספות/indexes after p.137 were not available for enumeration."
+  },
+  {
+   "id": "ls-13",
+   "number": 13,
+   "heNumber": "י״ג",
+   "sefer": "Bamidbar",
+   "heTitle": "לקוטי שיחות חלק י״ג",
+   "pageCount": null,
+   "sourceIds": [
+    "src-tr-index",
+    "src-tr-scans",
+    "src-tr-vol13-mafteach",
+    "src-pls-pages",
+    "src-pls-translation",
+    "src-pls-schedule-y1",
+    "src-chabadlibrary"
+   ],
+   "verification": "verified",
+   "hosafos": {
+    "heading": "הוספות – שיחות ומכתבים",
+    "entries": [
+     {
+      "heading": "במדבר",
+      "page": 133
+     },
+     {
+      "heading": "שבועות",
+      "page": 135
+     },
+     {
+      "heading": "נשא",
+      "page": 185
+     },
+     {
+      "heading": "בהעלותך",
+      "page": 191
+     },
+     {
+      "heading": "שלח",
+      "page": 195
+     },
+     {
+      "heading": "ר\"ח תמוז",
+      "page": 201
+     },
+     {
+      "heading": "קרח",
+      "page": 203
+     },
+     {
+      "heading": "י\"ב-י\"ג תמוז",
+      "page": 207
+     },
+     {
+      "heading": "בלק",
+      "page": 254
+     },
+     {
+      "heading": "פינחס",
+      "page": 255
+     },
+     {
+      "heading": "בין המצרים",
+      "page": 266
+     },
+     {
+      "heading": "מטות",
+      "page": 294
+     },
+     {
+      "heading": "מטות-מסעי",
+      "page": 295
+     },
+     {
+      "heading": "ימי הקיץ",
+      "page": 300
+     }
+    ],
+    "note": "The מפתח ends with ימי הקיץ at p.300; the volume's total page count (including indexes after the הוספות) was not visible in the scans."
+   },
+   "sichoCount": 20,
+   "verifiedSichos": 20,
+   "withSectionCount": 20,
+   "pageCountNote": "Printed page count of the whole volume not available; sicha section ends at p.127 (הוספות, indexes follow in the printed book).",
+   "verificationNote": "20 sichos enumerated from torahrecordings.com and matched against the PLS Year-1 schedule list; sicha pages cover printed pages 1-127 without gaps (the numbered sicha section). Printed הוספות/indexes after p.127 were not available for enumeration. The printed מפתח (scans 607-610) lists the 20 sichos with start pages and topics and the הוספות (pp.133-300)."
+  },
+  {
+   "id": "ls-14",
+   "number": 14,
+   "heNumber": "י״ד",
+   "sefer": "Devarim",
+   "heTitle": "לקוטי שיחות חלק י״ד",
+   "pageCount": null,
+   "sourceIds": [
+    "src-tr-index",
+    "src-tr-scans",
+    "src-pls-pages",
+    "src-pls-translation",
+    "src-pls-schedule-y1",
+    "src-chabadlibrary"
+   ],
+   "verification": "verified",
+   "sichoCount": 24,
+   "verifiedSichos": 24,
+   "withSectionCount": 24,
+   "pageCountNote": "Printed page count of the whole volume not available; sicha section ends at p.170 (הוספות, indexes follow in the printed book).",
+   "verificationNote": "24 sichos enumerated from torahrecordings.com and matched against the PLS Year-1 schedule list; sicha pages cover printed pages 1-170 without gaps (the numbered sicha section). Printed הוספות/indexes after p.170 were not available for enumeration."
+  }
+ ],
+ "sichos": [
+  {
+   "id": "ls-10-bereshit-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Bereshit",
+   "heParsha": "בראשית",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "הכיבוש הרוחני של ארץ ישראל",
+   "topicEn": "The Spiritual Conquest of Eretz Yisrael",
+   "pageStart": 1,
+   "pageEnd": 6,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/001_001",
+    "https://projectlikkuteisichos.org/10breishis1/",
+    "https://drive.google.com/file/d/1aqfV8v41CQrFNBl_10L4P5V7mz-MElsS/view?usp=sharing",
+    "https://drive.google.com/file/d/1RZJuyk7set1r-hJZl78OvBypwUPYG4Fg/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ בראשית תשל\"א.",
+   "countConfirmedBy": [
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-bereshit-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Bereshit",
+   "heParsha": "בראשית",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "חשיבות האור בבריאה",
+   "topicEn": "The Significance of Light in Creation",
+   "pageStart": 7,
+   "pageEnd": 12,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/001_002",
+    "https://projectlikkuteisichos.org/10breishis2/",
+    "https://drive.google.com/file/d/1-AYTp0QhFoy-xgEf47NDzFCrNev6KTK5/view?usp=sharing",
+    "https://drive.google.com/file/d/1y47N43AQWBHitCcni1qzSP_m1Fo3XrOn/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ליל שמח\"ת תשכ\"ו.",
+   "countConfirmedBy": [
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-bereshit-3",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Bereshit",
+   "heParsha": "בראשית",
+   "occasion": null,
+   "ordinal": 3,
+   "heTitle": "שיחה ג׳",
+   "topic": "פרשנות רש\"י על קללת הנחש בבראשית ג",
+   "topicEn": "Rashi's Commentary on the Serpent's Curse in Bereishis 3",
+   "pageStart": 13,
+   "pageEnd": 18,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/001_003",
+    "https://projectlikkuteisichos.org/10breishis3/",
+    "https://drive.google.com/file/d/1RGxcGE1wcUPXkiCQvTpf7whxTo2WP2aW/view?usp=sharing",
+    "https://drive.google.com/file/d/1oUsW7UjggflEzntz1Q-fkIEu1F7_S0ra/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בראשית תשל\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-noach-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Noach",
+   "heParsha": "נח",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "צהר תעשה לתבה — חלון ואבן טובה",
+   "topicEn": "The Tzohar of the Ark: A Window and a Precious Stone",
+   "pageStart": 19,
+   "pageEnd": 23,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/002_001",
+    "https://projectlikkuteisichos.org/10noach1/",
+    "https://drive.google.com/file/d/1Jfup46Yja_9XKlYP048zQ1cFQwf--JgC/view?usp=sharing",
+    "https://drive.google.com/file/d/1CHrnrCfUVLQjH2r9nZurnSMc8HYNM9Ac/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נח תשל\"א.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-noach-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Noach",
+   "heParsha": "נח",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "וערות אביהם לא ראו — הזהירות בראיה",
+   "topicEn": "\"They Did Not See Their Father's Nakedness\": Care in Seeing",
+   "pageStart": 24,
+   "pageEnd": 29,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/002_002",
+    "https://projectlikkuteisichos.org/10noach2/",
+    "https://drive.google.com/file/d/1Lb8v5d5q8iZlXv0xUsQFsWhrTtRip5yp/view?usp=sharing",
+    "https://drive.google.com/file/d/1i_NjiKw-WGwQr--18vFDq7U2nchlBHTC/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בראשית תשכ\"ו.",
+   "countConfirmedBy": [
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-noach-3",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Noach",
+   "heParsha": "נח",
+   "occasion": null,
+   "ordinal": 3,
+   "heTitle": "שיחה ג׳",
+   "topic": "עלה הזית והמבול בארץ ישראל",
+   "topicEn": "The Olive Leaf and the Flood in the Land of Israel",
+   "pageStart": 30,
+   "pageEnd": 36,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/002_003",
+    "https://projectlikkuteisichos.org/10noach3/",
+    "https://drive.google.com/file/d/15EhW9Vytquo8bOPrpPVXwTn_trpgP41u/view?usp=sharing",
+    "https://drive.google.com/file/d/1ihS3k7fbmXzD2YUBZ8NTpljgb84rG7Nf/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נח תשל\"ד.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-lech-lecha-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Lech-Lecha",
+   "heParsha": "לך לך",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "ברכת כהנים – ברכה ותפלה",
+   "topicEn": "The Priestly Blessing – Between Blessing and Prayer",
+   "pageStart": 37,
+   "pageEnd": 43,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/003_001",
+    "https://projectlikkuteisichos.org/10lech-lecha1/",
+    "https://drive.google.com/file/d/1OPYJtZc0PKKj_AM55LYTSI8TRZl0XLsi/view?usp=sharing",
+    "https://drive.google.com/file/d/1Q4AJp4pNkJJccW-eA4dXdSyRtycMIerm/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת כ' מנ\"א תשי\"ב. ו confirmed at 2x; matches PLS translation (6) and TR English (6).",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-lech-lecha-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Lech-Lecha",
+   "heParsha": "לך לך",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "בריתו של אברהם אבינו",
+   "topicEn": "The Covenant of Avraham Our Father",
+   "pageStart": 44,
+   "pageEnd": 48,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/003_002",
+    "https://projectlikkuteisichos.org/10lech-lecha2/",
+    "https://drive.google.com/file/d/1I0QWGT6_1wK6SFJEbcrcNXr7qQzGSA0m/view?usp=sharing",
+    "https://drive.google.com/file/d/1ZNhVyN2wwDbYQ2jt9epuSPuzH31EbiLA/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ פנחס, י\"ט-כ תמוז תשל\"ב.",
+   "countConfirmedBy": [
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-vayera-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayera",
+   "heParsha": "וירא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "מ\"מחזה\" ל\"וירא\": אברהם קודם המילה ולאחריה",
+   "topicEn": "From \"Machazeh\" to \"Vayeira\": Avraham Before and After the Milah",
+   "pageStart": 49,
+   "pageEnd": 54,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/004_001",
+    "https://projectlikkuteisichos.org/10vayera1/",
+    "https://drive.google.com/file/d/1yXYkN5UiadXoexIh5bZg_vgSoCsv_J86/view?usp=sharing",
+    "https://drive.google.com/file/d/1eOwVlJnqATJiZil9-aAg-7ToXxplOEvC/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וירא תשכ\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-vayera-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayera",
+   "heParsha": "וירא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "\"ויגש אברהם\": להיכנס בכל התוקף להצלת נפשות",
+   "topicEn": "\"And Avraham Drew Near\": Entering Fully to Save Lives",
+   "pageStart": 55,
+   "pageEnd": 59,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/004_002",
+    "https://projectlikkuteisichos.org/10vayera2/",
+    "https://drive.google.com/file/d/1xh0YNnnEMj2NmR7dnnM_43f91e5n_OVE/view?usp=sharing",
+    "https://drive.google.com/file/d/1FdJvAI4FFHj2ztE92G7jPZNFlU-WRSYB/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וירא תש\"ל.",
+   "countConfirmedBy": [
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-10-chayei-sara-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Chayei Sara",
+   "heParsha": "חיי שרה",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 60,
+   "pageEnd": 64,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/005_001",
+    "https://projectlikkuteisichos.org/10chayesara1/",
+    "https://drive.google.com/file/d/1ZAvkpkSRbjErQ-zJgevackVoEJnHzf7n/view?usp=sharing",
+    "https://drive.google.com/file/d/14g46_7tdqsASyoBY8Xv-qBWMdHv1Uk3F/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ חיי שרה תשכ\"ט ותשל\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-chayei-sara-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Chayei Sara",
+   "heParsha": "חיי שרה",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 65,
+   "pageEnd": 71,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/005_002",
+    "https://projectlikkuteisichos.org/10chayesara2/",
+    "https://drive.google.com/file/d/1u_mVpbc3042xiitxZmlaKhzQqlE67i_b/view?usp=sharing",
+    "https://drive.google.com/file/d/1Dg3MIStjwCExFHyAyuGm_01iKVX65i9M/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ חיי שרה תשל\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-toldot-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Toldot",
+   "heParsha": "תולדות",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 72,
+   "pageEnd": 79,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/006_001",
+    "https://projectlikkuteisichos.org/10toldos1/",
+    "https://drive.google.com/file/d/1RkDp4vJJTfEpglBtd_Yh7daqP7JghVI9/view?usp=sharing",
+    "https://drive.google.com/file/d/1hx_CQEuXIoKog10ygE38a36yB7ybzMrC/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ חיי שרה, תש\"ל. sicha text ends p77; pp77-79 carry הוספה לע' 75 (appendix to footnote 31).",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-toldot-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Toldot",
+   "heParsha": "תולדות",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 80,
+   "pageEnd": 87,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/006_002",
+    "https://projectlikkuteisichos.org/10toldos2/",
+    "https://drive.google.com/file/d/1KFXLu5jVJ4zlY4tIj_C1NGFY-3r4GB-t/view?usp=sharing",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/NMZ35Cn5rM0DhAiG8btC%2Fpdf%2Fb675e1c0-910b-11ed-9b38-934b9bcc3cef?alt=media&token=f3d2590b-90ee-4630-a2c0-b6ab578a98c0"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תולדות תשכ\"ד.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayetzei-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayetzei",
+   "heParsha": "ויצא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 88,
+   "pageEnd": 91,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/007_001",
+    "https://projectlikkuteisichos.org/10vayetze1/",
+    "https://drive.google.com/file/d/11hifvVX4vd4r7x2Nldq2vgaTvYxtCyud/view?usp=sharing",
+    "https://drive.google.com/file/d/19vPR4ARkgnHAMlzL-XQ9W6nCRytCuoew/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויצא, יו\"ד כסלו תשכ\"ו.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayetzei-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayetzei",
+   "heParsha": "ויצא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 92,
+   "pageEnd": 99,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/007_002",
+    "https://projectlikkuteisichos.org/10vayetze2/",
+    "https://drive.google.com/file/d/1qVni-c1rtebptd3ilDtRugGcyFry_ahS/view?usp=sharing",
+    "https://drive.google.com/file/d/1wf2PpB3OFQed0Jfhva27SRH5X14S8t30/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת (וממאמר ד\"ה אתה אחד) ש\"פ ויצא, ט' כסלו תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayishlach-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayishlach",
+   "heParsha": "וישלח",
+   "occasion": "Yud Tes Kislev",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 100,
+   "pageEnd": 108,
+   "sectionCount": 11,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/008_001",
+    "https://projectlikkuteisichos.org/10vayishlach1/",
+    "https://drive.google.com/file/d/1LpNpeYWrrycdoUG8wrDqRb_GyoNfNWyC/view?usp=sharing",
+    "https://drive.google.com/file/d/1iy56RkuQxcwuTM9l659SeGqW4tVWEZSV/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "TR heading carries a second occasion label: 'Yud-Tes Kislev' (printed sub-heading י״ט כסלו). Printed end-note (source of the sicha): משיחות י\"ט כסלו תשכ\"ה, וש\"פ וישלח תשכ\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayishlach-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayishlach",
+   "heParsha": "וישלח",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 109,
+   "pageEnd": 114,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/009_001",
+    "https://projectlikkuteisichos.org/10vayishlach1-2/",
+    "https://drive.google.com/file/d/1KKd-CBhrv5CuE4idPAT5h95zAV-wLP5x/view",
+    "https://drive.google.com/file/d/1WWX6P_qyncpa_RqxDwTLXUa94osxv0UZ/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וישלח תשכ\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayeshev-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayeshev",
+   "heParsha": "וישב",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 115,
+   "pageEnd": 121,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/010_001",
+    "https://projectlikkuteisichos.org/10vayeshev1/",
+    "https://drive.google.com/file/d/1-8j13MFPGd6327yW3LfTQZU_FMOFH5T6/view?usp=sharing",
+    "https://drive.google.com/file/d/12PkwbZoNlnpN3I2jCu0u4RqxdPiFp8nh/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ וישב, ונר ה' דחנוכה, תש\"ל.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayeshev-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayeshev",
+   "heParsha": "וישב",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 122,
+   "pageEnd": 128,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/010_002",
+    "https://projectlikkuteisichos.org/10vayeshev2/",
+    "https://drive.google.com/file/d/1viRyCzZ9azwvTNO1IeOLOnVEoSOUv-wW/view?usp=sharing",
+    "https://drive.google.com/file/d/1PzcWwhnpEEygnnEYV1HhnI7QxRzOzBQg/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וישב תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-miketz-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Miketz",
+   "heParsha": "מקץ",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 129,
+   "pageEnd": 135,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/011_001",
+    "https://projectlikkuteisichos.org/10miketz1/",
+    "https://drive.google.com/file/d/1-NHhg4gTnGaLb54kwMuVopvt7Ea7ZByz/view?usp=sharing",
+    "https://drive.google.com/file/d/1bx_J5MaJR4nCGPjPwcuAPaaeYhxMbkjE/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ מקץ תשל\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-miketz-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Miketz",
+   "heParsha": "מקץ",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 136,
+   "pageEnd": 141,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/011_002",
+    "https://projectlikkuteisichos.org/10miketz2/",
+    "https://drive.google.com/file/d/1cWd-jcWMfGgoRoQgqDv8UYwx3G-2JIEk/view?usp=sharing",
+    "https://drive.google.com/file/d/1ZzeJxD0t9oUBzAVZDUvCKWoP0sJQ85l5/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ מקץ תשל\"א.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-chanukah-1",
+   "volumeId": "ls-10",
+   "kind": "festival",
+   "parsha": null,
+   "heParsha": "חנוכה",
+   "occasion": "Chanukah",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 142,
+   "pageEnd": 145,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/012_001",
+    "https://projectlikkuteisichos.org/10chanukah/",
+    "https://drive.google.com/file/d/1ak7EkDN-l38pOL_Hwhe8i29CyU9CwAUa/view?usp=sharing",
+    "https://drive.google.com/file/d/1KKBS9xwdHNC0Jf5MVLNlok60-inx1ubd/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות מוצאי זאת חנוכה וש\"פ ויגש, תשל\"ד.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayigash-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayigash",
+   "heParsha": "ויגש",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 146,
+   "pageEnd": 150,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/013_001",
+    "https://projectlikkuteisichos.org/10vayigash1/",
+    "https://drive.google.com/file/d/1KdVezdwpPPWYvzIrMKnxz2O9qwmva9aD/view?usp=sharing",
+    "https://drive.google.com/file/d/1FT8Gg9dcMT6HUo2TS2KkpBBpOz6vnGJk/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויגש תשכ\"ח.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayigash-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayigash",
+   "heParsha": "ויגש",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 151,
+   "pageEnd": 159,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/013_002",
+    "https://projectlikkuteisichos.org/10vayigash2/",
+    "https://drive.google.com/file/d/1z4rbCmBdXppDq1swit7mXkIgsR24kDWj/view?usp=sharing",
+    "https://drive.google.com/file/d/1lt3PQNk65cUMuX486ENlsqwCG3LhFwUp/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויגש תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayechi-1",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayechi",
+   "heParsha": "ויחי",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 160,
+   "pageEnd": 166,
+   "sectionCount": 12,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/014_001",
+    "https://projectlikkuteisichos.org/10vayechi1/",
+    "https://drive.google.com/file/d/1ReqEvcP6AECdDA5-NuHwAPvE2J005CsX/view?usp=sharing",
+    "https://drive.google.com/file/d/1JLdOR9hNqos8LD-sMa4GALU38mgN9Z2a/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ ויחי תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-10-vayechi-2",
+   "volumeId": "ls-10",
+   "kind": "parsha",
+   "parsha": "Vayechi",
+   "heParsha": "ויחי",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 167,
+   "pageEnd": 172,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/010/014_002",
+    "https://projectlikkuteisichos.org/10vayechi2/",
+    "https://drive.google.com/file/d/1D0iSVECqysc9nV9ui4wxcVgRqyu0GaR4/view?usp=sharing",
+    "https://drive.google.com/file/d/10UHcJopyc_w0cDXf0VbpymsRdWeoTDre/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויחי תשכ\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-shemot-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Shemot",
+   "heParsha": "שמות",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 1,
+   "pageEnd": 7,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/001_001",
+    "https://projectlikkuteisichos.org/11shemos1/",
+    "https://drive.google.com/file/d/1k0TRYmkgLQPf1SZpTV0gSxdECFHxgtFG/view?usp=sharing",
+    "https://drive.google.com/file/d/19UbD7qWugW-DB-0gJ-IG4OgvNk0Owaoe/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת אחש\"פ תשכ\"ח, כ' מנ\"א תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-shemot-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Shemot",
+   "heParsha": "שמות",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 8,
+   "pageEnd": 13,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/001_002",
+    "https://projectlikkuteisichos.org/11shemos2/",
+    "https://drive.google.com/file/d/1Vy19FyxO7aiXEJquMZaDK2533-Ffa73U/view?usp=sharing",
+    "https://drive.google.com/file/d/1rQ1b9jDQbiD8HVJ4lmZaDQP7iZA5FQvR/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת אחש\"פ תשכ\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-vaera-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Vaera",
+   "heParsha": "וארא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 14,
+   "pageEnd": 23,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/002_001",
+    "https://projectlikkuteisichos.org/11vaera1/",
+    "https://drive.google.com/file/d/1DIRNlcuAFeGBqio94Fcxb7TBujy06PJI/view?usp=sharing",
+    "https://drive.google.com/file/d/1NPzQJz6GceSkuiz8IwYMsUwNwwWMS5xH/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת חגה\"פ וש\"פ שמיני תשכ\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-vaera-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Vaera",
+   "heParsha": "וארא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 24,
+   "pageEnd": 33,
+   "sectionCount": 11,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/002_002",
+    "https://projectlikkuteisichos.org/11vaera2/",
+    "https://drive.google.com/file/d/13sj4bV9DSuGoVZeuMYvNIdGmDYfsmOwH/view?usp=sharing",
+    "https://drive.google.com/file/d/1KRL-0z7pIvpG4AiLrAa6yiZOpdwwlm0e/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וארא תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-bo-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Bo",
+   "heParsha": "בא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 34,
+   "pageEnd": 41,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/003_001",
+    "https://projectlikkuteisichos.org/11bo1/",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/UfRGWbVm82USko9tHucM%2Fpdf%2F21c88460-5625-11eb-acff-d7d527e34d85?alt=media&token=697e99de-a514-4478-acbe-19a72d141aba",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/UfRGWbVm82USko9tHucM%2Fpdf%2F8adde2d0-5628-11eb-9a5d-e5801caa81c3?alt=media&token=66f67118-7da0-4d97-a319-55cb126da7af"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת יום ב' דחגה\"ס ושבת חוהמ\"ס ה'תשכ\"ח. 'ז. א.' on p41 is זאת אומרת, not a section. Page range 34-41: TR's image list for this sicha wrongly begins with scans 14-23 (duplicates of Va'era 1); scan 34 shows the printed heading בא א.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-bo-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Bo",
+   "heParsha": "בא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 42,
+   "pageEnd": 51,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/003_002",
+    "https://projectlikkuteisichos.org/11bo2/",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/JGC4iOYUU0LjIiZ5huel%2Fpdf%2Fea387060-5628-11eb-a1d0-e5238eb4c2b2?alt=media&token=2aa7e4f9-7185-49bd-bc7c-aea920d92fd7",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/JGC4iOYUU0LjIiZ5huel%2Fpdf%2F4d13e370-573e-11eb-b0da-f5dc60784c4b?alt=media&token=cfdad950-38ef-4c99-9f46-2616d1811fd4"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת י\"א ניסן תשכ\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-beshalach-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Beshalach",
+   "heParsha": "בשלח",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 52,
+   "pageEnd": 54,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/004_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בשלח תשל\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-beshalach-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Beshalach",
+   "heParsha": "בשלח",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 55,
+   "pageEnd": 62,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/004_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בשלח וי\"ד שבט תשכ\"ו.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-beshalach-3",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Beshalach",
+   "heParsha": "בשלח",
+   "occasion": null,
+   "ordinal": 3,
+   "heTitle": "שיחה ג׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 63,
+   "pageEnd": 73,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/004_003",
+    "https://projectlikkuteisichos.org/11beshalach3/",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/NX3NrC7Cf0dAtGrKdbSp%2Fpdf%2Fb1591e20-5cd1-11eb-bb8c-75b7d4c95539?alt=media&token=94050163-3767-4f58-a64b-5a6b4fc1a492",
+    "https://firebasestorage.googleapis.com/v0/b/project-pls-e0f4f.appspot.com/o/NX3NrC7Cf0dAtGrKdbSp%2Fpdf%2F43e08fd0-5cd2-11eb-a155-afd353293297?alt=media&token=eb4a4773-a3f3-4c75-9dc8-133349b58254"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת כ' מנ\"א תשכ\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-yitro-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Yitro",
+   "heParsha": "יתרו",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 74,
+   "pageEnd": 79,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/005_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ יתרו תשכ\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-yitro-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Yitro",
+   "heParsha": "יתרו",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 80,
+   "pageEnd": 88,
+   "sectionCount": 13,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/005_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת י\"ט כסלו תשח\"י.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-mishpatim-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Mishpatim",
+   "heParsha": "משפטים",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 89,
+   "pageEnd": 98,
+   "sectionCount": 11,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/006_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ משפטים תשל\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-mishpatim-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Mishpatim",
+   "heParsha": "משפטים",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 99,
+   "pageEnd": 108,
+   "sectionCount": 13,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/006_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ משפטים תשכ\"ז ותשכ\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-terumah-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Terumah",
+   "heParsha": "תרומה",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 109,
+   "pageEnd": 115,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/007_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויק\"פ תשכ\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-terumah-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Terumah",
+   "heParsha": "תרומה",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 116,
+   "pageEnd": 126,
+   "sectionCount": 12,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/007_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת יו\"ד שבט, טו בשבט, תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-tetzaveh-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Tetzaveh",
+   "heParsha": "תצוה",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 127,
+   "pageEnd": 132,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/008_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תצוה תשכ\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-tetzaveh-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Tetzaveh",
+   "heParsha": "תצוה",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 133,
+   "pageEnd": 138,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/008_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תצוה תשכ\"ו.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-ki-tisa-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Ki Tisa",
+   "heParsha": "כי תשא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 139,
+   "pageEnd": 152,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/009_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תשא תשכ\"ו ותשכ\"ז.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-ki-tisa-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Ki Tisa",
+   "heParsha": "כי תשא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 153,
+   "pageEnd": 157,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/009_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תשא תשכ\"ט.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-vayakhel-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Vayakhel",
+   "heParsha": "ויקהל",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 158,
+   "pageEnd": 162,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/010_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויקהל תשל\"ג.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-vayakhel-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Vayakhel",
+   "heParsha": "ויקהל",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 163,
+   "pageEnd": 168,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/010_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויק\"פ תשל\"א.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-pekudei-1",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Pekudei",
+   "heParsha": "פקודי",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 169,
+   "pageEnd": 174,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/011_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויק\"פ, מבה\"ח ניסן, תשל\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-pekudei-2",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Pekudei",
+   "heParsha": "פקודי",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 175,
+   "pageEnd": 180,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/011_002",
+    "https://projectlikkuteisichos.org/11pekudei2/",
+    "https://drive.google.com/file/d/1l5u1YaDoaRnC-BH7L_G9L56CL6-abgCB/view?usp=sharing",
+    "https://drive.google.com/file/d/1UZiALARMCV7mvmfg-UrUuhlwbUh8wO7q/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויק\"פ תשל\"ב.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-11-pekudei-3",
+   "volumeId": "ls-11",
+   "kind": "parsha",
+   "parsha": "Pekudei",
+   "heParsha": "פקודי",
+   "occasion": null,
+   "ordinal": 3,
+   "heTitle": "שיחה ג׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 181,
+   "pageEnd": 187,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/011/011_003"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ שמיני תשכ\"ה. יו\"ד שבט תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-vayikra-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Vayikra",
+   "heParsha": "ויקרא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 1,
+   "pageEnd": 9,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/001_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ויקרא תשל\"ב.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-vayikra-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Vayikra",
+   "heParsha": "ויקרא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 10,
+   "pageEnd": 19,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/001_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ו' תשרי, תש\"ל.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-tzav-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Tzav",
+   "heParsha": "צו",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 20,
+   "pageEnd": 32,
+   "sectionCount": 11,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/002_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות חודש ניסן, תשכ\"ח.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-shabbos-hagadol-1",
+   "volumeId": "ls-12",
+   "kind": "date",
+   "parsha": null,
+   "heParsha": "שבת הגדול",
+   "occasion": "Shabbos HaGadol",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 33,
+   "pageEnd": 38,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/003_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות שבת הגדול תשכ\"ז, תשכ\"ט, תשל\"א.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-pesach-1",
+   "volumeId": "ls-12",
+   "kind": "festival",
+   "parsha": null,
+   "heParsha": "חג הפסח",
+   "occasion": "Pesach",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 39,
+   "pageEnd": 48,
+   "sectionCount": 16,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/004_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחות י\"א ניסן ואחש\"פ תשל\"ה. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [
+    "second-scan-reading(corrected-first-reading)"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-shmini-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Shmini",
+   "heParsha": "שמיני",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 49,
+   "pageEnd": 56,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/005_001"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ שמיני, מבה\"ח אייר תשכ\"ו.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-shmini-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Shmini",
+   "heParsha": "שמיני",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 57,
+   "pageEnd": 63,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/005_002"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ שמיני תשכ\"ד ותשכ\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-tazria-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Tazria",
+   "heParsha": "תזריע",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 64,
+   "pageEnd": 69,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/006_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תזריע, תשכ\"ה. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-tazria-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Tazria",
+   "heParsha": "תזריע",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 70,
+   "pageEnd": 77,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/006_002"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תזריע, תשכ\"ה. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-metzora-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Metzora",
+   "heParsha": "מצורע",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 78,
+   "pageEnd": 82,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/007_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ מצורע, תשכ\"ה. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-achrei-mot-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Achrei Mot",
+   "heParsha": "אחרי",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 83,
+   "pageEnd": 90,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/008_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ אחו\"ק, תשל\"א. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-kedoshim-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Kedoshim",
+   "heParsha": "קדושים",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 91,
+   "pageEnd": 95,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/009_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ אחו\"ק, תשל\"א. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": null
+  },
+  {
+   "id": "ls-12-emor-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Emor",
+   "heParsha": "אמור",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "שבע שבתות תמימות תהיינה אימתי בזמן שאין ישוע ושכני' ביניהם - קה\"ר פ\"א, ג",
+   "topicEn": null,
+   "pageStart": 96,
+   "pageEnd": 102,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/010_001"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחות אחש\"פ וש\"מ אייר, תשל\"א. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-12-emor-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Emor",
+   "heParsha": "אמור",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פירש\"י כג, כד ד\"ה זכרון תרועה",
+   "topicEn": null,
+   "pageStart": 103,
+   "pageEnd": 107,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/010_002"
+   ],
+   "verification": "source_imported_needs_crosscheck",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בהעלותך, תשכ\"ז. Not upgraded to verified: section count read once from the scan only.",
+   "countConfirmedBy": [],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-12-behar-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Behar",
+   "heParsha": "בהר",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "שבת לה' - כשם שנאמר בשבת בראשית (תו\"כ כה, ד) או \"לשם השם כשם שנאמר בשבת בראשית\" - רש\"י שם",
+   "topicEn": null,
+   "pageStart": 108,
+   "pageEnd": 114,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/011_001",
+    "https://projectlikkuteisichos.org/12behar1/",
+    "https://drive.google.com/open?id=1MCcKr0ETHZgOiJP-jCDofVzgVc5Fk8SM",
+    "https://drive.google.com/open?id=1NijPleDOyaX3Kvq143BDeFZ3uPtOfXPl"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ בהו\"ב, תשכ\"ו.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-12-behar-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Behar",
+   "heParsha": "בהר",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "מצות עשה להשיך לעכו\"ם (רמב\"ם הל' מלוה ולוה רפ\"ה). ביאור פלוגתת הפוסקים אם מועלת מחילה בריבית",
+   "topicEn": null,
+   "pageStart": 115,
+   "pageEnd": 119,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/011_002",
+    "https://projectlikkuteisichos.org/12behar2/",
+    "https://drive.google.com/open?id=1qYaYCAlKcCWLrBRcx6FH4S3HU4Vv_WFD",
+    "https://drive.google.com/open?id=1ryr4NcqDickYMqho8F_ZqJAGJwF46MRM"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ משפטים, תשכ\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-12-bechukotai-1",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Bechukotai",
+   "heParsha": "בחוקותי",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "סיום מסכת בכורות (והוריות) - פלוגתת ר\"מ ור\"י בדין קדושתו של אחד עשר שקראו עשירי",
+   "topicEn": null,
+   "pageStart": 120,
+   "pageEnd": 128,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/012_001",
+    "https://projectlikkuteisichos.org/12bechukosai1/",
+    "https://drive.google.com/open?id=1UuYM9wPg38zzRuZWKaDsqBm2G45GXk0Y",
+    "https://drive.google.com/open?id=1SLS3hqtraLBYpTSGTG_P5ynXDWA2y8rX"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת י\"ט כסלו, תשל\"ב.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-12-bechukotai-2",
+   "volumeId": "ls-12",
+   "kind": "parsha",
+   "parsha": "Bechukotai",
+   "heParsha": "בחוקותי",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פירש\"י כו, לג ד\"ה לא יבער וגו'",
+   "topicEn": null,
+   "pageStart": 129,
+   "pageEnd": 137,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/012/012_002",
+    "https://projectlikkuteisichos.org/12bechukosai2/",
+    "https://drive.google.com/open?id=16Bje-yQtqp9eP38-BKQ0OdS3GtZ8wcuZ",
+    "https://drive.google.com/open?id=1EGlJ4wlBl3pjyxt7xUb8N_QwipUufAGD"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בחקותי, תשכ\"ה. p137 is the true last page (end ornament); TR lists 138-140 but the server has no such scans. TR lists scans 129-140 but scans 138-140 return 404; p.137 carries the end ornament so 137 is the last printed page of the sicha section.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com index line (printed-style opening/rashi reference)"
+  },
+  {
+   "id": "ls-13-bamidbar-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Bamidbar",
+   "heParsha": "במדבר",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "פרש\"י ב, ב ד\"ה מנגד",
+   "topicEn": "Understanding \"Mineged\" in the Encampment",
+   "pageStart": 1,
+   "pageEnd": 8,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/001_001",
+    "https://projectlikkuteisichos.org/13bamidbar1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1rVcB67ZeKezzF-xaRoGNk8-EIRJ8GfDw",
+    "https://drive.google.com/open?id=1nS_8xdBlcDsItLu7_kcGqsG8fgoZKQaA"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ במדבר תש\"ל. TR English translation shows 7 numbered sections; printed Hebrew has 6 (PLS translation also 6). Topic line and start page 1 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-bamidbar-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Bamidbar",
+   "heParsha": "במדבר",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "התאמת כמה פירושי רש\"י בפרשתנו (על הפסוקים ג, יב; ג, מה; ד, יב) ובפ' בהעלותך (ח, טז ד\"ה נתונים נתונים) בענין גדר עבודת הלויים",
+   "topicEn": "The Role of the Leviyim: Active and Protective Service",
+   "pageStart": 9,
+   "pageEnd": 15,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/001_002",
+    "https://projectlikkuteisichos.org/13bamidbar2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1TIyHXmrLBS9tbPhUycYM30Ybpc25LWls",
+    "https://drive.google.com/open?id=17mg7aNcdL6NYis1VUFBeMM_n4UpbrQCf"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ במדבר תשכ\"ז. Topic line and start page 9 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-nasso-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Nasso",
+   "heParsha": "נשא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "ביאור ענין משא בני גרשון ובני מררי (ובני קהת) במדבר – בעבודת האדם בזמן הזה",
+   "topicEn": "Transforming One's Personal Desert into a Dwelling for Hashem",
+   "pageStart": 16,
+   "pageEnd": 19,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/002_001",
+    "https://projectlikkuteisichos.org/13nasso1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1usVWzZaIG6gVfBHFuK_HJXkFM7fzD_cY",
+    "https://drive.google.com/open?id=1HEmQnsZ9Ets_7Irw7p55_JA3CuWty5k3"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נשא תשל\"ב. TR English and PLS translation show 7; printed Hebrew has 6. Topic line and start page 16 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-nasso-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Nasso",
+   "heParsha": "נשא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פרש\"י בסיום הפרשה ד\"ה וידבר אליו וד\"ה וישמע את הקול",
+   "topicEn": "The Voice in the Ohel Moed and Bringing Holiness Outward",
+   "pageStart": 20,
+   "pageEnd": 23,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/002_002",
+    "https://projectlikkuteisichos.org/13nasso2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1J2NOuaqEj5UhzhCbPiO2DF-uwLOtY7Gc",
+    "https://drive.google.com/open?id=1aiScawWhe--Plpfcqm8t-8PT193CbjOz"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נשא תשכ\"ה. TR English and PLS translation show 8 numbered sections; printed Hebrew has 5. Topic line and start page 20 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-behaalotcha-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Beha'alotcha",
+   "heParsha": "בהעלותך",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "פרש\"י י, י ד\"ה על עולותיכם וד\"ה אני ה\"א (והשינוי לגבי פרש\"י אמור כג, כד)",
+   "topicEn": "Leadership Lessons from Moshe",
+   "pageStart": 24,
+   "pageEnd": 29,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/003_001",
+    "https://projectlikkuteisichos.org/13behalosecha1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1tnwdZnA5YR8HWyylMoHeVcLR9M_ST2w2",
+    "https://drive.google.com/open?id=16sYlpQ139fGG6whWASWXivT8UrsPOE8I"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בהעלותך תשכ\"ז. TR English translation shows 8; printed Hebrew has 10 (PLS translation also 10). Topic line and start page 24 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-behaalotcha-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Beha'alotcha",
+   "heParsha": "בהעלותך",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "\"והאיש משה עניו מאד גו'\" (יב, ג) – גדר הענוה דמשה, וסיום מס' סוטה \"לא תיתני ענוה דאיכא אנא . . לא תיתני יראת חטא דאיכא אנא\"",
+   "topicEn": "The Avodah of a Kohen",
+   "pageStart": 30,
+   "pageEnd": 38,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/003_002",
+    "https://projectlikkuteisichos.org/13behalosecha2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1jhSTdKpHFpMhNEudXCqt4O8bF40aD-L0",
+    "https://drive.google.com/open?id=1KJK6KrhW6zwETSyxMhOzKLhjk9LslXYH"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נשא תשל\"ב. Topic line and start page 30 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-shlach-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Sh'lach",
+   "heParsha": "שלח",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "שילוח המרגלים – ענין עיקרי ויסודי בעבודת האדם. שלח לך – לדעתך (פרש\"י)",
+   "topicEn": "The Error of the Meraglim: Fulfilling a Command with Initiative",
+   "pageStart": 39,
+   "pageEnd": 43,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/004_001",
+    "https://projectlikkuteisichos.org/13shelach1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1djRQTPAiVJyVtSZArlqhaXGg7jgZ0zA1",
+    "https://drive.google.com/open?id=1cwPJmvhMTbiEUDac9nFVrQg8wOrAzlvy"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ שלח תשל\"ב. Topic line and start page 39 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-shlach-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Sh'lach",
+   "heParsha": "שלח",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פרש\"י יד, לו וישובו וילינו עליו",
+   "topicEn": "Why Moshe's Tefillah Did Not Save the Meraglim",
+   "pageStart": 44,
+   "pageEnd": 50,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/004_002",
+    "https://projectlikkuteisichos.org/13shelach2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1DtUqHz4uM-XuaNPeMIAhIzx7P9IwPO5W",
+    "https://drive.google.com/open?id=1Gm4cT81C8OBO6Zbv6radWMYqWdGvuK8m"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ שלח תשל\"ב. Topic line and start page 44 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-korach-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Korach",
+   "heParsha": "קרח",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "פרש\"י טז, כב ד\"ה אל אלקי הרוחות וד\"ה האיש אחד (והשינויים מתנחומא ובמדב\"ר עה\"פ)",
+   "topicEn": "Moshe's Plea and the Divine Knowledge of Every Thought",
+   "pageStart": 51,
+   "pageEnd": 55,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/005_001",
+    "https://projectlikkuteisichos.org/13korach1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1vL4D6GISzjkBdtXX0aVD3EsyubV1dUSa",
+    "https://drive.google.com/file/d/1qJE02SAmC4eYVVXSAHq1Iky5ycGKSMbB/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ קרח תשל\"א. Topic line and start page 51 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-korach-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Korach",
+   "heParsha": "קרח",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "גדר מצות שמירת המקדש לדעת הרמב\"ם (הל' ביהב\"ח רפ\"ח) וטעם השינויים מסהמ\"צ שלו (מ\"ע כב). החילוק דגדר שמירת מקדש ומס' תמיד ומס' מדות",
+   "topicEn": "Guarding the Beis HaMikdash: Honor, Service, and Who Is Charged",
+   "pageStart": 56,
+   "pageEnd": 65,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/005_002",
+    "https://projectlikkuteisichos.org/13korach2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/open?id=1abAHHVgpTrXReSYDZQbaLEpp_RHsBDPN",
+    "https://drive.google.com/file/d/13ejyRYvikCVyT3ohXS03zr73_f_LIpEG/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות יו\"ד שבט, ט\"ו שבט וש\"פ משפטים תשל\"ב. Topic line and start page 56 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-chukat-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Chukat",
+   "heParsha": "חוקת",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "דבר ברור וגלוי שהטומאות והטהרות גזירות הכתוב הן (רמב\"ם סוף הל' מקואות) וההוראה בעבודת האדם",
+   "topicEn": "The Unity of Divine Will: The Lesson of Tumas Meis",
+   "pageStart": 66,
+   "pageEnd": 70,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/006_001",
+    "https://projectlikkuteisichos.org/13chukas1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1VlJFyWrDVt7ijcUYRCac16EnoPJVIbpn/view?usp=sharing",
+    "https://drive.google.com/file/d/1AtYCXSHeHAL4QjjOBnm1DBAlv047kLGX/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ צו, פ' פרה, תשל\"ג. corrected: earlier 1.5x read gave ה; 3.5x crop of p70 shows ח. (matches PLS translation count 8). Topic line and start page 66 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "second-scan-reading",
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-chukat-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Chukat",
+   "heParsha": "חוקת",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פרש\"י כא, ט ד\"ה נחש נחושת. רפואת בנ\"י ע\"י נחש הנחושת בפנימיות הענינים",
+   "topicEn": "The Copper Serpent: Transforming Death into Life",
+   "pageStart": 71,
+   "pageEnd": 77,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/006_002",
+    "https://projectlikkuteisichos.org/13chukas2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1VcxVe2LRFC6eBdEUkilecC2Snn4bQMEK/view?usp=sharing",
+    "https://drive.google.com/file/d/1RsVnoBuk4Ej9VWp5O4J9gwZdP4IFHV5W/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ חו\"ב (י\"ב תמוז), מטו\"מ תשכ\"ט. Topic line and start page 71 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-balak-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Balak",
+   "heParsha": "בלק",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "פרש\"י כד, ה ד\"ה מה טובו אהליך וד\"ה משכנותיך",
+   "topicEn": "\"How Goodly Are Your Tents\": Modesty and Atonement",
+   "pageStart": 78,
+   "pageEnd": 84,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/007_001",
+    "https://projectlikkuteisichos.org/13balak1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1aSPfRovUyZcLwK4eABlKiAHRfL4OSdWS/view?usp=sharing",
+    "https://drive.google.com/file/d/1c90b19rLoBblkvlNo8dZj9UOZmhiNOQU/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בלק, תש\"ל. Topic line and start page 78 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-balak-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Balak",
+   "heParsha": "בלק",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "החילוק בין פירוש רש\"י ופירוש הרמב\"ם (הל' מלכים פי\"א ה\"א) בפסוקים דנבואת בלעם בענין \"אחרית הימים\" (כד, יד ואילך)",
+   "topicEn": "Rashi and Rambam on Bilam's Prophecy: Dovid or Moshiach?",
+   "pageStart": 85,
+   "pageEnd": 92,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/007_002",
+    "https://projectlikkuteisichos.org/13balak2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/129udm1Miq_Qm81l5FDz2VP5X0aq0Diym/view?usp=sharing",
+    "https://drive.google.com/file/d/1Cb0lLKmfcLqyUHOIgjVSUqLqtmJm0c1M/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ בלק תשכ\"ח. Topic line and start page 85 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-pinchas-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Pinchas",
+   "heParsha": "פנחס",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "Why the Halachah Was Hidden from Moshe",
+   "pageStart": 93,
+   "pageEnd": 98,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/008_001",
+    "https://projectlikkuteisichos.org/13pinchas1/",
+    "https://drive.google.com/file/d/1Q2tJBbr4C_woVQ3HDY3276rCoOANo9mw/view?usp=sharing",
+    "https://drive.google.com/file/d/1E2VghyjgCoRUS7GMBnPoqbl0zk-nH3u0/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ פינחס תשכ\"ו.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-pinchas-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Pinchas",
+   "heParsha": "פנחס",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "\"Command My Children\": Hashem's Response to Moshe",
+   "pageStart": 99,
+   "pageEnd": 104,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/008_002",
+    "https://projectlikkuteisichos.org/13pinchas2/",
+    "https://drive.google.com/file/d/1AQbZZ3JHtyD8VO6ROOn_goVdj_U3K2SB/view?usp=sharing",
+    "https://drive.google.com/file/d/11haaxBsSb5vhFzhJ-VJHAX6BZly-THRm/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ פינחס, תשל\"א.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-matot-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Matot",
+   "heParsha": "מטות",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "הסיכום דפרשת נדרים – אלה החוקים אשר צוה ה' את משה בין איש לאשתו בין אב לבתו בנעוריה בית אביה (ל, יז) – לפי פשוטו של מקרא ובפנימיות הענינים",
+   "topicEn": "The Deeper Purpose of Hafaras Nedarim",
+   "pageStart": 105,
+   "pageEnd": 109,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/009_001",
+    "https://projectlikkuteisichos.org/13matos1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1D8FmNMC9qw6ms-8DIOLRuNjj6ISwh2Pd/view?usp=sharing",
+    "https://drive.google.com/file/d/1jGCMMvvfXMaua7Yj_Xar40-ktWMRT8BJ/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ מטו\"מ, תשכ\"ו. Topic line and start page 105 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-matot-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Matot",
+   "heParsha": "מטות",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "מדוע פירט הכתוב (לא, לב ואילך) כל מספרי וחשבונות סכומי המכס (מהמלקוח דמלחמת מדין) – לפי פשוטו של מקרא",
+   "topicEn": "The Exact Division of the Spoils",
+   "pageStart": 110,
+   "pageEnd": 113,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/009_002",
+    "https://projectlikkuteisichos.org/13matos2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1_txPBH9N1W7Ms0lCRiAAsGuWSTeBWteK/view?usp=sharing",
+    "https://drive.google.com/file/d/1h_v4ojjpf8liX7m2QwzSwl4g64C7AWpz/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ מטו\"מ, תשל\"ב. Topic line and start page 110 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-masei-1",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Masei",
+   "heParsha": "מסעי",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "והתנחלתם את הארץ בגורל (לג, נד). דברי הגאונים (בתשובות) שהעובר על הגורל כעובר על עשה\"ד. ביאור ג' בחי' ירושה מכר ומתנה (גורל) שבתורה",
+   "topicEn": "Three Levels of Torah: Inheritance, Sale, and Gift",
+   "pageStart": 114,
+   "pageEnd": 121,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/010_001",
+    "https://projectlikkuteisichos.org/13masei1/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/191aqDgrFfbMpv5hgRv_FDcpNFl_ZmxsK/view?usp=sharing",
+    "https://drive.google.com/file/d/1Ic4OEKx29xtDA3fnWfhshIRAv0gE-kgU/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת יום ב' דחגה\"ש תשכ\"ד. Topic line and start page 114 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-13-masei-2",
+   "volumeId": "ls-13",
+   "kind": "parsha",
+   "parsha": "Masei",
+   "heParsha": "מסעי",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "פרש\"י לד, ב ד\"ה זאת הארץ אשר תפול לכם וד\"ה וגו' תפול לכם",
+   "topicEn": "Rambam and Ramban on Living in Eretz Yisroel and Bavel",
+   "pageStart": 122,
+   "pageEnd": 127,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/013/010_002",
+    "https://projectlikkuteisichos.org/13masei2/",
+    "https://www.torahrecordings.com/likutei-sichos/013/000",
+    "https://drive.google.com/file/d/1SaFohebeA7o7KwXEETHPJg4uh7gibWE0/view?usp=sharing",
+    "https://drive.google.com/file/d/1sHmfjvv7qtrWzV9X41AZ3w92wyrwHS_E/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות ש\"פ מטו\"מ תשכ\"ו, תשכ\"ג. visual ז (7) vs PLS translation parse 6; recheck p127 crop. Topic line and start page 122 transcribed from the printed מפתח (scans 607-610) - start page matches the scan range.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "second-scan-reading(corrected-first-reading)"
+   ],
+   "topicSource": "printed מפתח (scans 607-610), transcribed by hand"
+  },
+  {
+   "id": "ls-14-devarim-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Devarim",
+   "heParsha": "דברים",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "Why Zahav Is Not a Place Name: Rebuke and Defense",
+   "pageStart": 1,
+   "pageEnd": 7,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/001_001",
+    "https://projectlikkuteisichos.org/14devarim1/",
+    "https://drive.google.com/file/d/13w0yEl2qZUMVffZQtnWgRlJi93MEXTYv/view?usp=sharing",
+    "https://drive.google.com/file/d/1uu-Hp9Q3xoBrIfzM53T8D4g1ArtO3ygC/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ דברים תשל\"א.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-devarim-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Devarim",
+   "heParsha": "דברים",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "Why Yehoshua Led the Jewish People into the Land",
+   "pageStart": 8,
+   "pageEnd": 11,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/001_002",
+    "https://projectlikkuteisichos.org/14devarim2/",
+    "https://drive.google.com/file/d/1nRMCQ_zr4P7cHCM08eysTyX9PHSMjzeg/view?usp=sharing",
+    "https://drive.google.com/file/d/1FGMk9GmTjLmGMpVHH8-OBOEAjd3rNt-w/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ דברים תשל\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-vaetchanan-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vaetchanan",
+   "heParsha": "ואתחנן",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "Why Measuring Is a Greater Novelty Than Tying on Shabbos",
+   "pageStart": 12,
+   "pageEnd": 20,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/002_001",
+    "https://projectlikkuteisichos.org/14vaeschanan1/",
+    "https://drive.google.com/file/d/16ppTExOvlZVctR5yM0yWKD0WsBsiKrWw/view?usp=sharing",
+    "https://drive.google.com/file/d/14teys2pNYY_QbLuW3dA9Z6wUBGefHkFH/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ שלח תשכ\"ב.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-vaetchanan-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vaetchanan",
+   "heParsha": "ואתחנן",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "Shema by Day and Night: Divine Unity in Every Condition",
+   "pageStart": 21,
+   "pageEnd": 29,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/002_002",
+    "https://projectlikkuteisichos.org/14vaeschanan2/",
+    "https://drive.google.com/file/d/1lP9_ceWuoZyZKEms2BAbWb_9LugVsPmC/view?usp=sharing",
+    "https://drive.google.com/file/d/18u4V15LBqR8ipsJudt1ilICepQw5c59X/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת י\"ט כסלו תשכ\"ד. corrected: 3.5x crop of p29 shows ח. (matches PLS translation count 8).",
+   "countConfirmedBy": [
+    "second-scan-reading",
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-eikev-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Eikev",
+   "heParsha": "עקב",
+   "occasion": "Chof Av (20 Menachem Av)",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "The Broken Luchos and the Passing of Tzaddikim",
+   "pageStart": 30,
+   "pageEnd": 36,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/003_001",
+    "https://projectlikkuteisichos.org/14ekev1/",
+    "https://drive.google.com/file/d/1LLlRsQjSsE7C1RWARQLEgcL50F3n2lYg/view?usp=sharing",
+    "https://drive.google.com/file/d/1kfk36BviUbSF1HScDK9obZWS6aNIxLeu/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "TR heading carries a second occasion label: 'Chof Av' (printed sub-heading כ׳ מנחם אב). Printed end-note (source of the sicha): משיחת כ' מנ\"א תשל\"ב. UNRESOLVED: first visual read ה (5) but PLS translation has 8; recheck p35-36 crops.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "second-scan-reading(corrected-first-reading)"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-eikev-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Eikev",
+   "heParsha": "עקב",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "Women's Obligation and Reward in Torah Study",
+   "pageStart": 37,
+   "pageEnd": 44,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/003_002",
+    "https://projectlikkuteisichos.org/14ekev2/",
+    "https://drive.google.com/file/d/1r7azlmOaqDmIucqwiMy2HCMjTPeQI8SR/view?usp=sharing",
+    "https://drive.google.com/file/d/15p3uo9iwL9Sw5NSlcea0naK_4wjBW5WH/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת חנה-ש וש\"פ נשא תש\"ל ותשל\"א.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-reeh-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Re'eh",
+   "heParsha": "ראה",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "Why the Torah Says \"Be Strong\" Regarding Blood",
+   "pageStart": 45,
+   "pageEnd": 52,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/004_001",
+    "https://projectlikkuteisichos.org/14reeh1/",
+    "https://drive.google.com/file/d/1Iu-rNQ6TYLaE_k1qxMPSMRNCTFZS__S3/view?usp=sharing",
+    "https://drive.google.com/file/d/1sDHtu6iw9N07IJUP8Opr2uOLoFLA1F8X/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ראה תש\"ל.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-reeh-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Re'eh",
+   "heParsha": "ראה",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "Cleaving to Hashem Through Acts of Chesed",
+   "pageStart": 53,
+   "pageEnd": 63,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/004_002",
+    "https://projectlikkuteisichos.org/14reeh2/",
+    "https://drive.google.com/file/d/1-1njYa1oHDrAMvml2109AiRmsH5y48zE/view?usp=sharing",
+    "https://drive.google.com/file/d/1akspOk0kBxx0PCrjpDUuO62_7I9uhTsC/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ ראה תשל\"א. Re'eh 2 ends p63; p64 begins Shoftim (TR image list wrongly includes 64). Page range corrected to 53-63: the TR image list for this sicha also includes p.64, but p.64 is the first page of Shoftim 1 (printed heading שופטים). ",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-shoftim-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Shoftim",
+   "heParsha": "שופטים",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "What Does \"Tamim\" Mean?",
+   "pageStart": 64,
+   "pageEnd": 69,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/005_001",
+    "https://projectlikkuteisichos.org/14shoftim1/",
+    "https://drive.google.com/file/d/1t7xa1lsr3FykcbCYys16_g_hxeccHKCP/view?usp=sharing",
+    "https://drive.google.com/file/d/15AqdpVWFUwyN7OAxzEh2OY62wbcllbQh/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ שופטים תשכ\"ז.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-shoftim-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Shoftim",
+   "heParsha": "שופטים",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "A Navi and the Laws of a Bamah",
+   "pageStart": 70,
+   "pageEnd": 77,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/005_002",
+    "https://projectlikkuteisichos.org/14shoftim2/",
+    "https://drive.google.com/file/d/1ZW29f2vfHLzE-amSK_Y5ZhfswojEZ172/view?usp=sharing",
+    "https://drive.google.com/file/d/1PSibeCI4YfRV67eplmS2iZ_h78k_3lcZ/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת כ' מנ\"א תשכ\"ט.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-ki-teitzei-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ki Teitzei",
+   "heParsha": "כי תצא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": "Why “When You Go Out to War” Refers to an Optional War",
+   "pageStart": 78,
+   "pageEnd": 85,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/006_001",
+    "https://projectlikkuteisichos.org/14tetze1/",
+    "https://drive.google.com/file/d/1DJX3URUSaLiKfcdhJ0DyzbGHTNP6hzJc/view?usp=sharing",
+    "https://drive.google.com/file/d/1hIW4lYd_uV_cn1ndBCgEATyr-2R3Zu4j/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תצא תשכ\"ה.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-ki-teitzei-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ki Teitzei",
+   "heParsha": "כי תצא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": "Erasing Amalek’s Name: The Difference Between an Animal and Inanimate Property",
+   "pageStart": 86,
+   "pageEnd": 92,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/006_002",
+    "https://projectlikkuteisichos.org/14tetze2/",
+    "https://drive.google.com/file/d/113N7FRa03cwoy2rz21jnxTwWeC_72p8C/view?usp=sharing",
+    "https://drive.google.com/file/d/1gL3ut4fSyLldMkn-YvzCRzMRiS5rXfPu/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תצא תשכ\"ה.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-ki-tavo-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ki Tavo",
+   "heParsha": "כי תבוא",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "מדוע רק לבן ומצרים מוזכרים בהצהרת הביכורים",
+   "topicEn": "Why Only Laban and Egypt Are Mentioned in the First Fruits Declaration",
+   "pageStart": 93,
+   "pageEnd": 98,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/007_001",
+    "https://projectlikkuteisichos.org/14tavo1/",
+    "https://drive.google.com/file/d/18BkkgzuyMCoNSp5ukKKORP7f95pfFzj3/view?usp=sharing",
+    "https://drive.google.com/file/d/1QTSIObt9kUpVvBEdmGJD5gD5x6BplJTe/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תבא תשל\"ב.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-ki-tavo-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ki Tavo",
+   "heParsha": "כי תבוא",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "הכרת חסדי ה', דבקות בו, ופירושי רש\"י",
+   "topicEn": "Recognizing G-d's Kindnesses, Cleaving to Him, and Rashi's Explanations",
+   "pageStart": 99,
+   "pageEnd": 107,
+   "sectionCount": 12,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/007_002",
+    "https://projectlikkuteisichos.org/14tavo2/",
+    "https://drive.google.com/file/d/1PI_NBEfYlo4ce6j11pYhlRc-n_r5cspi/view?usp=sharing",
+    "https://drive.google.com/file/d/17AawHsYm12NjCrNnJ2HKVBd3xgbs4XQp/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ תבא תשכ\"ה ותשכ\"ז.",
+   "countConfirmedBy": [
+    "second-scan-reading"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-nitzavim-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Nitzavim",
+   "heParsha": "נצבים",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "פירוש רש\"י על 'הספר הזה של התורה' ותפקיד הגרים",
+   "topicEn": "Rashi's Commentary on 'This Book of the Torah' and the Role of Converts",
+   "pageStart": 108,
+   "pageEnd": 113,
+   "sectionCount": 6,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/008_001",
+    "https://projectlikkuteisichos.org/14nitzavim1/",
+    "https://drive.google.com/file/d/1hTTMtDYLleRhJOvisbOK8uiOsZ206FnK/view?usp=sharing",
+    "https://drive.google.com/file/d/1oNYE3Z9rvLBMI9XPDeqk6lVr33yMAJao/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נצו\"י תשכ\"ו.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-nitzavim-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Nitzavim",
+   "heParsha": "נצבים",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "הגרים בפרשת נצבים, חוטבי עציך, שואבי מימיך, ועבודת הפנימית",
+   "topicEn": "The Converts in Nitzavim: Hewers of Wood, Drawers of Water, and Inner Service",
+   "pageStart": 114,
+   "pageEnd": 117,
+   "sectionCount": 3,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/008_002",
+    "https://projectlikkuteisichos.org/14nitzavim2/",
+    "https://drive.google.com/file/d/1s9djuu7phuhdA4S0yHoJBIhMGBwUAcUW/view?usp=sharing",
+    "https://drive.google.com/file/d/1JWo6ptmxX0lpaKbh7LOgCuL5iK4fEb9q/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נצו\"י תשכ\"ט. TR English translation shows 9 numbered paragraphs; printed Hebrew has 3 sections.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-nitzavim-3",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Nitzavim",
+   "heParsha": "נצבים",
+   "occasion": null,
+   "ordinal": 3,
+   "heTitle": "שיחה ג׳",
+   "topic": "תשובה מברכה ומקללה בפרשת נצבים",
+   "topicEn": "Teshuvah from Blessing and Curse in Parshas Nitzavim",
+   "pageStart": 118,
+   "pageEnd": 121,
+   "sectionCount": 4,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/008_003",
+    "https://projectlikkuteisichos.org/14nitzavim3/",
+    "https://drive.google.com/file/d/1Ov7efjEzG6ugf_f1qnBvfFaxiObv4KJq/view?usp=sharing",
+    "https://drive.google.com/file/d/1P3wl7vs2j1dtW07jzGZLCB3YrV3NVw8m/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ נצו\"י תשל\"ב.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-rosh-hashanah-1",
+   "volumeId": "ls-14",
+   "kind": "festival",
+   "parsha": null,
+   "heParsha": "ראש השנה",
+   "occasion": "Rosh Hashanah",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "הייחודיות של היום השני של ראש השנה ותפקיד השופר",
+   "topicEn": "The Unique Role of the Second Day of Rosh Hashanah and the Shofar",
+   "pageStart": 122,
+   "pageEnd": 126,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/009_001",
+    "https://projectlikkuteisichos.org/14roshhashana1/",
+    "https://drive.google.com/file/d/11jtTFWLiV_KEYMT6h9kKfHxNpixrsOGi/view?usp=sharing",
+    "https://drive.google.com/file/d/19mDXAuUE1kt1ZL0QuwvBeJ9yzeDsTRAy/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת יום ב' דר\"ה תשל\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-vayeilech-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vayeilech",
+   "heParsha": "וילך",
+   "occasion": null,
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "התפקיד הרוחני של הכהנים ומשמעות העמוקה של הקהל",
+   "topicEn": "The Spiritual Role of Kohanim and the Deeper Meaning of Hakhel",
+   "pageStart": 127,
+   "pageEnd": 134,
+   "sectionCount": 9,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/010_001",
+    "https://projectlikkuteisichos.org/14vayelech1/",
+    "https://drive.google.com/file/d/1H0PnVNGfVjRdpIBndWHrudhY2X8ao2IG/view?usp=sharing",
+    "https://drive.google.com/file/d/1P9WYNdBZfYTFmx2jMt3f3vspxOkFVerQ/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת יום שמח\"ת תשכ\"ז.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-vayeilech-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vayeilech",
+   "heParsha": "וילך",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "רש\"י על \"קחו\" כציווי והלקח לעשרת ימי תשובה",
+   "topicEn": "Rashi on 'Take' as Command and Its Lesson for the Ten Days of Teshuvah",
+   "pageStart": 135,
+   "pageEnd": 142,
+   "sectionCount": 8,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/010_002",
+    "https://projectlikkuteisichos.org/14vayelech2/",
+    "https://drive.google.com/file/d/1H9AE2rMDO-M6AaY_-LqE75DLIAPWUfdO/view",
+    "https://drive.google.com/file/d/1ujxHvSd94c19-SN-ssN9629DHSvyZwIW/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ש\"פ וילך, שבת תשובה, תשכ\"ט.",
+   "countConfirmedBy": [
+    "pls-english-translation",
+    "tr-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-haazinu-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ha'azinu",
+   "heParsha": "האזינו",
+   "occasion": "Shabbos Shuvah",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": "להיות קרוב לשמים ומהות התשובה בשבת שובה",
+   "topicEn": "Being Close to the Heavens and the Essence of Teshuvah on Shabbos Shuvah",
+   "pageStart": 143,
+   "pageEnd": 147,
+   "sectionCount": 5,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/011_001",
+    "https://projectlikkuteisichos.org/14haazinu1/",
+    "https://drive.google.com/file/d/1TMYGc6YZyEqZfw_WeOsNiVIR56MaIB6K/view?usp=sharing",
+    "https://drive.google.com/file/d/1AV2KTiq-T34wpAnft_OAtsdI50AhPSxh/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "TR heading carries a second occasion label: 'Shabbos Shuvah' (printed sub-heading שבת שובה). Printed end-note (source of the sicha): משיחות שבת תשובה תשכ\"ב, תשכ\"ז.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-haazinu-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Ha'azinu",
+   "heParsha": "האזינו",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": "ברכת התורה ולימוד תורה ויישומה לנשים",
+   "topicEn": "The Blessing Over Torah Study and Its Application to Women",
+   "pageStart": 148,
+   "pageEnd": 155,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/011_002",
+    "https://projectlikkuteisichos.org/14haazinu2/",
+    "https://drive.google.com/file/d/1c8ueDiUT0vRJyTUfnReFV86N7CKTIO_L/view?usp=sharing",
+    "https://drive.google.com/file/d/14lSYvtIqTjEPzIrIHG4KA_YuAeBWuEnP/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחות חגה\"ש וש\"פ נשא תש\"ל.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": "torahrecordings.com descriptive title (editor-written, not the printed heading)"
+  },
+  {
+   "id": "ls-14-vezot-haberakhah-1",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vezot Haberakhah",
+   "heParsha": "וזאת הברכה",
+   "occasion": "Simchas Torah",
+   "ordinal": 1,
+   "heTitle": "שיחה א׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 156,
+   "pageEnd": 163,
+   "sectionCount": 7,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/012_001",
+    "https://projectlikkuteisichos.org/14bracha1/",
+    "https://drive.google.com/file/d/1n7DxMG3jyyJfN1TLlxBB823Ok4MnrlAj/view?usp=sharing",
+    "https://drive.google.com/file/d/1DJE_83uQQPhOkTnEfZ0Q5HSqekhyvoYy/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "TR heading carries a second occasion label: 'Simchas Torah' (printed sub-heading שמחת תורה). Printed end-note (source of the sicha): משיחות יום שמח\"ת תשל\"ג.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": null
+  },
+  {
+   "id": "ls-14-vezot-haberakhah-2",
+   "volumeId": "ls-14",
+   "kind": "parsha",
+   "parsha": "Vezot Haberakhah",
+   "heParsha": "וזאת הברכה",
+   "occasion": null,
+   "ordinal": 2,
+   "heTitle": "שיחה ב׳",
+   "topic": null,
+   "topicEn": null,
+   "pageStart": 164,
+   "pageEnd": 170,
+   "sectionCount": 10,
+   "sourceUrls": [
+    "https://www.torahrecordings.com/likutei-sichos/014/012_002",
+    "https://projectlikkuteisichos.org/14bracha2/",
+    "https://drive.google.com/file/d/1d1XoRCIondmh0StAx2Yzxxf0jw_5H29S/view?usp=sharing",
+    "https://drive.google.com/file/d/1_h2GgcXrLTwgElT2bLCipe7SD0X75pyZ/view?usp=sharing"
+   ],
+   "verification": "verified",
+   "notes": "Printed end-note (source of the sicha): משיחת ליל שמח\"ת תשל\"ד.",
+   "countConfirmedBy": [
+    "pls-english-translation"
+   ],
+   "topicSource": null
+  }
+ ]
+}
