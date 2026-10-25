@@ -38,9 +38,9 @@ describe('vector cover art', () => {
   });
 
   it('carries the exact Hebrew wording of each cover', () => {
-    const tm = faces('tm-hisvaaduyos', ['ה׳שי״ת', 'כרך א']);
+    const tm = faces('tm-hisvaaduyos', ['ה׳שי״ת']);
     for (const s of ['תורת מנחם', 'התוועדויות', 'כ״ק אדמו״ר מליובאוויטש']) expect(tm.cover).toContain(s);
-    expect(tm.cover).toContain('ה׳שי״ת'); expect(tm.spine).toContain('כרך א');
+    expect(tm.cover).toContain('ה׳שי״ת'); expect(tm.spine).toContain('ה׳שי״ת'); expect(tm.spine).not.toContain('כרך');
     expect(tm.cover).not.toContain('תשמ״ב');
 
     const maam = faces('tm-maamarim', ['תשי״א']);

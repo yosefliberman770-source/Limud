@@ -49,7 +49,7 @@ ${kehotMark(cx + 1, 212.5, 28, GOLD, BLACK)}
 
 function spine(c: DesignContext): string {
   const { T, H } = c; const id = 's';
-  const [year = '', vol = ''] = c.labels;
+  const [year = ''] = c.labels;
   const cx = T / 2;
   const band = (y: number) => `<rect x="2.2" y="${y}" width="${f2(T - 4.4)}" height="1.7" fill="url(#gold-${id})"/><rect x="2.2" y="${f2(y + 3.1)}" width="${f2(T - 4.4)}" height="0.7" fill="url(#gold-${id})"/>`;
   const body = `
@@ -61,7 +61,6 @@ ${text({ x: cx, y: 82.5, size: 14, font: 'block', weight: 700, fill: `url(#gold-
 ${text({ x: cx, y: 99, size: 7, font: 'block', weight: 600, fill: GOLD, text: 'התוועדויות', width: 22 })}
 <rect x="6" y="112" width="${f2(T - 12)}" height="0.5" fill="${GOLD}" opacity="0.8"/>
 ${year ? text({ x: cx, y: 126, size: 8, font: 'block', weight: 700, fill: GOLD, text: year, width: Math.max(14, year.length * 3.2) }) : ''}
-${vol ? text({ x: cx, y: 138, size: 7, font: 'block', weight: 600, fill: GOLD, text: vol, width: Math.max(10, vol.length * 3) }) : ''}
 ${kehotMark(cx, 212, 18, GOLD, BLACK)}
 <rect width="${T}" height="${H}" fill="url(#wear-${id})" opacity="0.7"/>`;
   return svgDoc({ w: T, h: H, defs: defs(T, H, id), body });
@@ -84,7 +83,7 @@ export const tmHisvaaduyos: ArtDesign = {
     'The grey side-strip motif is simplified (small framed squares); the real pattern is a finer woven/embossed design.',
     'Kehot mark: vector trace of the logo file supplied by the user (monochrome, foil-stamped); on the real books it is a small stamp whose fine lettering is below what the photos resolve, so its exact size and position are estimates.',
     'The photographed volume is תשמ״ב; the year line shows ה׳שי״ת / ה׳תשי״א as requested. The size, thickness and the spine\'s lower text lines for 5710/5711 are not verified.',
-    'Whether the spine of these early volumes carries the volume number is unknown; the number is shown small below the year (easy to remove).',
+    'The spine carries no volume number (removed at the user’s request).',
   ],
   bindingColor: BLACK,
   edgeColor: '#efe6d2',

@@ -21,7 +21,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 * The grey side-strip motif is simplified (small framed squares); the real pattern is a finer woven/embossed design.
 * Kehot mark: vector trace of the logo file supplied by the user (monochrome, foil-stamped); on the real books it is a small stamp whose fine lettering is below what the photos resolve, so its exact size and position are estimates.
 * The photographed volume is תשמ״ב; the year line shows ה׳שי״ת / ה׳תשי״א as requested. The size, thickness and the spine's lower text lines for 5710/5711 are not verified.
-* Whether the spine of these early volumes carries the volume number is unknown; the number is shown small below the year (easy to remove).
+* The spine carries no volume number (removed at the user’s request).
 
 ## לקוטי שיחות (Kehot) — navy cloth, wavy silver frame
 
@@ -58,7 +58,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 * Design id: `chitas` · volumes using it: 1
 * Blueprint: assets-src/books/chitas.jpg (seller photo, three-quarter view)
 * Size used (h×w×t cm): 23×16×6
-* Binding / edge colours: `#5a1c22` / `#f1e6c8`
+* Binding / edge colours: `#66232a` / `#f1e6c8`
 
 **Could not be established from the reference (approximated — verify against the physical book):**
 
@@ -97,7 +97,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 **Could not be established from the reference (approximated — verify against the physical book):**
 
 * The photographed cover is cropped at the top and bottom; whether the dark panel stops short of the head and tail (a cream margin) is unknown. The panel is drawn full height.
-* The title is a hollow outline of Miriam Libre Bold; the original is an angular hand-drawn outline face. Position, width and line spacing were measured.
+* The cover title is a vector trace of the printed angular outline lettering (scripts/trace-art.py); outline weight is slightly irregular, as on the photo. The spine lettering uses a stand-in font.
 * The spine photo is too blurred to read: the dark label panels, rules and positions are inferred from its light/dark pattern, and the spine lettering "משנה תורה" is a guess in the same stand-in face.
 * The per-volume "ספר X" label panel at the foot of the spine is this app’s addition so the 14 volumes can be told apart; the photographed spine shows some unreadable text there.
 * Cloth colours (cream #ddd0aa, brown #2a2321) are taken from the photo and may be shifted by its lighting.
@@ -108,7 +108,7 @@ Side-by-side comparisons of each recreation against its blueprint are in `docs/s
 * Design id: `ramban` · volumes using it: 5
 * Blueprint: assets-src/books/ramban.jpg (seller photo, front + blurred spine)
 * Size used (h×w×t cm): 25.5×17.5×3.8, 25.5×17.5×3.2, 25.5×17.5×3.4, 25.5×17.5×3.6
-* Binding / edge colours: `#431b20` / `#e6d9b4`
+* Binding / edge colours: `#3a1e1f` / `#e6d9b4`
 
 **Could not be established from the reference (approximated — verify against the physical book):**
 
