@@ -30,7 +30,8 @@ Last test run: 97 tests in 7 files, all passing (`npm test`). A debug APK builds
 ## Interface
 | Feature | Status | Notes |
 |---|---|---|
-| 3D shelf with real-photo books, scroll, due markers | V | |
+| 3D shelf with vector-recreated books (cover, spine, back), scroll, due markers | V | `docs/BOOK_DESIGNS.md`; frame/raster cost on a phone **not measured** |
+| 2D fallback shelf with the same vector spines | V | |
 | Open/close choreography, state machine, interruption safety | A (math, machine) / V (visual) | frame time on a phone **not measured** |
 | Learning log on paper: per-אות checkboxes, next, mark all with confirm, undo toast, notes, manual section count | V | |
 | Per-book navigators (TM volumes, Sefer HaMaamarim, LS, Chitas, Rambam, Ramban, Shas masechtos) | V | |
@@ -52,5 +53,5 @@ Last test run: 97 tests in 7 files, all passing (`npm test`). A debug APK builds
 ## Not implemented / open
 * Migration of the old tracker files — they were not available here. Export/import path is documented in Settings.
 * A cached "daily schedule" table with TTL: schedules are computed locally and a Sefaria snapshot (Sept 2026 – Dec 2028) is used only for tests.
-* Book photos for exact Toras Menachem 5710/5711 and Likkutei Sichos 10–14 volumes (series photos used, labels redrawn).
+* Covers are vector recreations from photos of *similar* editions (one blueprint per series, not the exact 5710/5711 and LS 10–14 volumes); display lettering uses stand-in fonts and ornaments are simplified — see `docs/BOOK_DESIGNS.md`.
 * Measured performance on the Galaxy S22 Ultra.

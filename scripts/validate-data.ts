@@ -5,6 +5,8 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { DESIGNS } from '../src/art/index';
+import type { DesignId } from '../src/art/designs/types';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const load = (f: string) => JSON.parse(readFileSync(path.join(root, 'data/catalogue', f), 'utf-8'));
@@ -100,8 +102,9 @@ export function validateAll(): Issue[] {
     if (pvIds.has(v.id)) issues.push({ severity: 'error', code: 'pv.duplicate', entity: v.id, message: 'duplicate volume id' });
     pvIds.add(v.id);
     if (!lib.collections.some((c: { id: string }) => c.id === v.collectionId)) issues.push({ severity: 'error', code: 'pv.collection', entity: v.id, message: 'unknown collection' });
-    if (!['stylized', 'edition_reference', 'photo_scan'].includes(v.visual?.basis)) issues.push({ severity: 'error', code: 'pv.visual_basis', entity: v.id, message: 'visual basis must be declared' });
-    if (v.visual?.basis === 'photo_scan' && !v.scan?.key) issues.push({ severity: 'error', code: 'pv.scan_missing', entity: v.id, message: 'photo_scan without scan key' });
+    if (!['stylized', 'edition_reference', 'vector_recreation'].includes(v.visual?.basis)) issues.push({ severity: 'error', code: 'pv.visual_basis', entity: v.id, message: 'visual basis must be declared' });
+    if (v.visual?.basis === 'vector_recreation' && !v.design?.id) issues.push({ severity: 'error', code: 'pv.design_missing', entity: v.id, message: 'vector_recreation without a design id' });
+    if (v.design?.id && !DESIGNS[v.design.id as DesignId]) issues.push({ severity: 'error', code: 'pv.design_unknown', entity: v.id, message: `unknown cover design ${v.design.id}` });
     for (const c of v.canonicalIds) if (c.startsWith('tm-') && !volIds.has(c)) issues.push({ severity: 'error', code: 'pv.canonical', entity: v.id, message: `unknown TM volume ${c}` });
     for (const c of v.canonicalIds) if (c.startsWith('ls-') && !lsVol.has(c)) issues.push({ severity: 'error', code: 'pv.canonical', entity: v.id, message: `unknown LS volume ${c}` });
   }

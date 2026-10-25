@@ -5,7 +5,9 @@ import type { Placed } from './layout';
 import { homeCenter } from './layout';
 import { poseAt, folioAngle, FOLIO_COUNT, type Stage } from './pose';
 import { bindingMaterialProps } from './materials';
-import { coverTexture, spineTexture, paperTexture, pageEdgeTexture, plainBinding, loadScanTextures, type Quality } from './textures';
+import { coverTexture, spineTexture, paperTexture, pageEdgeTexture, plainBinding, type Quality } from './textures';
+import { artTexture } from './artTextures';
+import { getDesign } from '@/art';
 
 export interface BookObjectProps {
   placed: Placed;
@@ -44,11 +46,14 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
   const assets = useMemo(() => {
     const spine = spineTexture(vol, quality);
     const cover = coverTexture(vol, quality);
-    const back = plainBinding(vol, 128, 192, 'back');
-    const plain = plainBinding(vol, 64, 64, 'edge');
+    // plain surfaces (hinge, back until its art arrives) take the design's own binding colour so the object is one piece
+    const dz = vol.design ? getDesign(vol.design.id) : null;
+    const tinted = dz ? { ...vol, colors: { ...vol.colors, binding: dz.bindingColor } } : vol;
+    const back = plainBinding(tinted, 128, 192, 'back');
+    const plain = plainBinding(tinted, 64, 64, 'edge');
     const endpaper = paperTexture({ w: 256, h: 384, seed: 3, warm: '#efe5cc' });
     const logPage = paperTexture({ w: 256, h: 384, ruled: true, seed: 11 });
-    const edge = pageEdgeTexture();
+    const edge = pageEdgeTexture(dz?.edgeColor);
     const bp = bindingMaterialProps(vol.material);
     const mSpine = new THREE.MeshStandardMaterial({ map: spine, ...bp });
     const mPlain = new THREE.MeshStandardMaterial({ map: plain, ...bp });
@@ -73,20 +78,32 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
     [a.spine, a.cover, a.back, a.plain, a.endpaper, a.logPage, a.edge, a.mSpine, a.mPlain, a.mBack, a.mCover, a.mEndpaper, a.mEdge, a.mLog, a.mFolio, ...Object.values(a.geos)].forEach((x) => x.dispose());
   }, [assets]);
 
-  // Swap in the real-photo textures once loaded (procedural ones remain as the instant placeholder / fallback).
+  // Swap in the vector-art textures: the spine as soon as the queue gets to it, the cover and back the first time the book is touched.
+  // (The procedural textures stay as the instant placeholder / fallback.)
+  const base = import.meta.env.BASE_URL ?? '/';
+  const art = useRef<{ spine: THREE.Texture | null; cover: THREE.Texture | null; back: THREE.Texture | null; wantFull: boolean; cancelled: boolean }>({ spine: null, cover: null, back: null, wantFull: false, cancelled: false });
+  const loadFull = () => {
+    const a = art.current;
+    if (a.wantFull || !vol.design) return;
+    a.wantFull = true;
+    for (const face of ['cover', 'back'] as const) {
+      void artTexture(vol, face, quality, base).then((t) => {
+        if (art.current.cancelled) { t.dispose(); return; }
+        const mat = face === 'cover' ? assets.mCover : assets.mBack;
+        art.current[face] = t; mat.map = t; mat.needsUpdate = true; invalidate();
+      }).catch((e) => console.warn('[books] art unavailable', vol.id, face, e));
+    }
+  };
   useEffect(() => {
-    if (!vol.scan) return;
-    let cancelled = false;
-    let loaded: { cover: THREE.Texture; spine: THREE.Texture } | null = null;
-    void loadScanTextures(vol, quality, import.meta.env.BASE_URL ?? '/').then((t) => {
-      if (cancelled || !t) { t?.cover.dispose(); t?.spine.dispose(); return; }
-      loaded = t;
-      assets.mCover.map = t.cover; assets.mCover.needsUpdate = true;
-      assets.mSpine.map = t.spine; assets.mSpine.needsUpdate = true;
-      invalidate();
-    });
-    return () => { cancelled = true; loaded?.cover.dispose(); loaded?.spine.dispose(); };
-  }, [vol, quality, assets, invalidate]);
+    if (!vol.design) return;
+    const a: typeof art.current = { spine: null, cover: null, back: null, wantFull: false, cancelled: false };
+    art.current = a;
+    void artTexture(vol, 'spine', quality, base).then((t) => {
+      if (a.cancelled) { t.dispose(); return; }
+      a.spine = t; assets.mSpine.map = t; assets.mSpine.needsUpdate = true; invalidate();
+    }).catch((e) => console.warn('[books] spine art unavailable', vol.id, e));
+    return () => { a.cancelled = true; a.spine?.dispose(); a.cover?.dispose(); a.back?.dispose(); };
+  }, [vol, quality, assets, base, invalidate]);
 
   // Materials arrays per box face order: +x, -x, +y, -y, +z, -z
   const spineMats = useMemo(() => [assets.mSpine, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain, assets.mPlain], [assets]);
@@ -114,6 +131,7 @@ function BookObjectInner({ placed, quality, zSpine, anim, getPresent, due, onPre
   useFrame(() => {
     const active = anim.activeId === vol.id;
     const pressed = anim.pressedId === vol.id;
+    if (active || pressed) loadFull();
     if (active) { apply(anim.p); wasActive.current = true; }
     else if (wasActive.current) { apply(0); wasActive.current = false; }
     else if (pressed !== wasPressed.current) { apply(0); }

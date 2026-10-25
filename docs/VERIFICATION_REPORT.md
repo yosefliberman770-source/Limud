@@ -40,23 +40,25 @@ Topic lines are missing for part of vols. 10–12 and all of 11; some are editor
 
 ## 4. Visual editions (the 3D books)
 
-The shelf uses **photographs the user supplied**, rectified into flat cover and spine textures (`scripts/books/`). The photographed binding is untouched; only volume-specific lettering is repainted in the app's own Hebrew fonts.
+Every sefer on the shelf is a **from-scratch vector recreation** of the edition the user photographed: cover, spine and back are SVG (millimetre geometry, real Hebrew fonts embedded, leather/cloth/foil/deboss simulated with SVG filters) in `src/art/`, rasterised at the needed resolution for the 3D books and the 2D shelf. The photographs were used only as measuring blueprints (rectified, gridded, measured); nothing photographic is shipped, pasted, cropped or wrapped (`tests/art.test.ts` enforces this).
 
-| Shelf item | Photo used | What was changed |
+| Shelf item | Design | Per-volume wording |
 |---|---|---|
-| ספר חת״ת (includes Hayom Yom) | the user's Chitas photo | nothing |
-| תורת מנחם התוועדויות (3 vols.) | Kehot series photo | cover year line and tiny text replaced by ה׳שי״ת / ה׳תשי״א; spine gets the year and volume number (the photographed volume said תשמ״ב) |
-| תורת מנחם ספר המאמרים | Kehot photo of the תשמ״א volume | year replaced by **תשי״א** as the user asked |
-| לקוטי שיחות 10–14 | vol. 25 Bereishis photo | volume letter (י, יא, יב, יג, יד) and sefer name redrawn |
-| משנה תורה (14 vols.) | Eichlers, ספר מדע | sefer name redrawn per volume; spine photo is only ~55 px wide, so it is soft |
-| פירוש הרמב״ן על התורה (5 vols.) | Bloom edition photo | sefer name redrawn on the spine; spine photo ~70 px wide |
-| תלמוד בבלי (masechtos) | Oz VeHadar | masechta name redrawn on the spine panel |
+| ספר חת״ת (includes Hayom Yom) | `chitas` — maroon leatherette, gold frame with corner scrolls, giant gold ח ת ת + red ומש / הלים / ניא | none |
+| תורת מנחם התוועדויות (3 vols.) | `tm-hisvaaduyos` — black cloth, grey patterned sides, two gold bands | year **ה׳שי״ת / ה׳תשי״א**, volume כרך א/ב/ג (spine) |
+| תורת מנחם ספר המאמרים | `tm-maamarim` — black crocodile leatherette, raised frame, gold block lettering | year **תשי״א** (user's correction) |
+| לקוטי שיחות 10–14 | `ls-kehot` — navy cloth, silver scalloped frame | volume letter (י … יד) + sefer name |
+| משנה תורה (14 vols.) | `rambam` — cream cloth, dark panel, outlined title | "ספר X" on the spine |
+| פירוש הרמב״ן על התורה (5 vols.) | `ramban` — maroon leather, gold ornamental frame, oval medallion | sefer name on the spine |
+| תלמוד בבלי (masechtos) | `shas-ozvehadar` — maroon leatherette, blind-embossed arch, gold title, black spine panels | masechta name in the lower spine panel |
 
-Caveats: sizes and thicknesses are approximate; one photo stands in for every volume of a series; only the Chitas book is a pure photo. Corner coordinates, hosts and notes: `data/catalogue/book-scans.json`.
+The Kehot mark on the Chabad volumes is a vector trace of the logo file the user supplied.
+
+**Verification method:** each design was rendered next to its rectified blueprint (`docs/screenshots/lab-*.png`) and compared on typography, colour, placement and border geometry; positions and widths were measured on a millimetre grid. Details that could not be read from the photographs are **not claimed as faithful** — they are listed per design in `docs/BOOK_DESIGNS.md` (generated from the code). The main ones: the display lettering uses stand-in typefaces (the originals are custom or engraved faces); ornaments, corner scrolls and the Oz VeHadar mark are simplified; blurred spines (Rambam, Ramban) are inferred; the wording "מהדורת פרידמאן" follows the photo and should be checked against the book; sizes and thicknesses are estimates.
 
 ## 5. Licensing and rights
 
-* **Book photos are third-party works** (seller and publisher product photos found by web search). They are used only as visual references in a personal, non-distributed build. **Do not publish the app, its web build or the APK publicly without replacing them or getting permission.** The original photos are kept out of git (`assets-src/`); the derived textures in `public/books/` are committed.
+* **Cover art is original vector artwork** drawn from measurements of the user's photographs; no photograph is included in the repository or the app. The publisher marks and ornaments are redrawn approximations of third-party designs (Kehot, Oz VeHadar, Eichler's, Bloom and others) and remain their owners' marks: keep this build personal, or get permission before distributing it. The user's original photos and the logo file are kept out of git (`assets-src/`).
 * Catalogue data stores bibliographic facts and links only: no Torah text, translations or scans. Sources and their terms are listed in the research reports.
 * Fonts: Frank Ruhl Libre, Noto Serif Hebrew, Heebo, David Libre — SIL Open Font License, bundled locally.
 * No telemetry, no accounts, no network calls for normal use.

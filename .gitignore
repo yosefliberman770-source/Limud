@@ -18,3 +18,5 @@ test-results
 
 # original third-party photos supplied by the user (not committed; see data/catalogue/book-scans.json)
 assets-src/
+
+public/_ref/

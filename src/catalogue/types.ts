@@ -1,3 +1,4 @@
+import type { DesignId } from '../art/designs/types';
 import type { Verification } from '@/shiurim/types';
 import type { Occasion } from '@/calendar/occasion';
 
@@ -159,9 +160,9 @@ export interface PhysicalVolume {
   shelf: number;
   order: number;
   /** Provenance of the visual representation. */
-  visual: { basis: 'stylized' | 'edition_reference' | 'photo_scan'; note: string };
-  /** Real-photo textures (public/books/<key>-cover.jpg and -spine.jpg) with per-volume labels redrawn on cleaned areas. */
-  scan?: { key: 'shas' | 'chitas' | 'tm' | 'ls' | 'rambam' | 'maamarim' | 'ramban'; labels: string[]; lettering: string };
+  visual: { basis: 'stylized' | 'edition_reference' | 'vector_recreation'; note: string };
+  /** Vector cover/spine/back artwork (src/art) with this volume's own wording (year, volume letter, sefer or masechta name …). */
+  design?: { id: DesignId; labels: string[] };
   /** Which program(s) open this book's log. */
   programs: string[];
   /** For Shas: the masechta id, so the current masechta can be highlighted. */

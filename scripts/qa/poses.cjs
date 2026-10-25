@@ -15,7 +15,7 @@ const { chromium } = require('playwright');
   let i = 0;
   for (const p of ps.split(',').map(Number)) {
     await page.evaluate(([id, p]) => window.__seder.freeze(id, p), [id, p]);
-    await page.waitForTimeout(700);
+    await page.waitForTimeout(i === 0 ? 4500 : 700);
     await page.screenshot({ path: `${prefix}-${String(i++).padStart(2, '0')}.png` });
   }
   if (logs.length) console.log(logs.slice(0, 8).join('\n'));

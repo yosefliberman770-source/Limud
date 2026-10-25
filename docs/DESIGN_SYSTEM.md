@@ -37,11 +37,11 @@ Light theme and high-contrast overrides are defined under `[data-theme='light']`
 * Shadows are soft and warm; paper surfaces have a faint gutter shadow on the spine side and ruled lines at 32 px.
 
 ## 3D shelf
-* Real photographs rectified into cover and spine textures; volume-specific lettering redrawn with the app fonts (`src/library3d/scanOverlays.ts`).
+* Every book's cover, spine and back is a vector design (`src/art/`): millimetre SVG geometry, embedded Hebrew fonts, materials as SVG filters (leather/crocodile grain, cloth, foil gradient + stamp, deboss). `src/library3d/artTextures.ts` rasterises them at the tier's resolution (spine on load, cover/back when the book is first touched, two at a time).
 * Hebrew sets run right → left. Same-series volumes share dimensions. A volume with something to learn today is pulled 0.9 cm forward and carries a small brass clip.
 * Lighting: warm key light + hemisphere; the room dims and hazes while a book is presented (cheap stand-in for depth of field). Contact shadows are baked blobs; real shadow maps only on the high quality tier.
 * Choreography: one progress value `p ∈ [0,4]` drives slide-out → present → hinged cover → folio fan; the pose is a pure function of `p`, so interruptions can never strand a book (`src/library3d/machine.ts`, `pose.ts`, tested).
-* Rendering: on-demand frame loop, shared geometry per book, DPR capped (1.5 on low), textures at 55% on the low tier.
+* Rendering: on-demand frame loop, shared geometry per book, DPR capped (1.5 on low), art textures at half resolution on the low tier (cover 512 px / spine 640 px instead of 1024 / 1280).
 
 ## Components
 Bottom navigation (5), date line (weekday · Hebrew date · parsha · civil date, "אחרי השקיעה" chip), work row (expand to compact log), checkbox row (28 px box in a 48 px row), progress bar (6–8 px), chip (done/current/overdue/scheduled/verify), segmented control, toggle, toast with undo, confirm overlay for "mark all".

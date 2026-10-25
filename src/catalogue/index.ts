@@ -112,8 +112,8 @@ export function shasVolumes(): PhysicalVolume[] {
       colors: { binding: '#4a0f1a', accent: '#d9c28a', text: '#dcc68c', edge: '#f1e9d5' },
       shelf: 3,
       order: ord,
-      visual: { basis: 'photo_scan', note: 'Oz VeHadar (Friedman edition) Talmud Bavli binding from the user\'s photo; the masechta name on the spine is redrawn for this volume. Small masechtos grouped as commonly bound; thickness approximate.' },
-      scan: { key: 'shas', labels: he.split(' · '), lettering: 'masechta name redrawn' },
+      visual: { basis: 'vector_recreation', note: 'Oz VeHadar (Friedman edition) Talmud Bavli: maroon leatherette, gold title, black spine panels — redrawn as vector artwork from the user\'s photo (blueprint only); the masechta name is set for this volume. Small masechtos grouped as commonly bound; thickness approximate.' },
+      design: { id: 'shas-ozvehadar', labels: [he.split(' · ').join(' ')] },
       programs: ['daf_yomi'],
       masechta: first,
     };

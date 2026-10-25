@@ -2,7 +2,7 @@
   "name": "seder-halimud",
   "private": true,
   "version": "0.1.0",
-  "description": "סדר הלימוד — My Torah Learning Library. Offline-first Torah study organizer with an interactive 3D seforim shelf.",
+  "description": "\u05e1\u05d3\u05e8 \u05d4\u05dc\u05d9\u05de\u05d5\u05d3 \u2014 My Torah Learning Library. Offline-first Torah study organizer with an interactive 3D seforim shelf.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,8 @@
     "validate:data": "node --import tsx scripts/validate-data.ts",
     "cap:sync": "cap sync android",
     "android:build": "npm run build && cap sync android && cd android && ./gradlew assembleDebug",
-    "postinstall": "node -e \"require('fs').copyFileSync('node_modules/sql.js/dist/sql-wasm-browser.wasm','public/sql-wasm-browser.wasm')\""
+    "postinstall": "node -e \"require('fs').copyFileSync('node_modules/sql.js/dist/sql-wasm-browser.wasm','public/sql-wasm-browser.wasm')\"",
+    "docs:designs": "vite-node scripts/gen-book-designs-doc.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.0.0",
@@ -30,6 +31,8 @@
     "@hebcal/learning": "^6.0.0",
     "@hebcal/leyning": "^10.0.0",
     "@react-three/fiber": "^9.0.0",
+    "@types/d3-delaunay": "^6.0.4",
+    "d3-delaunay": "^6.0.4",
     "gsap": "^3.12.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
